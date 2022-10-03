@@ -1,6 +1,6 @@
 # Fiche descriptive
 
-**Système:** Belamcada \
+**Système:** Belamcanda \
 **Cas d'utilisation:** Fournir un fichier CSV \
 **Acteur principal:** Utilisateur \
 **Préconditions:** Aucune \
