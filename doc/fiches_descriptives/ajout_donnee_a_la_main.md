@@ -20,13 +20,9 @@
 **Scénario alternatifs:**
 
 **A:** L'utilisateur annule la création de la donnée. \
-Si L'utilisateur annule la création en cliquant sur la fonction "Annuler" :
-* 3(A): L'utilisateur annule la création de la donnée / ferme le formulaire.
-* 4(A): Le système ferme le formulaire sans modification du modèle de donnée.
+Si à l'étape 3, L'utilisateur annule la création de la donnée / ferme le formulaire, alors:
+* 4(A): Le système ferme le formulaire sans modifier le modèle de donnée.
 
 **B:** L'utilisateur ne remplit pas tout les champs. \
-Si l'utilisateur ne remplit pas tout les champs nécessaire à la création de la donnée:
-* 3(B): L'Utilisateur remplis partiellement le formulaire et valide
-* 4(B): Le système signale à l'utilisateur que le formulaire n'est pas correctement remplis et retourne à l'étape 2 en concervants les données déjà entrées.
-
-
+Si à l'étape 3, l'utilisateur ne remplit que partiellement le formulaire et valide, alors:
+* 4(B): Le système signale à l'utilisateur que le formulaire n'est pas correctement remplis et retourne à l'étape 2 en concervant les données déjà entrées.

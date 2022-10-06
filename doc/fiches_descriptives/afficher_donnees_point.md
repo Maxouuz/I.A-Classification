@@ -14,6 +14,7 @@
 **Scénario alternatif:**
 
 **A:** Un survol est effectué plutôt qu'un clic \
+Si à l'étape 1, l'utilisateur survole le nuage de points, alors:
 * 1(A) : USR survole un point du nuage de points
 * 2(A) : SYS  affiche les données de ce point à côté du curseur
 * 3(A) : USR arrête de survoler ce point
