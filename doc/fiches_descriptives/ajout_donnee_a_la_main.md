@@ -15,7 +15,7 @@
 3. L'Utilisateur remplis le formulaire dans son intégralité et valide.
 4. Le système affiche un récapitulatif de la donnée qui va être créée.
 5. L'utilisateur confirme.
-6. Le système ajoute la nouvelle donnée au modèle de données.
+6. Le système ajoute la nouvelle donnée au modèle de données et réaffiche le nuage de points.
 
 **Scénario alternatifs:**
 

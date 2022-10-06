@@ -12,7 +12,7 @@
 1. L'utilisateur sélectionne la fonctionnalité "Ouvrir un fichier CSV"
 2. Le système affiche un moyen de sélectionner le fichier CSV
 3. L'utilisateur sélectionne le fichier CSV
-4. Le système vérifie la validité du fichier et charge le jeu de données
+4. Le système vérifie la validité du fichier et charge le jeu de données. Ensuite, il affiche le graphique du nuage de points
 
 **Scénario alternatifs:**
 
