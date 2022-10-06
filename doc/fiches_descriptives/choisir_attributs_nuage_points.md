@@ -15,8 +15,10 @@
 
 **Scénario alternatif :** 
 
-**A:** Si à l'étape 1, l'utilisateur désélectionne un attribut du graphique \
+**A:** L'utilisateur désectionne un attribut du graphique dans un graphique avec un attribut
+Si à l'étape 1, l'utilisateur désélectionne un attribut du graphique \
 * 2(A): Le système met à jour le nuage de points en retirant l'attribut du graphique
 
-**B:** Si à l'étape 3, l'utilisateur désélectionne un attribut du graphique \
+**B:** L'utilisateur désectionne un attribut du graphique dans un graphique avec deux attributs
+Si à l'étape 3, l'utilisateur désélectionne un attribut du graphique \
 * 4(B): Le système remet à jour le nuage de points. Il redonne la fonctionnalité de choisir un deuxième attribut
