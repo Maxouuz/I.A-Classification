@@ -3,7 +3,7 @@
 **Système:** Belamcanda \
 **Cas d'utilisation:** Changer la valeur de k \
 **Acteur principal:** L'utilisateur \
-**Préconditions:** Données de base fournies par l'utilisateur \
+**Préconditions:** Un modèle de jeu de données est chargé \
 **Garantie en cas de succès:** Relancer la catégorisation avec un nouveau k
 
 **Scénario nominal:**
