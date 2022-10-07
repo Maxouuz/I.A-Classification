@@ -8,7 +8,7 @@
 
 **Scénario nominal:**
 
-1. L'utilisateur demande au système d'appliquer l'algorythme
+1. L'utilisateur demande au système d'appliquer l'algorithme
 2. Le système associe les données 
 3. L'utilisateur choisit de relancer la catégorisation
 4. Le système demande à l'utilisateur de lui fournir un nouveau k
