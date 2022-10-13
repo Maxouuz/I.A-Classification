@@ -88,20 +88,14 @@ Si à l'étape 3, l'utilisateur ne remplit que partiellement le formulaire et va
 
 **Scénario nominal :**
 
-1. L'utilisateur sélectionne un attribut dans la liste des attributs
-2. Le système met à jour le nuage de points en ajoutant l'attribut au graphique
-3. L'utilisateur sélectionne un second attribut dans la liste des attributs
-4. Le système remet à jour le nuage de points. Aussi, il bloque la fonctionnalité de choisir un troisième attribut
+1. L'utilisateur sélectionne deux attributs parmis les attributs et valide
+2. Le système met à jour le nuage de points 
 
 **Scénario alternatif :** 
 
-**A:** L'utilisateur désectionne un attribut du graphique dans un graphique avec un attribut \
+**A:** L'utilisateur déselectionne un attribut du graphique dans un graphique avec un attribut \
 Si à l'étape 1, l'utilisateur désélectionne un attribut du graphique
 * 2(A): Le système met à jour le nuage de points en retirant l'attribut du graphique
-
-**B:** L'utilisateur désectionne un attribut du graphique dans un graphique avec deux attributs \
-Si à l'étape 3, l'utilisateur désélectionne un attribut du graphique
-* 4(B): Le système remet à jour le nuage de points. Il redonne la fonctionnalité de choisir un deuxième attribut
 
 ---
 
@@ -123,10 +117,15 @@ Si à l'étape 3, l'utilisateur désélectionne un attribut du graphique
 
 **Scénario alternatifs:**
 
-**A:** Fichier CSV invalide \
-Si à l'étape 3, le fichier CSV contient des données invalides, alors:
-* 4(A): Le système affiche un message d'erreur à l'utilisateur lui informant que le fichier est invalide
-* 5(A): On retourne à l'étape 1 du scénario nominal
+**A:** Type de données incohérant \
+Si à l'étape 3, le fichier CSV contient des données ne correspondant pas à notre implémentation ou qui ne sont pas cohérante entre elles, alors:
+* 4(A): Le système affiche un message d'erreur "Type de données incohérant" à l'utilisateur.
+* 5(A): On retourne à l'étape 2 du scénario nominal 
+
+**B:** Structure de données du fichier CSV incompatible \
+Si à l'étape 3, le fichier CSV ne correspond pas à notre implémentation, alors:
+* 4(B): Le système affiche un message d'erreur "Structure du fichier incorrect" à l'utilisateur.
+* 5(B): On retourne à l'étape 2 du scénario nominal
 
 ---
 
@@ -148,7 +147,12 @@ Si à l'étape 3, le fichier CSV contient des données invalides, alors:
 
 **Scénario alternatifs:**
 
-**A:** Fichier CSV invalide \
-Si à l'étape 3, le fichier CSV contient des données invalides, alors:
-* 4(A): Le système affiche un message d'erreur à l'utilisateur lui informant que le fichier est invalide
-* 5(A): On retourne à l'étape 1 du scénario nominal
+**A:** Type de données incohérant \
+Si à l'étape 3, le fichier CSV contient des données ne correspondant pas à notre implémentation ou qui ne sont pas cohérante entre elles, alors:
+* 4(A): Le système affiche un message d'erreur "Type de données incohérant" à l'utilisateur.
+* 5(A): On retourne à l'étape 2 du scénario nominal 
+
+**B:** Structure de données du fichier CSV incompatible \
+Si à l'étape 3, le fichier CSV ne correspond pas à notre implémentation, alors:
+* 4(B): Le système affiche un message d'erreur "Structure du fichier incorrect" à l'utilisateur.
+* 5(B): On retourne à l'étape 2 du scénario nominal
