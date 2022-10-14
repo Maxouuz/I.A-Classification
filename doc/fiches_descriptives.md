@@ -4,9 +4,9 @@
 
 **Le système:** Belamcanda \
 **Cas d'utilisation:** Afficher les données d'un point \
-**Acteur principal:** Utilisateur \
+**Acteur principal:** L'utilisateur \
 **Préconditions:** Avoir un nuage de point affiché non vide \
-**Garantie en cas de succès:** Les données du point sont visibles \
+**Garantie en cas de succès:** Les données du point sont visibles
 
 **Scénario nominal:**
 
@@ -28,19 +28,19 @@ Si à l'étape 1, l'utilisateur survole le nuage de points, alors:
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Ajouter une donnée à la main. \
-**Acteur principal:** Utilisateur. \
-**Préconditions:** L'Utilisateur à un jeu de donnée de construit. \
+**Acteur principal:** utilisateur. \
+**Préconditions:** L'utilisateur à un jeu de donnée de construit. \
 **Garantie en cas de succès:** La donnée est ajoutée dans un modèle. \
-**Garantie minimale:** Pas de modification des données \
+**Garantie minimale:** Pas de modification des données
 
 **Scénario nominal:**
 
-1. L'Utilisateur séléctionne la fonction "Ajouter une donnée"
-2. Le système affiche un formulaire de création de donnée avec les champs requis(en fonction du jeu de donnée).
-3. L'Utilisateur remplis le formulaire dans son intégralité et valide.
+1. L'utilisateur sélectionne la fonction "Ajouter une donnée"
+2. Le système affiche un formulaire de création de données avec les champs requis (en fonction du jeu de données).
+3. L'utilisateur remplit le formulaire dans son intégralité et valide.
 4. Le système affiche un récapitulatif de la donnée qui va être créée.
 5. L'utilisateur confirme.
-6. Le système ajoute la nouvelle donnée au modèle de données et réaffiche le nuage de points.
+6. Le système ajoute la nouvelle donnée au modèle de données et actualise le graphique du nuage de points.
 
 **Scénario alternatifs:**
 
@@ -50,7 +50,7 @@ Si à l'étape 3, L'utilisateur annule la création de la donnée / ferme le for
 
 **B:** L'utilisateur ne remplit pas tout les champs. \
 Si à l'étape 3, l'utilisateur ne remplit que partiellement le formulaire et valide, alors:
-* 4(B): Le système signale à l'utilisateur que le formulaire n'est pas correctement remplis et retourne à l'étape 2 en concervant les données déjà entrées.
+* 4(B): Le système signale à l'utilisateur que le formulaire n'est pas correctement remplis et retourne à l'étape 2 en conservant les données déjà entrées.
 
 ---
 
@@ -82,9 +82,9 @@ Si à l'étape 3, l'utilisateur ne remplit que partiellement le formulaire et va
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Choisir 2 attributs dans la visualisation du nuage de points \
-**Acteur principal:** Utilisateur \
+**Acteur principal:** utilisateur \
 **Préconditions:** Avoir des données chargées dans le programme \
-**Garantie en cas de succès:** Le nuage de points est visible à l'écran \
+**Garantie en cas de succès:** Le nuage de points est visible à l'écran
 
 **Scénario nominal :**
 
@@ -103,8 +103,8 @@ Si à l'étape 1, l'utilisateur désélectionne un attribut du graphique
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Classifier un jeu de donnée \
-**Acteur principal:** Utilisateur \
-**Préconditions:** Un modèle a été crée \
+**Acteur principal:** L'utilisateur \
+**Préconditions:** Un modèle a été créé \
 **Garantie en cas de succès:** Les données sont ajoutés au nuages de points et classifiés \
 **Garantie minimale:** Le jeu de donnée est chargé si et seulement si le fichier CSV est valide
 
@@ -117,9 +117,9 @@ Si à l'étape 1, l'utilisateur désélectionne un attribut du graphique
 
 **Scénario alternatifs:**
 
-**A:** Type de données incohérant \
-Si à l'étape 3, le fichier CSV contient des données ne correspondant pas à notre implémentation ou qui ne sont pas cohérante entre elles, alors:
-* 4(A): Le système affiche un message d'erreur "Type de données incohérant" à l'utilisateur.
+**A:** Type de données incohérent \
+Si à l'étape 3, le fichier CSV contient des données ne correspondant pas à notre implémentation ou qui ne sont pas cohérente entre elles, alors:
+* 4(A): Le système affiche un message d'erreur "Type de données incohérent" à l'utilisateur.
 * 5(A): On retourne à l'étape 2 du scénario nominal 
 
 **B:** Structure de données du fichier CSV incompatible \
@@ -133,23 +133,23 @@ Si à l'étape 3, le fichier CSV ne correspond pas à notre implémentation, alo
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Construire le modèle \
-**Acteur principal:** Utilisateur \
+**Acteur principal:** L'utilisateur \
 **Préconditions:** Aucune \
-**Garantie en cas de succès:** Le modèle est crée \
-**Garantie minimale:** Le modèle est crée si et seulement si le fichier CSV est valide \
+**Garantie en cas de succès:** Le modèle est créé \
+**Garantie minimale:** Le modèle est créé si et seulement si le fichier CSV est valide
 
 **Scénario nominal:**
 
 1. L'utilisateur sélectionne la fonctionnalité "Construire le modèle"
 2. Le système affiche un moyen de sélectionner le fichier CSV
 3. L'utilisateur sélectionne le fichier CSV
-4. Le système vérifie la validité du fichier et crée le modèle. Ensuite, il affiche le graphique du nuage de points sans choisir les deux attributs à afficher
+4. Le système vérifie la validité du fichier et créé le modèle. Ensuite, il affiche le graphique du nuage de points sans choisir les deux attributs à afficher
 
 **Scénario alternatifs:**
 
-**A:** Type de données incohérant \
-Si à l'étape 3, le fichier CSV contient des données ne correspondant pas à notre implémentation ou qui ne sont pas cohérante entre elles, alors:
-* 4(A): Le système affiche un message d'erreur "Type de données incohérant" à l'utilisateur.
+**A:** Type de données incohérent \
+Si à l'étape 3, le fichier CSV contient des données ne correspondant pas à notre implémentation ou qui ne sont pas cohérente entre elles, alors:
+* 4(A): Le système affiche un message d'erreur "Type de données incohérent" à l'utilisateur.
 * 5(A): On retourne à l'étape 2 du scénario nominal 
 
 **B:** Structure de données du fichier CSV incompatible \
