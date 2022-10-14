@@ -1,6 +1,6 @@
-# **Fiche descriptive**
+# Fiches descriptives
 
-# Afficher les données d'un point
+## Afficher les données d'un point
 
 **Le système:** Belamcanda \
 **Cas d'utilisation:** Afficher les données d'un point \
@@ -24,7 +24,7 @@ Si à l'étape 1, l'utilisateur survole le nuage de points, alors:
 
 ---
 
-# Ajouter une donnée à la main
+## Ajouter une donnée à la main
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Ajouter une donnée à la main. \
@@ -54,7 +54,7 @@ Si à l'étape 3, l'utilisateur ne remplit que partiellement le formulaire et va
 
 ---
 
-# Changer la valeur de k
+## Changer la valeur de k
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Changer la valeur de k \
@@ -78,7 +78,7 @@ Si à l'étape 3, l'utilisateur ne remplit que partiellement le formulaire et va
 
 ---
 
-# Choisir 2 attributs dans la visualisation du nuage de points
+## Choisir 2 attributs dans la visualisation du nuage de points
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Choisir 2 attributs dans la visualisation du nuage de points \
@@ -99,7 +99,7 @@ Si à l'étape 1, l'utilisateur désélectionne un attribut du graphique
 
 ---
 
-# Classifier un jeu de donnée
+## Classifier un jeu de donnée
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Classifier un jeu de donnée \
@@ -129,7 +129,7 @@ Si à l'étape 3, le fichier CSV ne correspond pas à notre implémentation, alo
 
 ---
 
-# Construire le modèle
+## Construire le modèle
 
 **Système:** Belamcanda \
 **Cas d'utilisation:** Construire le modèle \
