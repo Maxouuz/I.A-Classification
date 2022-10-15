@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class TestMinMaxNormalizer {
-    MinMaxNormalizer normalizer;
     List<Integer> values;
     double DELTA = .005;
 
@@ -19,23 +18,25 @@ public class TestMinMaxNormalizer {
         for (int i = 0; i <= 10; i++) {
             values.add(i);
         }
-        normalizer = new MinMaxNormalizer(values);
     }
 
     @Test
     public void min_value_should_be_zero(){
-        assertEquals(0, normalizer.getMin());
+        assertEquals(0, MinMaxNormalizer.getMin(values), DELTA);
     }
 
     @Test
     public void max_value_should_be_ten(){
-        assertEquals(10, normalizer.getMax());
+        assertEquals(10, MinMaxNormalizer.getMax(values), DELTA);
     }
+
+
 
     @Test
     public void values_should_be_normalized_correctly(){
-        for (Number n : values) {
-            assertEquals(n.doubleValue() / 10, normalizer.normalize(n), DELTA);
+        List<Double> normalized = new MinMaxNormalizer().normalize(values);
+        for (int i = 0; i < values.size(); i++) {
+            assertEquals(values.get(i).doubleValue() / 10, normalized.get(i), DELTA);
         }
     }
 

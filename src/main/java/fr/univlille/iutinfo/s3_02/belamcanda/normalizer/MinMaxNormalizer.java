@@ -1,41 +1,42 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.normalizer;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MinMaxNormalizer extends Normalizer {
-    private Number min;
-    private Number max;
+    @Override
+    public List<Double> normalize(List<? extends Number> values) {
+        Double min = getMin(values);
+        Double max = getMax(values);
+        List<Double> normalized = normalizeValues(values, min, max);
+        return normalized;
+    }
 
-    public Number getMin() {
+    public static Double getMin(List<? extends Number> values) {
+        Double min = values
+            .stream()
+            .mapToDouble(a -> a.doubleValue())
+            .min()
+            .getAsDouble();
         return min;
     }
 
-    public Number getMax() {
+    public static Double getMax(List<? extends Number> values) {
+        Double max = values
+            .stream()
+            .mapToDouble(a -> a.doubleValue())
+            .max()
+            .getAsDouble();
         return max;
     }
 
-    protected MinMaxNormalizer(List<? extends Number> values) {
-        super(values);
-    }
-
-    @Override
-    public double normalize(Number value) {
-        return (value.doubleValue() - min.doubleValue()) / (max.doubleValue() - min.doubleValue());
-    }
-
-    @Override
-    protected void updateAttributes() {
-        this.values.forEach(v -> setMinMax(v));
-    }
-
-    public void add(Number v){
-        super.add(v);
-        setMinMax(v);
-    }
-
-    private void setMinMax(Number v){
-        if (min == null || v.doubleValue() < min.doubleValue()) min =v;
-        if (max == null || v.doubleValue() > max.doubleValue()) max =v;
+    private static List<Double> normalizeValues(List<? extends Number> values, Double min, Double max) {        
+        Double delta = max - min;
+        List<Double> normalized = values
+            .stream()
+            .map(a -> (a.doubleValue() - min) / delta)
+            .collect(Collectors.toList());
+        return normalized;
     }
     
 }
