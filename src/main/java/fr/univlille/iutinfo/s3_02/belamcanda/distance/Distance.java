@@ -8,19 +8,15 @@ import java.util.stream.Collectors;
 public abstract class Distance {
     //TODO remplacer object par le type de données créé
     public Map<TempObject, Double> distances(TempObject point, List<TempObject> cloud){
-        return privateDistances(point, cloud, null);
+        return weightedDistances(point, cloud, null);
     }
 
     public Map<TempObject, Double> weightedDistances(TempObject point, List<TempObject> cloud, Map<String, Double> weights){
-        return privateDistances(point, cloud, weights);
-    }   
-
-    private Map<TempObject, Double> privateDistances(TempObject point, List<TempObject> cloud, Map<String, Double> weights){
         Map<TempObject, Double> distances = cloud
-            .stream()
-            .collect(Collectors.toMap(o -> o, o -> distance(point, o, weights)));
+                .stream()
+                .collect(Collectors.toMap(o -> o, o -> distance(point, o, weights)));
         return distances;
-    }
+    }   
 
     public Double distance(TempObject point, TempObject other, Map<String, Double> weights){
         Double sum = 0.0;
