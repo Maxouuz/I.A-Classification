@@ -9,10 +9,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class TestStandardScoreNormalizer {
-    List<Integer> values;
-    double DELTA = .005;
+    static List<Integer> values;
+    static double DELTA = .005;
+
     @BeforeAll
-    public void set_test_values(){
+    static public void set_test_values(){
         values = new ArrayList<>();
         for (int i = 0; i <= 10; i++) {
             values.add(i);
