@@ -22,7 +22,7 @@ public class PokemonModel implements IMVCModel {
 		List<Pokemon> list;
 		try {
 			list = new CsvToBeanBuilder<Pokemon>(Files.newBufferedReader(Paths.get(datafile)))
-			        .withSeparator(';')
+			        .withSeparator(',')
 			        .withType(Pokemon.class)
 			        .build().parse();
 			System.out.println(list);
