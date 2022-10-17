@@ -1,5 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
+import java.util.Collection;
+import java.util.List;
+
 public interface IMVCModel {
    /**
 * Charge les donnees du modele d'un fichier CSV.
