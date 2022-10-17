@@ -48,14 +48,4 @@ abstract public int nbColumns();
 */
 public List<IColumn> getNormalizableColumns();
 }
-/**
-* Decrit un <i>Normaliseur</i>, c'est a dire un objet qui peut transformer
-* une valeur d'une colone en une valeur entre 0 et 1.
-*
-* Chaque <i>normaliseur</i> est classe qui implemente l'interface
-* <i>IValueNormalizer</i>.
-*
-* Cette interface inclus un type enumere <i>NormalizerTypes</i> listant
-* tous les normaliseurs connus.
-*/ 
 
