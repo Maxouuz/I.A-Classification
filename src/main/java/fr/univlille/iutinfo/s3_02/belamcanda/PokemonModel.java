@@ -33,6 +33,7 @@ public class PokemonModel implements IMVCModel {
 
 	@Override
 	public void loadFromString(String data) {
+		
 	}
 
 	@Override

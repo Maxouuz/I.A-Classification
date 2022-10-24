@@ -41,4 +41,12 @@ public interface IColumn {
 	* Indique si cette colonne est normalisable (a un <i>normaliseur</i>).
 	*/
 	public boolean isNormalizable();
+	/**
+	 * Permet de donner un poids a cette colonne
+	 */
+	public void setWeight(Double weight);
+	/**
+	 * Retourne le poids de la colonne
+	 */
+	public double getWeight();
 }

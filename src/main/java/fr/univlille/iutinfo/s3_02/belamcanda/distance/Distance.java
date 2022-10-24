@@ -19,13 +19,20 @@ public abstract class Distance {
     }   
 
     public Double distance(TempObject point, TempObject other, Map<String, Double> weights){
-        Double sum = 0.0;
-        Map<String, Double> o = other.getNormalizedScores();
-        for (Entry<String, Double> e : point.getNormalizedScores().entrySet()) {
-            sum += distance(e.getValue(), o.get(e.getKey())) * (weights == null ? 1 : weights.get(e.getKey()));
-        }
-        return sum;
+        // Double sum = 0.0;
+        final Map<String, Double> o = other.getNormalizedScores();
+        return point.getNormalizedScores().entrySet()
+            .stream()
+            .mapToDouble(
+                e -> distance(e.getValue(), o.get(e.getKey())) * (weights == null ? 1 : weights.get(e.getKey()))).sum();
+        // for (Entry<String, Double> e : point.getNormalizedScores().entrySet()) {
+        //     sum += distance(e.getValue(), o.get(e.getKey())) * (weights == null ? 1 : weights.get(e.getKey()));
+        // }
+        // return sum;
     }
 
+
+
     protected abstract double distance(Number n1, Number n2);
+
 }
