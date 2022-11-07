@@ -1,5 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.Normalizer;
+
 /**
  * Decrit une <i>colonne</i> d'un DataSet.
  *
@@ -10,46 +12,68 @@ package fr.univlille.iutinfo.s3_02.belamcanda;
  * (qui ont un normaliseur) peuvent etre utilisees comme axe dans le nuage de
  * points.
  */
-public interface IColumn {
-	/**
-	 * stocke le <i>normaliseur</i> en parametre dans la colonne.
-	 */
-	public void setNormalizer(IValueNormalizer valueNormalizer);
+public class Column {
+	private IDataset dataset;
+	private String name;
+	private double weight;
+	private IValueNormalizer normalizer;
+
+	public Column(IDataset dataset, String name, double weight, IValueNormalizer normalizer) {
+		this.name = name;
+		this.weight = weight;
+		this.normalizer = normalizer;
+	}
 
 	/**
 	 * Recupere la valeur de cette colonne dans la donnee en parametre, puis
 	 * normalise cette valeur )entre 0 et 1) et la retourne normalisee. Si la
 	 * colonne n'est pas normalisable, le comportement n'est pas definit.
 	 */
-	public double getNormalizedValue(IPoint point);
+	public double getNormalizedValue(IPoint point) {
+		Object denormalizedValue = point.getValue(this);
+		return normalizer.normalize(denormalizedValue);
+	}
 
 	/**
 	 * "Denormalise" une valeur entre 0 et 1 en une "vraie" valeur pour cette
 	 * colonne. Si la colonne n'est pas normalisable, le comportement n'est pas
 	 * definit.
 	 */
-	public Object getDenormalizedValue(double value);
+	public Object getDenormalizedValue(double value) {
+		return getDenormalizedValue(value);
+	}
 
 	/**
 	 * Retourne le nom de la colonne.
 	 */
-	public String getName();
+	public String getName() {
+		return name;
+	}
 
 	/**
 	 * Retourne le DataSet auquel cette colonne appartient.
 	 */
-	public IDataset getDataset();
+	public IDataset getDataset() {
+		return dataset;
+	}
 
 	/**
 	 * Indique si cette colonne est normalisable (a un <i>normaliseur</i>).
 	 */
-	public boolean isNormalizable();
+	public boolean isNormalizable() {
+		return normalizer != null;
+	}
+
 	/**
 	 * Permet de donner un poids a cette colonne
 	 */
-	public void setWeight(Double weight);
+	public void setWeight(Double weight) {
+		this.weight = weight;
+	}
 	/**
 	 * Retourne le poids de la colonne
 	 */
-	public double getWeight();
+	public double getWeight() {
+		return weight;
+	}
 }
