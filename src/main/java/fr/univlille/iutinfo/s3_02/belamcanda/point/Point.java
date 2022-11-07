@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.point;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.category.ICategory;
 
 public abstract class Point{
