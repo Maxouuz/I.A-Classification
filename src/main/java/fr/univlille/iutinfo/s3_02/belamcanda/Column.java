@@ -1,6 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.Normalizer;
+import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 
 /**
  * Decrit une <i>colonne</i> d'un DataSet.
@@ -29,7 +30,7 @@ public class Column {
 	 * normalise cette valeur )entre 0 et 1) et la retourne normalisee. Si la
 	 * colonne n'est pas normalisable, le comportement n'est pas definit.
 	 */
-	public double getNormalizedValue(IPoint point) {
+	public double getNormalizedValue(Point point) {
 		Object denormalizedValue = point.getValue(this);
 		return normalizer.normalize(denormalizedValue);
 	}

@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.opencsv.bean.CsvToBeanBuilder;
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonBean;
 
 public class PokemonModel implements IMVCModel {
 
@@ -20,11 +21,11 @@ public class PokemonModel implements IMVCModel {
 	
 	@Override
 	public void loadFromFile(String datafile) {
-		List<Pokemon> list;
+		List<PokemonBean> list;
 		try {
-			list = new CsvToBeanBuilder<Pokemon>(Files.newBufferedReader(Paths.get(datafile)))
+			list = new CsvToBeanBuilder<PokemonBean>(Files.newBufferedReader(Paths.get(datafile)))
 			        .withSeparator(',')
-			        .withType(Pokemon.class)
+			        .withType(PokemonBean.class)
 			        .build().parse();
 			System.out.println(list);
 		} catch (IllegalStateException | IOException e) {
