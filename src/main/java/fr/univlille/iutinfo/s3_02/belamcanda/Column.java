@@ -1,7 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.Normalizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.Amplitude;
+import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.IValueNormalizer;
 
 /**
  * Decrit une <i>colonne</i> d'un DataSet.
@@ -18,13 +19,18 @@ public class Column {
 	private String name;
 	private double weight;
 	private IValueNormalizer normalizer;
+	private Amplitude amplitude;
 
 	public Column(String name, double weight, IValueNormalizer normalizer) {
 		this.name = name;
 		this.weight = weight;
 		this.normalizer = normalizer;
+		this.amplitude = new Amplitude();
 	}
 
+	public Column(String name, IValueNormalizer normalizer) {
+		this(name, 1.0, normalizer);
+	}
 	/**
 	 * Recupere la valeur de cette colonne dans la donnee en parametre, puis
 	 * normalise cette valeur )entre 0 et 1) et la retourne normalisee. Si la
@@ -32,16 +38,7 @@ public class Column {
 	 */
 	public double getNormalizedValue(Point point) {
 		Object denormalizedValue = point.getValue(this);
-		return normalizer.normalize(denormalizedValue);
-	}
-
-	/**
-	 * "Denormalise" une valeur entre 0 et 1 en une "vraie" valeur pour cette
-	 * colonne. Si la colonne n'est pas normalisable, le comportement n'est pas
-	 * definit.
-	 */
-	public Object getDenormalizedValue(double value) {
-		return normalizer.denormalize(value);
+		return normalizer.normalize(denormalizedValue, amplitude);
 	}
 
 	/**

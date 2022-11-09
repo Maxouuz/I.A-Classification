@@ -1,9 +1,11 @@
-package fr.univlille.iutinfo.s3_02.belamcanda;
+package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 
 import com.opencsv.bean.CsvBindByName;
+import fr.univlille.iutinfo.s3_02.belamcanda.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.Type;
 import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 
-public class Pokemon extends Point {
+public class PokemonBean extends Point {
 	@CsvBindByName(column = "name")
 	private String nom;
 	@CsvBindByName(column = "attack")
