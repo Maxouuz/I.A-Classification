@@ -25,6 +25,9 @@ public class Column {
 		this.normalizer = normalizer;
 	}
 
+	public Column(String name, IValueNormalizer normalizer) {
+		this(name, 1.0, normalizer);
+	}
 	/**
 	 * Recupere la valeur de cette colonne dans la donnee en parametre, puis
 	 * normalise cette valeur )entre 0 et 1) et la retourne normalisee. Si la
