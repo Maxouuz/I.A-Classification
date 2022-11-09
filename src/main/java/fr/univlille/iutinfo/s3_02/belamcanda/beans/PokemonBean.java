@@ -1,8 +1,9 @@
-package fr.univlille.iutinfo.s3_02.belamcanda;
+package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 
 import com.opencsv.bean.CsvBindByName;
+import fr.univlille.iutinfo.s3_02.belamcanda.Type;
 
-public class Pokemon {
+public class PokemonBean {
 	@CsvBindByName(column = "name")
 	private String nom;
 	@CsvBindByName(column = "attack")
@@ -37,4 +38,5 @@ public class Pokemon {
 				+ ", spAttack=" + spAttack + ", spDefense=" + spDefense + ", type=" + type + ", type2=" + type2
 				+ ", speed=" + speed + ", isLegendary=" + isLegendary + "]";
 	}
+
 }
