@@ -1,16 +1,6 @@
-package fr.univlille.iutinfo.s3_02.belamcanda;
+//package fr.univlille.iutinfo.s3_02.belamcanda;
 
-/**
- * Decrit un <i>Normaliseur</i>, c'est a dire un objet qui peut transformer une
- * valeur d'une colone en une valeur entre 0 et 1.
- *
- * Chaque <i>normaliseur</i> est classe qui implemente l'interface
- * <i>IValueNormalizer</i>.
- *
- * Cette interface inclus un type enumere <i>NormalizerTypes</i> listant tous
- * les normaliseurs connus.
- */
-public interface IValueNormalizer {
+//public interface OldIValueNormalizer {
 	/**
 	 * Liste tous les normaliseurs connus par le programme. A chaque valeur dans
 	 * cette liste doit correspondre une classe qui implemente <i>INormalizer</i>.
@@ -25,18 +15,18 @@ public interface IValueNormalizer {
 	 * associee et un <i>normaliseur</i></li>
 	 * </ul>
 	 */
-	public enum NormalizerTypes {
+	/*public enum NormalizerTypes {
 		NUMBER_NORMALIZER, BOOLEAN_NORMALIZER, POKEMON_TYPE_NORMALIZER;
 	}
 
 	/**
 	 * Retourne la valeur en parametre normalisee (entre 0 et 1).
 	 */
-	public double normalize(Object value);
+	//public double normalize(Object value);
 
 	/**
 	 * De-normalise la valeur en parametre (qui est entre 0 et 1) Retourne la «
 	 * vraie » valeur correspondante pour la colonne associee au normaliseur
 	 */
-	public Object denormalize(double value);
-}
+	//public Object denormalize(double value);
+//}
