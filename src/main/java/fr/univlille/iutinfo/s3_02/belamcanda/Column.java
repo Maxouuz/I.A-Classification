@@ -41,7 +41,7 @@ public class Column {
 	 * definit.
 	 */
 	public Object getDenormalizedValue(double value) {
-		return getDenormalizedValue(value);
+		return normalizer.denormalize(value);
 	}
 
 	/**
