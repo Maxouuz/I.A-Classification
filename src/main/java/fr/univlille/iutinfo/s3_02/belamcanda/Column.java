@@ -39,15 +39,6 @@ public class Column {
 	}
 
 	/**
-	 * "Denormalise" une valeur entre 0 et 1 en une "vraie" valeur pour cette
-	 * colonne. Si la colonne n'est pas normalisable, le comportement n'est pas
-	 * definit.
-	 */
-	public Object getDenormalizedValue(double value) {
-		return normalizer.denormalize(value,amplitude);
-	}
-
-	/**
 	 * Retourne le nom de la colonne.
 	 */
 	public String getName() {

@@ -5,15 +5,15 @@ public class Amplitude {
     protected Number max;
 
     public void update (Number number){
-        if (min == null || min.doubleValue()>number.doubleValue()) min = number;
-        if (max == null || max.doubleValue()<number.doubleValue()) max = number;
+        if (min == null || getMin()>number.doubleValue()) min = number;
+        if (max == null || getMax().doubleValue()<number.doubleValue()) max = number;
     }
 
-    public Number getMin() {
-        return min;
+    public Double getMin() {
+        return min.doubleValue();
     }
 
-    public Number getMax() {
-        return max;
+    public Double getMax() {
+        return max.doubleValue();
     }
 }

@@ -6,8 +6,4 @@ public class PokemonTypeNormalizer implements IValueNormalizer{
         return 0;
     }
 
-    @Override
-    public Object denormalize(double value, Amplitude amplitude) {
-        return null;
-    }
 }

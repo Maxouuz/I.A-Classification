@@ -13,7 +13,7 @@ public class TestAmplitude {
             ampli.update(4.0);
             assertEquals(4.0, ampli.getMax());
         }
-        if(ampli.getMin() == null) {
+        if(ampli.getMin() == null){
             ampli.update(4.0);
             assertEquals(4.0, ampli.getMin());
         }

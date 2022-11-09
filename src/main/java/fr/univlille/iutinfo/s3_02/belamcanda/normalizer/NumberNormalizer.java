@@ -3,11 +3,12 @@ package fr.univlille.iutinfo.s3_02.belamcanda.normalizer;
 public class NumberNormalizer implements IValueNormalizer{
     @Override
     public double normalize(Object value, Amplitude amplitude) {
-        return 0;
+        Double v = ((Number) value).doubleValue();
+        return (( v - amplitude.getMin()) / (amplitude.getMax() - amplitude.getMin()));
     }
 
-    @Override
-    public Object denormalize(double value, Amplitude amplitude) {
-        return null;
-    }
+    
 }
+
+
+
