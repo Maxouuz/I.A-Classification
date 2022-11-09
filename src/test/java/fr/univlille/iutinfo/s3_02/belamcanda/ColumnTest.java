@@ -13,7 +13,7 @@ public class ColumnTest {
         Column normalized = new Column(null, "column", 1, new NumberNormalizer());
         assertTrue(normalized.isNormalizable());
         */
-        Column notNormalized = new Column(null, "column", 1, null);
+        Column notNormalized = new Column("column", 1, null);
         assertFalse(notNormalized.isNormalizable());
     }
 
