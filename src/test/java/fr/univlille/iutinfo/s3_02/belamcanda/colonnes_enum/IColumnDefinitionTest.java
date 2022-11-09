@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class IColumnDefinitionTest {
     // TODO IMPLEMENTER LES NORMALISEURS AVANT DE PASSER LES TEST
 
-    @Disabled
     @Test
     public void column_attributes_should_be_singletons(){
         IColumnDefinition[] columnDefinitions = PokemonColumns.values();
@@ -24,11 +23,10 @@ class IColumnDefinitionTest {
 
         int i =0;
         for (Column col : columns){
-            assertEquals(col, PokemonColumns.values()[i++]);
+            assertEquals(col, PokemonColumns.values()[i++].getColumn());
         }
     }
 
-    @Disabled
     @Test
     public void getting_columns_from_enum_list_should_return_column_list(){
         IColumnDefinition[] definitions = new IColumnDefinition[]{PokemonColumns.HP, PokemonColumns.ATTACK};
