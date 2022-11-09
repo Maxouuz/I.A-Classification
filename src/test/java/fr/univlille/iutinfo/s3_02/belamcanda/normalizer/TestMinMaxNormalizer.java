@@ -1,4 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.normalizer;
+/*package fr.univlille.iutinfo.s3_02.belamcanda.normalizer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -40,4 +40,4 @@ public class TestMinMaxNormalizer {
         }
     }
 
-}
+}*/
