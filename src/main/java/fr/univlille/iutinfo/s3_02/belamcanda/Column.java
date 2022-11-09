@@ -18,7 +18,7 @@ public class Column {
 	private double weight;
 	private IValueNormalizer normalizer;
 
-	public Column(IDataset dataset, String name, double weight, IValueNormalizer normalizer) {
+	public Column(String name, double weight, IValueNormalizer normalizer) {
 		this.name = name;
 		this.weight = weight;
 		this.normalizer = normalizer;
@@ -48,6 +48,13 @@ public class Column {
 	 */
 	public String getName() {
 		return name;
+	}
+
+	/**
+	 * Permet de déterminer le dataset qui contient la colonne
+	 */
+	public void setDataset(IDataset dataset) {
+		this.dataset = dataset;
 	}
 
 	/**
