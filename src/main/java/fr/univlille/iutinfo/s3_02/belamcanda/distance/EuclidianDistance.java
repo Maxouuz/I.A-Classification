@@ -1,10 +1,16 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.distance;
 
-public class EuclidianDistance extends Distance {
+import fr.univlille.iutinfo.s3_02.belamcanda.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 
-    @Override
-    protected double distance(Number n1, Number n2) {
-        return Math.pow(n1.doubleValue() - n2.doubleValue(), 2);
+import java.util.List;
+
+public class EuclidianDistance implements Distance {
+    public double distance(List<Column> columns, Point p1, Point p2) {
+        double sum = 0;
+        for (Column column: columns) {
+            sum += Math.pow(column.getNormalizedValue(p1) - column.getNormalizedValue(p2), 2);
+        }
+        return Math.sqrt(sum);
     }
-
 }
