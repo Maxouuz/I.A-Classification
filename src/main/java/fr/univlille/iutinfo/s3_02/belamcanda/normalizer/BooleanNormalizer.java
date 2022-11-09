@@ -6,4 +6,11 @@ public class BooleanNormalizer implements IValueNormalizer{
         return ((boolean) value) ? 1.0 : 0.0;
     }
 
+    public double normalize(Object value) {
+        return normalize(value, null);
+    }
+    
+
+
+
 }
