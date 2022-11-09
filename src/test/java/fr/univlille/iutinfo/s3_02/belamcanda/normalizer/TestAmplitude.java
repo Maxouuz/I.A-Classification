@@ -1,22 +1,19 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.normalizer;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 public class TestAmplitude {
 
     @Test
-    public void min_and_max_is_equal_null_when_having_no_value(){
+    public void min_max_should_be_equal_after_first_update(){
         Amplitude ampli = new Amplitude();
-        if(ampli.getMax() ==  null){
-            ampli.update(4.0);
-            assertEquals(4.0, ampli.getMax());
-        }
-        if(ampli.getMin() == null){
-            ampli.update(4.0);
-            assertEquals(4.0, ampli.getMin());
-        }
+        ampli.update(4.0);
+        assertEquals(4.0, ampli.getMax());
+        assertEquals(4.0, ampli.getMin());
+        assertEquals(ampli.getMax(), ampli.getMin());
     }
 
     @Test

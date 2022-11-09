@@ -12,6 +12,6 @@ public class TestNumberNormalizer {
         int max =10;
         ampl.update(min);
         ampl.update(max);
-        assertEquals((8-min)/(max-min), new NumberNormalizer().normalize(8.0,ampl));
+        assertEquals((8.-min)/(max-min), new NumberNormalizer().normalize(8.0,ampl));
     }
 }
