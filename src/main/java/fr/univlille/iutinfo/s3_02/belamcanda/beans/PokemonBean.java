@@ -31,6 +31,58 @@ public class PokemonBean {
 	@CsvBindByName(column = "is_legendary")
 	protected boolean isLegendary;
 
+	public String getNom() {
+		return nom;
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public int getBaseEggSteps() {
+		return baseEggSteps;
+	}
+
+	public double getCaptureRate() {
+		return captureRate;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public int getExperienceGrowth() {
+		return experienceGrowth;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public int getSpAttack() {
+		return spAttack;
+	}
+
+	public int getSpDefense() {
+		return spDefense;
+	}
+
+	public PokemonType getPokemonType() {
+		return pokemonType;
+	}
+
+	public PokemonType getPokemonType2() {
+		return pokemonType2;
+	}
+
+	public double getSpeed() {
+		return speed;
+	}
+
+	public boolean isLegendary() {
+		return isLegendary;
+	}
+
 	@Override
 	public String toString() {
 		return "Pokemon [nom=" + nom + ", attack=" + attack + ", baseEggSteps=" + baseEggSteps + ", captureRate="
