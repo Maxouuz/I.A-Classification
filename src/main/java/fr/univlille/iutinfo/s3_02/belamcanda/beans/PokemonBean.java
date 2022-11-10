@@ -1,7 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 
 import com.opencsv.bean.CsvBindByName;
-import fr.univlille.iutinfo.s3_02.belamcanda.Type;
+import fr.univlille.iutinfo.s3_02.belamcanda.PokemonType;
 
 public class PokemonBean {
 	@CsvBindByName(column = "name")
@@ -23,9 +23,9 @@ public class PokemonBean {
 	@CsvBindByName(column = "sp_defense")
 	private int spDefense;
 	@CsvBindByName(column = "type")
-	private Type type;
+	private PokemonType pokemonType;
 	@CsvBindByName(column = "type2")
-	private Type type2;
+	private PokemonType pokemonType2;
 	@CsvBindByName(column = "speed")
 	private double speed;
 	@CsvBindByName(column = "is_legendary")
@@ -35,7 +35,7 @@ public class PokemonBean {
 	public String toString() {
 		return "Pokemon [nom=" + nom + ", attack=" + attack + ", baseEggSteps=" + baseEggSteps + ", captureRate="
 				+ captureRate + ", defense=" + defense + ", experienceGrowth=" + experienceGrowth + ", hp=" + hp
-				+ ", spAttack=" + spAttack + ", spDefense=" + spDefense + ", type=" + type + ", type2=" + type2
+				+ ", spAttack=" + spAttack + ", spDefense=" + spDefense + ", type=" + pokemonType + ", type2=" + pokemonType2
 				+ ", speed=" + speed + ", isLegendary=" + isLegendary + "]";
 	}
 
