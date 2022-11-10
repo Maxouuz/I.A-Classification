@@ -17,7 +17,7 @@ public class PokemonLoader extends SpecifiedLoader<PokemonBean>{
 
     @Override
     public List<PokemonBean> loadFromFile(String filePath) throws IOException {
-        return super.loadFromFile(PokemonBean.class, DATA_DIR + filePath, ',');
+        return super.loadFromFile(PokemonBean.class, filePath, ',');
     }
 
     @Override
