@@ -1,8 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.IValueNormalizer;
-import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 
 /**
  * Decrit une <i>colonne</i> d'un DataSet.
