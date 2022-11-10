@@ -2,8 +2,9 @@ package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 
 import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.iris.IrisVariety;
+import fr.univlille.iutinfo.s3_02.belamcanda.point.IrisPoint;
 
-public class IrisBean {
+public class IrisBean extends Bean<IrisPoint>{
     @CsvBindByName(column = "sepal.length")
     protected Double sepalLength;
     @CsvBindByName(column = "sepal.width")
@@ -44,5 +45,10 @@ public class IrisBean {
                 ", petalWidth=" + petalWidth +
                 ", variety=" + variety +
                 '}';
+    }
+
+    @Override
+    public IrisPoint toPoint() {
+        return new IrisPoint(this);
     }
 }

@@ -6,7 +6,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonBean;
 public class PokemonPoint extends Point{
     PokemonBean bean;
     public PokemonPoint(PokemonBean bean) {
-        this.bean = bean;
+        super(bean);
     }
 
     @Override

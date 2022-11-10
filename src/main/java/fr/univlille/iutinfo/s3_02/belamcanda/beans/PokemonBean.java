@@ -2,8 +2,9 @@ package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 
 import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.pokemon.PokemonType;
+import fr.univlille.iutinfo.s3_02.belamcanda.point.PokemonPoint;
 
-public class PokemonBean {
+public class PokemonBean extends Bean<PokemonPoint> {
 	@CsvBindByName(column = "name")
 	protected String nom;
 	@CsvBindByName(column = "attack")
@@ -91,4 +92,8 @@ public class PokemonBean {
 				+ ", speed=" + speed + ", isLegendary=" + isLegendary + "]";
 	}
 
+	@Override
+	public PokemonPoint toPoint() {
+		return new PokemonPoint(this);
+	}
 }
