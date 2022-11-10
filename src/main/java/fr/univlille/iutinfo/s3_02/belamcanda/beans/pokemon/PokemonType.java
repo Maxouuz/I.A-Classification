@@ -1,4 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda;
+package fr.univlille.iutinfo.s3_02.belamcanda.beans.pokemon;
 
 public enum PokemonType {
 	BUG,

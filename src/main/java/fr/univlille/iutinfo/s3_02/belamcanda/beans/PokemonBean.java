@@ -1,7 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 
 import com.opencsv.bean.CsvBindByName;
-import fr.univlille.iutinfo.s3_02.belamcanda.PokemonType;
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.pokemon.PokemonType;
 
 public class PokemonBean {
 	@CsvBindByName(column = "name")
