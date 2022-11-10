@@ -19,7 +19,6 @@ public class CSVLoader<T> {
                 .withSeparator(separator)
                 .withType(clazz)
                 .build().parse();
-            System.out.println(res);
             return res;
     }
 
