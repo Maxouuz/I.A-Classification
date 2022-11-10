@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class TestEuclidianDistance {
@@ -15,8 +16,9 @@ public class TestEuclidianDistance {
     public static void init_points(){
         
     } 
-
+/**
     @Test
+    @Disabled
     public void object_one_unit_away_should_be_at_distance_one() {
         TempObject o0 = new TempObject(0, 0, 0, 0);
         TempObject o1 = new TempObject(1, 0, 0, 0);
@@ -51,5 +53,5 @@ public class TestEuclidianDistance {
         assertEquals(1, new EuclidianDistance().distance(o0, o3, weights), DELTA);
         assertEquals(2, new EuclidianDistance().distance(o0, o4, weights), DELTA);
         assertEquals(0 + .5 + 1 + 2, new EuclidianDistance().distance(o0, o5, weights), DELTA);
-    }
+    }*/
 }

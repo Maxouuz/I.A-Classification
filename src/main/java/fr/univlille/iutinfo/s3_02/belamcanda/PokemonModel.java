@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonBean;
-import fr.univlille.iutinfo.s3_02.belamcanda.category.ICategory;
 
 public class PokemonModel implements IMVCModel {
 

@@ -1,6 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.category.ICategory;
 
 import java.util.Collection;
 import java.util.List;
