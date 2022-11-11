@@ -1,10 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.NumberNormalizer;
-
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

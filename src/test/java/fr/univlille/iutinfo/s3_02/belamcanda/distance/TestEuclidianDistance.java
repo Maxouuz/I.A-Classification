@@ -1,13 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.distance;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 public class TestEuclidianDistance {
     static double DELTA = 0.005;

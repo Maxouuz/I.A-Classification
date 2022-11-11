@@ -1,13 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.distance;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class TestManhattanDistance {
     static double DELTA = 0.005;
 
