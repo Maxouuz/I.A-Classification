@@ -23,10 +23,10 @@ class CSVLoaderTest {
         String dataPath = DATA_PATH + "pokemon_test.csv";
         List<PokemonBean> list = new CSVLoader<>().loadFromFile((Class)PokemonBean.class, dataPath, ',');
         PokemonBean pUn = list.get(0);
-        assertEquals("Tropius", pUn.getNom());
+        assertEquals("Tropius", pUn.getName());
         assertEquals(68, pUn.getAttack());
         PokemonBean pLast = list.get(272);
-        assertEquals("Weavile", pLast.getNom());
+        assertEquals("Weavile", pLast.getName());
         assertEquals(120, pLast.getAttack());
     }
 }

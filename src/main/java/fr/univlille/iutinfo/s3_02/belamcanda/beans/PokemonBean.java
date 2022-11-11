@@ -6,7 +6,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.point.PokemonPoint;
 
 public class PokemonBean extends Bean<PokemonPoint> {
 	@CsvBindByName(column = "name")
-	protected String nom;
+	public String name;
 	@CsvBindByName(column = "attack")
 	protected int attack;
 	@CsvBindByName(column = "base_egg_steps")
@@ -32,8 +32,8 @@ public class PokemonBean extends Bean<PokemonPoint> {
 	@CsvBindByName(column = "is_legendary")
 	protected boolean isLegendary;
 
-	public String getNom() {
-		return nom;
+	public String getName() {
+		return name;
 	}
 
 	public int getAttack() {
@@ -86,7 +86,7 @@ public class PokemonBean extends Bean<PokemonPoint> {
 
 	@Override
 	public String toString() {
-		return "Pokemon [nom=" + nom + ", attack=" + attack + ", baseEggSteps=" + baseEggSteps + ", captureRate="
+		return "Pokemon [nom=" + name + ", attack=" + attack + ", baseEggSteps=" + baseEggSteps + ", captureRate="
 				+ captureRate + ", defense=" + defense + ", experienceGrowth=" + experienceGrowth + ", hp=" + hp
 				+ ", spAttack=" + spAttack + ", spDefense=" + spDefense + ", type=" + pokemonType + ", type2=" + pokemonType2
 				+ ", speed=" + speed + ", isLegendary=" + isLegendary + "]";
