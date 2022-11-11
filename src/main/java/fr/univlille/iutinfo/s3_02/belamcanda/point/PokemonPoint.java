@@ -9,8 +9,4 @@ public class PokemonPoint extends Point{
         super(bean);
     }
 
-    @Override
-    public Object getValue(Column col) {
-        return null;
-    }
 }

@@ -14,16 +14,16 @@ class PokemonLoaderTest {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void pokemon_loader_should_load_pokemon_beans() throws IOException {
+    public void pokemon_loader_should_load_pokemon_beans() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
         List<PokemonBean> list = new PokemonLoader().loadFromFile(dataPath);
         assertEquals(273, list.size());
-        PokemonBean pUn = list.get(0);
-        assertEquals("Tropius", pUn.getName());
-        assertEquals(68, pUn.getAttack());
-        PokemonBean pLast = list.get(272);
-        assertEquals("Weavile", pLast.getName());
-        assertEquals(120, pLast.getAttack());
+        PokemonBean premier = list.get(0);
+        assertEquals("Tropius", premier.getValueFromString("name"));
+        assertEquals(68, premier.getValueFromString("attack"));
+        PokemonBean dernier = list.get(272);
+        assertEquals("Weavile", dernier.getValueFromString("name"));
+        assertEquals(120, dernier.getValueFromString("attack"));
     }
 
     @Test

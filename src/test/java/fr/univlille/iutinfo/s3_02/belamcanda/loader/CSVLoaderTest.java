@@ -19,14 +19,14 @@ class CSVLoaderTest {
     }
 
     @Test
-    public void loaded_pokemons_should_be_the_right_pokemons() throws IOException{
+    public void loaded_pokemons_should_be_the_right_pokemons() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
         List<PokemonBean> list = new CSVLoader<>().loadFromFile((Class)PokemonBean.class, dataPath, ',');
-        PokemonBean pUn = list.get(0);
-        assertEquals("Tropius", pUn.getName());
-        assertEquals(68, pUn.getAttack());
-        PokemonBean pLast = list.get(272);
-        assertEquals("Weavile", pLast.getName());
-        assertEquals(120, pLast.getAttack());
+        PokemonBean premier = list.get(0);
+        assertEquals("Tropius", premier.getValueFromString("name"));
+        assertEquals(68, premier.getValueFromString("attack"));
+        PokemonBean dernier = list.get(272);
+        assertEquals("Weavile", dernier.getValueFromString("name"));
+        assertEquals(120, dernier.getValueFromString("attack"));
     }
 }

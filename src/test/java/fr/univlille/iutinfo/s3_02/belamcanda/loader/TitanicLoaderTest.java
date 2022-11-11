@@ -15,16 +15,16 @@ class TitanicLoaderTest {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void titanic_loader_should_load_titanic_beans() throws IOException {
+    public void titanic_loader_should_load_titanic_beans() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "titanic.csv";
         List<TitanicBean> list = new TitanicLoader().loadFromFile(dataPath);
         assertEquals(891, list.size());
         TitanicBean premier = list.get(0);
-        assertEquals("Braund, Mr. Owen Harris", premier.getName());
-        assertEquals(Embarked.S, premier.getEmbarked());
+        assertEquals("Braund, Mr. Owen Harris", premier.getValueFromString("name"));
+        assertEquals(Embarked.S, premier.getValueFromString("embarked"));
         TitanicBean dernier = list.get(890);
-        assertEquals("Dooley, Mr. Patrick", dernier.getName());
-        assertEquals(Embarked.Q, dernier.getEmbarked());
+        assertEquals("Dooley, Mr. Patrick", dernier.getValueFromString("name"));
+        assertEquals(Embarked.Q, dernier.getValueFromString("embarked"));
     }
 
     @Test

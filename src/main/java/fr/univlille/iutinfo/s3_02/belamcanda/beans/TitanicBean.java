@@ -31,54 +31,6 @@ public class TitanicBean extends Bean<TitanicPoint> {
     @CsvBindByName(column = "Embarked")
     protected Embarked embarked;
 
-    public Integer getPassengerId() {
-        return passengerId;
-    }
-
-    public Boolean getSurvived() {
-        return survived;
-    }
-
-    public int getpClass() {
-        return pClass;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Gender getSex() {
-        return sex;
-    }
-
-    public Double getAge() {
-        return age;
-    }
-
-    public int getSibSp() {
-        return sibSp;
-    }
-
-    public int getParch() {
-        return parch;
-    }
-
-    public String getTicket() {
-        return ticket;
-    }
-
-    public Double getFare() {
-        return fare;
-    }
-
-    public String getCabin() {
-        return cabin;
-    }
-
-    public Embarked getEmbarked() {
-        return embarked;
-    }
-
     @Override
     public String toString() {
         return "TitanicBean{" +

@@ -16,26 +16,6 @@ public class IrisBean extends Bean<IrisPoint>{
     @CsvBindByName(column = "variety")
     protected IrisVariety variety;
 
-    public Double getSepalLength() {
-        return sepalLength;
-    }
-
-    public Double getSepalWidth() {
-        return sepalWidth;
-    }
-
-    public Double getPetalLength() {
-        return petalLength;
-    }
-
-    public Double getPetalWidth() {
-        return petalWidth;
-    }
-
-    public IrisVariety getVariety() {
-        return variety;
-    }
-
     @Override
     public String toString() {
         return "IrisBean{" +

@@ -15,16 +15,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void iris_loader_should_load_iris_beans() throws IOException {
+    public void iris_loader_should_load_iris_beans() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "iris.csv";
         List<IrisBean> list = new IrisLoader().loadFromFile(dataPath);
         assertEquals(150, list.size());
         IrisBean premier = list.get(0);
-        assertEquals(5.1, premier.getSepalLength());
-        assertEquals(IrisVariety.SETOSA, premier.getVariety());
+        assertEquals(5.1, premier.getValueFromString("sepalLength"));
+        assertEquals(IrisVariety.SETOSA, premier.getValueFromString("variety"));
         IrisBean dernier = list.get(149);
-        assertEquals(5.9, dernier.getSepalLength());
-        assertEquals(IrisVariety.VIRGINICA, dernier.getVariety());
+        assertEquals(5.9, dernier.getValueFromString("sepalLength"));
+        assertEquals(IrisVariety.VIRGINICA, dernier.getValueFromString("variety"));
     }
 
     @Test
