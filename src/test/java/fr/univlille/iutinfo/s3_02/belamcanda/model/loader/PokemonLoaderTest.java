@@ -2,7 +2,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -26,12 +25,4 @@ class PokemonLoaderTest {
         assertEquals("Weavile", dernier.getValueFromString("name"));
         assertEquals(120, dernier.getValueFromString("attack"));
     }
-
-    @Test
-    @Disabled
-    public void converting_beans_to_points_should_return_pokemon_points() throws IOException {
-        String dataPath = DATA_PATH + "pokemon_test.csv";
-        List<PokemonPoint> list = new CSVLoader<PokemonPoint>().loadFromFile(PokemonPoint.class, dataPath, ',');
-    }
-
 }

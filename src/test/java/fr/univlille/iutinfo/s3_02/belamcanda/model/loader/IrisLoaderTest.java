@@ -3,7 +3,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.quantitative_variables.IrisVariety;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -26,12 +25,4 @@ class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + 
         assertEquals(5.9, dernier.getValueFromString("sepalLength"));
         assertEquals(IrisVariety.VIRGINICA, dernier.getValueFromString("variety"));
     }
-
-    @Test
-    @Disabled
-    public void converting_beans_to_points_should_return_iris_points() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
-        List<IrisPoint> list = new CSVLoader<IrisPoint>().loadFromFile(IrisPoint.class, dataPath, ',');
-    }
-
 }

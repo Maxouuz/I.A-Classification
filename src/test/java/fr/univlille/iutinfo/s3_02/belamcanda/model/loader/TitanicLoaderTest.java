@@ -3,7 +3,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.quantitative_variables.Embarked;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -27,13 +26,4 @@ class TitanicLoaderTest {
         assertEquals("Dooley, Mr. Patrick", dernier.getValueFromString("name"));
         assertEquals(Embarked.Q, dernier.getValueFromString("embarked"));
     }
-
-    @Test
-    @Disabled
-    public void converting_beans_to_points_should_return_titanic_points() throws IOException {
-        String dataPath = DATA_PATH + "titanic_test.csv";
-        List<TitanicPoint> list = new CSVLoader<TitanicPoint>().loadFromFile(TitanicPoint.class, dataPath, ',');
-
-    }
-
 }
