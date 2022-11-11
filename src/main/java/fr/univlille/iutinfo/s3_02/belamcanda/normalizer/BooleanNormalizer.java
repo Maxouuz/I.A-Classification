@@ -9,8 +9,4 @@ public class BooleanNormalizer implements IValueNormalizer{
     public double normalize(Object value) {
         return normalize(value, null);
     }
-    
-
-
-
 }

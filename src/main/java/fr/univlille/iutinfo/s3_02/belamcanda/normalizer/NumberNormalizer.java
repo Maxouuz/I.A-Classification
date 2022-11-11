@@ -4,10 +4,8 @@ public class NumberNormalizer implements IValueNormalizer{
     @Override
     public double normalize(Object value, Amplitude amplitude) {
         Double v = ((Number) value).doubleValue();
-        return (( v - amplitude.getMin()) / (amplitude.getMax() - amplitude.getMin()));
+        return (v - amplitude.getMin()) / (amplitude.getMax() - amplitude.getMin());
     }
-
-    
 }
 
 
