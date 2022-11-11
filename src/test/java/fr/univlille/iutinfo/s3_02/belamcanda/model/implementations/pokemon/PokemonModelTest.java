@@ -1,9 +1,6 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model.mvcmodel;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -45,5 +42,10 @@ class PokemonModelTest {
     @Test
     public void pokemon_model_should_have_273_elements_like_the_csv() {
         assertEquals(273, model.getNbLines());
+    }
+
+    @Test
+    public void all_the_columns_are_normalized() {
+        assertEquals(model.nbColumns(), model.getNormalizableColumns().size());
     }
 }
