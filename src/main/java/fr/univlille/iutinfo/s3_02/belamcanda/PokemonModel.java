@@ -1,112 +1,26 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import fr.univlille.iutinfo.s3_02.belamcanda.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.colonnes_enum.PokemonColumns;
 
-import com.opencsv.bean.CsvToBeanBuilder;
-import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonPoint;
-
-public class PokemonModel implements IMVCModel {
-
-	IDataset data;
-	
-	public PokemonModel() {
-		// TODO: Créer un dataset
-	}
-	
+public class PokemonModel extends MVCModel {
 	@Override
-	public void loadFromFile(String datafile) {
-		List<PokemonPoint> list;
-		try {
-			list = new CsvToBeanBuilder<PokemonPoint>(Files.newBufferedReader(Paths.get(datafile)))
-			        .withSeparator(',')
-			        .withType(PokemonPoint.class)
-			        .build().parse();
-			System.out.println(list);
-		} catch (IllegalStateException | IOException e) {
-			e.printStackTrace();
-		}
+	public String getTitle() {
+		return "Pokémon";
 	}
 
 	@Override
-	public void loadFromString(String data) {
-		
+	protected Column[] getColumns() {
+		return IColumnDefinition.getColumns(PokemonColumns.values());
 	}
 
 	@Override
 	public Column defaultXCol() {
-		// TODO Auto-generated method stub
-		return null;
+		return PokemonColumns.BASE_EGG_STEPS.getColumn();
 	}
 
 	@Override
 	public Column defaultYCol() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addCategory(ICategory classe) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Collection<ICategory> allCategories() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int nbColumns() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<Column> getNormalizableColumns() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public static void main(String[] args) {
-		PokemonModel model = new PokemonModel();
-		String path = System.getProperty("user.dir") + File.separator + "data" + File.separator + "pokemon_train.csv";
-		model.loadFromFile(path);
-	}
-
-	@Override
-	public String getTitle() {
-		return null;
-	}
-
-	@Override
-	public int getNbLines() {
-		return 0;
-	}
-
-	@Override
-	public void setLines(List<IPoint> lines) {
-
-	}
-
-	@Override
-	public void addLine(IPoint element) {
-
-	}
-
-	@Override
-	public void addAllLine(List<IPoint> element) {
-
-	}
-
-	@Override
-	public Iterator<IPoint> iterator() {
-		return null;
+		return PokemonColumns.CAPTURE_RATE.getColumn();
 	}
 }
