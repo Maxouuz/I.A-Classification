@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.IValueNormalizer;
 

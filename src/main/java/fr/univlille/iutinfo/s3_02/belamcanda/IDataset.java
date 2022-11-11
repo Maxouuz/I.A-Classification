@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.Point;
 
 import java.util.List;
 

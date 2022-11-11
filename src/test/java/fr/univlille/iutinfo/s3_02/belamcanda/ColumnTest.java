@@ -1,8 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.MinMaxNormalizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.NumberNormalizer;
-import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 
 import org.junit.jupiter.api.Test;
 

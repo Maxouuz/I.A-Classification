@@ -1,7 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.loader;
 
 import com.opencsv.bean.CsvToBeanBuilder;
-import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonBean;
 
 
 import java.io.File;

@@ -3,9 +3,8 @@ package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.titanic.Embarked;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.titanic.Gender;
-import fr.univlille.iutinfo.s3_02.belamcanda.point.TitanicPoint;
 
-public class TitanicBean extends Bean<TitanicPoint> {
+public class TitanicPoint extends Point {
     @CsvBindByName(column = "PassengerId")
     protected Integer passengerId;
     @CsvBindByName(column = "Survived")
@@ -31,54 +30,6 @@ public class TitanicBean extends Bean<TitanicPoint> {
     @CsvBindByName(column = "Embarked")
     protected Embarked embarked;
 
-    public Integer getPassengerId() {
-        return passengerId;
-    }
-
-    public Boolean getSurvived() {
-        return survived;
-    }
-
-    public int getpClass() {
-        return pClass;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Gender getSex() {
-        return sex;
-    }
-
-    public Double getAge() {
-        return age;
-    }
-
-    public int getSibSp() {
-        return sibSp;
-    }
-
-    public int getParch() {
-        return parch;
-    }
-
-    public String getTicket() {
-        return ticket;
-    }
-
-    public Double getFare() {
-        return fare;
-    }
-
-    public String getCabin() {
-        return cabin;
-    }
-
-    public Embarked getEmbarked() {
-        return embarked;
-    }
-
     @Override
     public String toString() {
         return "TitanicBean{" +
@@ -97,8 +48,4 @@ public class TitanicBean extends Bean<TitanicPoint> {
                 '}';
     }
 
-    @Override
-    public TitanicPoint toPoint() {
-        return new TitanicPoint(this);
-    }
 }
