@@ -19,12 +19,4 @@ public class TitanicLoader extends SpecifiedLoader<TitanicBean> {
     public List<TitanicBean> loadFromFile(String filePath) throws IOException {
         return super.loadFromFile(TitanicBean.class, filePath, ',');
     }
-
-    @Override
-    public Set<? extends Point> convertToPoints(String filePath) throws IOException {
-        List<TitanicBean> list = loadFromFile(filePath);
-        Set<TitanicPoint> res = new HashSet<>();
-        list.forEach(e -> res.add(new TitanicPoint(e)));
-        return res;
-    }
 }

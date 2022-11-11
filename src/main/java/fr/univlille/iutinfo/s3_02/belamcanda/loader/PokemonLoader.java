@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.loader;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.Bean;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonBean;
 import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.point.PokemonPoint;
@@ -18,13 +19,5 @@ public class PokemonLoader extends SpecifiedLoader<PokemonBean>{
     @Override
     public List<PokemonBean> loadFromFile(String filePath) throws IOException {
         return super.loadFromFile(PokemonBean.class, filePath, ',');
-    }
-
-    @Override
-    public Set<? extends Point> convertToPoints(String filePath) throws IOException {
-        List<PokemonBean> list = loadFromFile(filePath);
-        Set<PokemonPoint> res = new HashSet<>();
-        list.forEach(e -> res.add(new PokemonPoint(e)));
-        return res;
     }
 }

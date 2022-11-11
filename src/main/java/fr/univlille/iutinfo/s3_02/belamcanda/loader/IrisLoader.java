@@ -19,12 +19,4 @@ public class IrisLoader extends SpecifiedLoader<IrisBean>{
     public List<IrisBean> loadFromFile(String filePath) throws IOException {
         return super.loadFromFile(IrisBean.class, filePath, ',');
     }
-
-    @Override
-    public Set<? extends Point> convertToPoints(String filePath) throws IOException {
-        List<IrisBean> list = loadFromFile(filePath);
-        Set<IrisPoint> res = new HashSet<>();
-        list.forEach(e -> res.add(new IrisPoint(e)));
-        return res;
-    }
 }
