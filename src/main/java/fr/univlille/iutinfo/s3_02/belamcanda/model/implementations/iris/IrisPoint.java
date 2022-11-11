@@ -2,6 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris;
 
 import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.quantitative_variables.IrisVariety;
 
 public class IrisPoint extends Point {
     @CsvBindByName(column = "sepal.length")

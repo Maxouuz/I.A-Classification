@@ -2,7 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisVariety;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.quantitative_variables.IrisVariety;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.quantitative_variables;
 
 public enum PokemonType {
 	BUG,

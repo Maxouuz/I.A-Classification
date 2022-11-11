@@ -1,4 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations;
+package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
