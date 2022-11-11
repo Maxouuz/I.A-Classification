@@ -3,9 +3,8 @@ package fr.univlille.iutinfo.s3_02.belamcanda.beans;
 import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.titanic.Embarked;
 import fr.univlille.iutinfo.s3_02.belamcanda.beans.titanic.Gender;
-import fr.univlille.iutinfo.s3_02.belamcanda.point.TitanicPoint;
 
-public class TitanicBean extends Bean<TitanicPoint> {
+public class TitanicPoint extends Point {
     @CsvBindByName(column = "PassengerId")
     protected Integer passengerId;
     @CsvBindByName(column = "Survived")
@@ -49,8 +48,4 @@ public class TitanicBean extends Bean<TitanicPoint> {
                 '}';
     }
 
-    @Override
-    public TitanicPoint toPoint() {
-        return new TitanicPoint(this);
-    }
 }

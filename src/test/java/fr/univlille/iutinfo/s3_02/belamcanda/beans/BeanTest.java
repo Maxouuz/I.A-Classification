@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +14,7 @@ class BeanTest {
     @Test
     void getting_an_attribute_from_its_name_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        PokemonBean tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        PokemonPoint tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
         assertEquals("Tropius", tropius.getValueFromString("name"));
     }
 }

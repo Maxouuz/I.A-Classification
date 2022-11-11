@@ -1,7 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.distance;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.Column;
-import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.Point;
 
 import java.util.List;
 

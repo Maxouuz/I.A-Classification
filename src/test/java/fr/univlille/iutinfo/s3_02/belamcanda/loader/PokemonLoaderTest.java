@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.loader;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonBean;
+import fr.univlille.iutinfo.s3_02.belamcanda.beans.PokemonPoint;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -16,12 +16,12 @@ class PokemonLoaderTest {
     @Test
     public void pokemon_loader_should_load_pokemon_beans() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        List<PokemonBean> list = new PokemonLoader().loadFromFile(dataPath);
+        List<PokemonPoint> list = new PokemonLoader().loadFromFile(dataPath);
         assertEquals(273, list.size());
-        PokemonBean premier = list.get(0);
+        PokemonPoint premier = list.get(0);
         assertEquals("Tropius", premier.getValueFromString("name"));
         assertEquals(68, premier.getValueFromString("attack"));
-        PokemonBean dernier = list.get(272);
+        PokemonPoint dernier = list.get(272);
         assertEquals("Weavile", dernier.getValueFromString("name"));
         assertEquals(120, dernier.getValueFromString("attack"));
     }
@@ -30,7 +30,7 @@ class PokemonLoaderTest {
     @Disabled
     public void converting_beans_to_points_should_return_pokemon_points() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        List<PokemonBean> list = new CSVLoader<>().loadFromFile((Class)PokemonBean.class, dataPath, ',');
+        List<PokemonPoint> list = new CSVLoader<>().loadFromFile((Class) PokemonPoint.class, dataPath, ',');
 
     }
 
