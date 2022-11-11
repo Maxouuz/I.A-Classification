@@ -79,7 +79,7 @@ public abstract class MVCModel implements IDataset {
 	}
 
 	@Override
-	public void setLines(List<Point> lines) {
+	public void setLines(List<? extends Point> lines) {
 		this.datas.clear();
 		this.datas.addAll(lines);
 	}
@@ -90,7 +90,7 @@ public abstract class MVCModel implements IDataset {
 	}
 
 	@Override
-	public void addAllLine(List<Point> element) {
+	public void addAllLine(List<? extends Point> element) {
 		this.datas.addAll(element);
 	}
 

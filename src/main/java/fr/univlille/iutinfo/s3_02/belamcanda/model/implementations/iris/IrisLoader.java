@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.SpecifiedLoader;
 
 import java.io.IOException;
@@ -14,5 +15,10 @@ public class IrisLoader extends SpecifiedLoader<IrisPoint> {
     @Override
     public List<IrisPoint> loadFromFile(String filePath) throws IOException {
         return super.loadFromFile(IrisPoint.class, filePath, ',');
+    }
+
+    @Override
+    protected MVCModel createModel() {
+        return null;
     }
 }

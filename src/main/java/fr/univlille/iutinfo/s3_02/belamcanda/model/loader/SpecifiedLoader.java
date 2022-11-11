@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
 import java.io.IOException;
@@ -17,6 +18,11 @@ public abstract class SpecifiedLoader<T> extends CSVLoader<T> {
 
     public abstract List<? extends Point> loadFromFile(String filePath) throws IOException;
 
+    public MVCModel createModelFromFile(String filePath) throws IOException {
+        MVCModel model = createModel();
+        model.addAllLine(loadFromFile(filePath));
+        return model;
+    }
 
-
+    protected abstract MVCModel createModel();
 }

@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.SpecifiedLoader;
 
 import java.io.IOException;
@@ -14,5 +15,10 @@ public class TitanicLoader extends SpecifiedLoader<TitanicPoint> {
     @Override
     public List<TitanicPoint> loadFromFile(String filePath) throws IOException {
         return super.loadFromFile(TitanicPoint.class, filePath, ',');
+    }
+
+    @Override
+    protected MVCModel createModel() {
+        return null;
     }
 }

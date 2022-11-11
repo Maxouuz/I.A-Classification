@@ -23,7 +23,7 @@ public interface IDataset extends Iterable<Point> {
 	/**
 	 * stocke dans le DataSet la collection de donnees passee en parametre
 	 */
-	void setLines(List<Point> lines);
+	void setLines(List<? extends Point> lines);
 
 	/**
 	 * Ajoute une donnee dans le DataSet
@@ -33,5 +33,5 @@ public interface IDataset extends Iterable<Point> {
 	/**
 	 * Ajoute une collection de donnees dans le DataSet
 	 */
-	void addAllLine(List<Point> element);
+	void addAllLine(List<? extends Point> element);
 }
