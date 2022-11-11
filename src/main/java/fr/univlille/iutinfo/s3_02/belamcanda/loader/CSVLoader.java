@@ -3,7 +3,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.loader;
 import com.opencsv.bean.CsvToBeanBuilder;
 
 
-import java.io.File;
 import java.util.List;
 import java.io.IOException;
 
@@ -17,7 +16,7 @@ public class CSVLoader<T> {
                 .withSeparator(separator)
                 .withType(clazz)
                 .build().parse();
-            return res;
+        return res;
     }
 
 }

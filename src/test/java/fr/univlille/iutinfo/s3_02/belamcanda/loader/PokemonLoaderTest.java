@@ -30,8 +30,7 @@ class PokemonLoaderTest {
     @Disabled
     public void converting_beans_to_points_should_return_pokemon_points() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        List<PokemonPoint> list = new CSVLoader<>().loadFromFile((Class) PokemonPoint.class, dataPath, ',');
-
+        List<PokemonPoint> list = new CSVLoader<PokemonPoint>().loadFromFile(PokemonPoint.class, dataPath, ',');
     }
 
 }

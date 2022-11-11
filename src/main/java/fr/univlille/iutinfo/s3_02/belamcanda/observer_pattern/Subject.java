@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Subject {
-    Set<Observer> observers = new HashSet<>();
+    final Set<Observer> observers = new HashSet<>();
 
     public void attach(Observer o){
         observers.add(o);

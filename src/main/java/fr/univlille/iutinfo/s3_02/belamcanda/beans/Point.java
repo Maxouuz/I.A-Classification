@@ -14,9 +14,7 @@ public abstract class Point {
     public Object getValue(Column col) {
         try{
             return getValueFromString(col.getName());
-        } catch (NoSuchFieldException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
     }

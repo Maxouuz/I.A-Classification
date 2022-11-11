@@ -6,9 +6,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.IValueNormalizer;
 
 /**
  * Decrit une <i>colonne</i> d'un DataSet.
- *
  * Une colonne a un nom, son DataSet parent et un normaliseur optionnel.
- *
  * Un normaliseur traduit toutes les valeurs possibles de la colonne (dans son
  * DataSet) en une valeur entre 0 et 1. Seule les colonnes <i>normalisables</i>
  * (qui ont un normaliseur) peuvent etre utilisees comme axe dans le nuage de
@@ -16,10 +14,10 @@ import fr.univlille.iutinfo.s3_02.belamcanda.normalizer.IValueNormalizer;
  */
 public class Column {
 	private IDataset dataset;
-	private String name;
+	private final String name;
 	private double weight;
-	private IValueNormalizer normalizer;
-	private Amplitude amplitude;
+	private final IValueNormalizer normalizer;
+	private final Amplitude amplitude;
 
 	public Column(String name, double weight, IValueNormalizer normalizer) {
 		this.name = name;
@@ -33,7 +31,7 @@ public class Column {
 	}
 	/**
 	 * Recupere la valeur de cette colonne dans la donnee en parametre, puis
-	 * normalise cette valeur )entre 0 et 1) et la retourne normalisee. Si la
+	 * normalise cette valeur) entre 0 et 1) et la retourne normalisee. Si la
 	 * colonne n'est pas normalisable, le comportement n'est pas definit.
 	 */
 	public double getNormalizedValue(Point point) {
@@ -70,7 +68,7 @@ public class Column {
 	}
 
 	/**
-	 * Permet de donner un poids a cette colonne
+	 * Permet de donner un poids à cette colonne
 	 */
 	public void setWeight(Double weight) {
 		this.weight = weight;

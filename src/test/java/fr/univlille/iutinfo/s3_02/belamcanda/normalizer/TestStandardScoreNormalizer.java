@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class TestStandardScoreNormalizer {
     static List<Integer> values;
     static Amplitude ampli;
-    static double DELTA = .005;
+    static final double DELTA = .005;
 
     @BeforeAll
     static public void initialization(){

@@ -31,7 +31,7 @@ class TitanicLoaderTest {
     @Disabled
     public void converting_beans_to_points_should_return_titanic_points() throws IOException {
         String dataPath = DATA_PATH + "titanic_test.csv";
-        List<TitanicPoint> list = new CSVLoader<>().loadFromFile((Class) TitanicPoint.class, dataPath, ',');
+        List<TitanicPoint> list = new CSVLoader<TitanicPoint>().loadFromFile(TitanicPoint.class, dataPath, ',');
 
     }
 

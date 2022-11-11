@@ -20,9 +20,9 @@ public enum PokemonColumns implements IColumnDefinition{
     SPEED(new Column("speed", new NumberNormalizer())),
     IS_LEGENDARY(new Column("isLegendary", new BooleanNormalizer()));
 
-    protected Column column;
+    final Column column;
 
-    private PokemonColumns(Column column){this.column = column;}
+    PokemonColumns(Column column){this.column = column;}
 
     @Override
     public Column getColumn() {      return this.column;    }

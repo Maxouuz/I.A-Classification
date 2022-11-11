@@ -7,16 +7,15 @@ import java.util.*;
 
 /**
  * Decrit un modele de donnee dans le MVC.
- *
  * Un modele de donnee est un {@link IDataset}, il peut en plus lire ses donnees
  * d'un fichier (CSV) ou d'une chaine de caracteres, il a une colonne et une
  * ligne par defaut pour afficher un nuage de point et il peut avoir des
  * categories
  */
 public abstract class MVCModel implements IDataset {
-	protected Set<Point> datas;
-	protected Column[] columns;
-	protected Set<ICategory> categories;
+	protected final Set<Point> datas;
+	protected final Column[] columns;
+	protected final Set<ICategory> categories;
 
 	protected MVCModel() {
 		this.datas = new HashSet<>();
@@ -27,13 +26,13 @@ public abstract class MVCModel implements IDataset {
 	protected abstract Column[] getColumns();
 
 	/**
-	 * Retourne la colonne a utiliser par defaut pour l'axe des X lors de
+	 * Retourne la colonne à utiliser par defaut pour l'axe des X lors de
 	 * l'affichage du nuage de points.
 	 */
 	public abstract Column defaultXCol();
 
 	/**
-	 * Retourne la colonne a utiliser par defaut pour l'axe des Y lors de
+	 * Retourne la colonne à utiliser par defaut pour l'axe des Y lors de
 	 * l'affichage du nuage de points.
 	 */
 	public abstract Column defaultYCol();
