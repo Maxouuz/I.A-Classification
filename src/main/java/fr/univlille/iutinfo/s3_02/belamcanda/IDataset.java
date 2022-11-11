@@ -1,5 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.point.Point;
+
 import java.util.List;
 
 /**
@@ -10,29 +12,29 @@ import java.util.List;
  * donnees(ou lignes ou points) . Pour cette raison, il n'y a pas de getter pour
  * l'ensemble des points d'un DataSet.
  */
-public interface IDataset extends Iterable<IPoint> {
+public interface IDataset extends Iterable<Point> {
 	/**
 	 * Le nom du DataSet ex: Titanic, Iris, Pokemon, ...
 	 */
-	public String getTitle();
+	String getTitle();
 
 	/**
 	 * Nombre de lignes (ou donnees ou points) dans le DataSet
 	 */
-	public int getNbLines();
+	int getNbLines();
 
 	/**
 	 * stocke dans le DataSet la collection de donnees passee en parametre
 	 */
-	public void setLines(List<IPoint> lines);
+	void setLines(List<Point> lines);
 
 	/**
 	 * Ajoute une donnee dans le DataSet
 	 */
-	void addLine(IPoint element);
+	void addLine(Point element);
 
 	/**
 	 * Ajoute une collection de donnees dans le DataSet
 	 */
-	void addAllLine(List<IPoint> element);
+	void addAllLine(List<Point> element);
 }
