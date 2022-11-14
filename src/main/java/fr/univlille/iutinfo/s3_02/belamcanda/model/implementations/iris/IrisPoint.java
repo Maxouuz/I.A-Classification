@@ -15,16 +15,4 @@ public class IrisPoint extends Point {
     protected Double petalWidth;
     @CsvBindByName(column = "variety")
     protected IrisVariety variety;
-
-    @Override
-    public String toString() {
-        return "IrisBean{" +
-                "sepalLength=" + sepalLength +
-                ", sepalWidth=" + sepalWidth +
-                ", petalLength=" + petalLength +
-                ", petalWidth=" + petalWidth +
-                ", variety=" + variety +
-                '}';
-    }
-
 }

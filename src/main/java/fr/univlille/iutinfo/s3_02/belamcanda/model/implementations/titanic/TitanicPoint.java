@@ -30,23 +30,4 @@ public class TitanicPoint extends Point {
     protected String cabin;
     @CsvBindByName(column = "Embarked")
     protected Embarked embarked;
-
-    @Override
-    public String toString() {
-        return "TitanicBean{" +
-                "passengerId=" + passengerId +
-                ", survived=" + survived +
-                ", pClass=" + pClass +
-                ", name='" + name + '\'' +
-                ", sex=" + sex +
-                ", age=" + age +
-                ", sibSp=" + sibSp +
-                ", parch=" + parch +
-                ", ticket='" + ticket + '\'' +
-                ", fare=" + fare +
-                ", cabin='" + cabin + '\'' +
-                ", embarked=" + embarked +
-                '}';
-    }
-
 }

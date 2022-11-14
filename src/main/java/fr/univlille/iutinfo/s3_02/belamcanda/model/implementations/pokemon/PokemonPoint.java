@@ -31,14 +31,4 @@ public class PokemonPoint extends Point {
 	protected double speed;
 	@CsvBindByName(column = "is_legendary")
 	protected boolean isLegendary;
-
-
-	@Override
-	public String toString() {
-		return "Pokemon [nom=" + name + ", attack=" + attack + ", baseEggSteps=" + baseEggSteps + ", captureRate="
-				+ captureRate + ", defense=" + defense + ", experienceGrowth=" + experienceGrowth + ", hp=" + hp
-				+ ", spAttack=" + spAttack + ", spDefense=" + spDefense + ", type=" + pokemonType + ", type2=" + pokemonType2
-				+ ", speed=" + speed + ", isLegendary=" + isLegendary + "]";
-	}
-
 }
