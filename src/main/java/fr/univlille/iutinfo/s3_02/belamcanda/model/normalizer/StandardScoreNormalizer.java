@@ -6,4 +6,14 @@ public class StandardScoreNormalizer implements IValueNormalizer {
         Double v = ((Number) value).doubleValue();
         return (v - amplitude.getAverage()) / amplitude.getStandardDeviation();
     }
+
+    @Override
+    public boolean isNull() {
+        return false;
+    }
+
+    @Override
+    public boolean needAmplitude() {
+        return true;
+    }
 }

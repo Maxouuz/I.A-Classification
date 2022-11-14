@@ -11,12 +11,12 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
  * (qui ont un normaliseur) peuvent etre utilisees comme axe dans le nuage de
  * points.
  */
-public class Column {
-	private IDataset dataset;
+public class Column implements Observer {
+	private MVCModel dataset;
 	private final String name;
 	private double weight;
 	private final IValueNormalizer normalizer;
-	private final Amplitude amplitude;
+	protected final Amplitude amplitude;
 
 	public Column(String name, double weight, IValueNormalizer normalizer) {
 		this.name = name;
@@ -48,8 +48,15 @@ public class Column {
 	/**
 	 * Permet de déterminer le dataset qui contient la colonne
 	 */
-	public void setDataset(IDataset dataset) {
+	public void setDataset(MVCModel dataset) {
 		this.dataset = dataset;
+		if (normalizer.needAmplitude()) {
+			autoUpdateAmplitude();
+		}
+	}
+
+	private void autoUpdateAmplitude() {
+		dataset.attach(this);
 	}
 
 	/**
@@ -77,5 +84,18 @@ public class Column {
 	 */
 	public double getWeight() {
 		return weight;
+	}
+
+	@Override
+	public void update(Subject s) {
+		for (Point point: dataset) {
+			amplitude.update((Number) point.getValue(this));
+		}
+	}
+
+	@Override
+	public void update(Subject s, Object data) {
+		Point point = (Point) data;
+		amplitude.update((Number) point.getValue(this));
 	}
 }

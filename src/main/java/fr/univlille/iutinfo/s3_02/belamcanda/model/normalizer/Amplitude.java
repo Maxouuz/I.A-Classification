@@ -1,5 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Amplitude {
     protected Double min;
     protected Double max;

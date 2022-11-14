@@ -6,6 +6,16 @@ public class NumberNormalizer implements IValueNormalizer{
         Double v = ((Number) value).doubleValue();
         return (v - amplitude.getMin()) / (amplitude.getMax() - amplitude.getMin());
     }
+
+    @Override
+    public boolean isNull() {
+        return false;
+    }
+
+    @Override
+    public boolean needAmplitude() {
+        return true;
+    }
 }
 
 

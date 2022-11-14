@@ -1,10 +1,10 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model.observer_pattern;
+package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Subject {
-    final Set<Observer> observers = new HashSet<>();
+    protected Set<Observer> observers = new HashSet<>();
 
     public void attach(Observer o){
         observers.add(o);

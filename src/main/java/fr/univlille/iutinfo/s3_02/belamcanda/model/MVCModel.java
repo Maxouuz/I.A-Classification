@@ -10,7 +10,7 @@ import java.util.*;
  * ligne par defaut pour afficher un nuage de point et il peut avoir des
  * categories
  */
-public abstract class MVCModel implements IDataset {
+public abstract class MVCModel extends Subject implements IDataset {
 	protected final Set<Point> datas;
 	protected final Column[] columns;
 	protected final Set<ICategory> categories;
@@ -18,7 +18,14 @@ public abstract class MVCModel implements IDataset {
 	protected MVCModel() {
 		this.datas = new HashSet<>();
 		this.columns = getColumns();
+		setDatasetOfColumns();
 		this.categories = new HashSet<>();
+	}
+
+	private void setDatasetOfColumns() {
+		for (Column column: columns) {
+			column.setDataset(this);
+		}
 	}
 
 	protected abstract Column[] getColumns();
@@ -82,16 +89,19 @@ public abstract class MVCModel implements IDataset {
 	public void setLines(List<? extends Point> lines) {
 		this.datas.clear();
 		this.datas.addAll(lines);
+		notifyObservers();
 	}
 
 	@Override
 	public void addLine(Point element) {
 		this.datas.add(element);
+		notifyObservers(element);
 	}
 
 	@Override
-	public void addAllLine(List<? extends Point> element) {
+	public void addAllLine(Collection<? extends Point> element) {
 		this.datas.addAll(element);
+		notifyObservers();
 	}
 
 	@Override
