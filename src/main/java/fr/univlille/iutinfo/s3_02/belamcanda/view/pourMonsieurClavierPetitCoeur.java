@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class JavaFXSimpleExample extends Application {
+public class pourMonsieurClavierPetitCoeur extends Application {
 
     @Override
     public void start(Stage stage) {
