@@ -15,6 +15,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 	protected final Column[] columns;
 	protected final Set<ICategory> categories;
 
+
 	protected MVCModel() {
 		this.datas = new HashSet<>();
 		this.columns = getColumns();
@@ -108,4 +109,5 @@ public abstract class MVCModel extends Subject implements IDataset {
 	public Iterator<Point> iterator() {
 		return datas.iterator();
 	}
+
 }

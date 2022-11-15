@@ -3,7 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
 
-public class Column implements Observer {
+public abstract class Column implements Observer {
 	private MVCModel dataset;
 	private final String name;
 	private double weight;
@@ -46,9 +46,7 @@ public class Column implements Observer {
 		return dataset;
 	}
 
-	public boolean isNormalizable() {
-		return normalizer != null;
-	}
+	public abstract boolean isNormalizable();
 
 
 	public void setWeight(Double weight) {
@@ -71,4 +69,7 @@ public class Column implements Observer {
 		Point point = (Point) data;
 		amplitude.update((Number) point.getValue(this));
 	}
+
+	public Double min(){return amplitude.getMin();}
+	public Double max(){return amplitude.getMax();}
 }

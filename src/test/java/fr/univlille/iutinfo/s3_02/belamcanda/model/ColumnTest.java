@@ -17,9 +17,9 @@ public class ColumnTest {
 
     @Test
     public void is_normalizable_should_return_true_or_false_depending_on_the_normalizer() {
-        Column normalized = new Column("Normalized", new NumberNormalizer());
+        Column normalized = new NormalizableColumn("Normalized", new NumberNormalizer());
         assertTrue(normalized.isNormalizable());
-        Column notNormalized = new Column("NotNormalized", null);
+        Column notNormalized = new NonNormalizableColumn("NotNormalized");
         assertFalse(notNormalized.isNormalizable());
     }
 
