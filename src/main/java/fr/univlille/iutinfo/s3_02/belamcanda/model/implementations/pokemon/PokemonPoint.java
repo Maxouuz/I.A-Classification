@@ -31,4 +31,8 @@ public class PokemonPoint extends Point {
 	protected double speed;
 	@CsvBindByName(column = "is_legendary")
 	protected boolean isLegendary;
+
+	public Object category(){
+		return isLegendary;
+	}
 }
