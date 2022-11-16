@@ -5,7 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
 
 public class NormalizableColumn extends Column implements Observer {
     private final IValueNormalizer normalizer;
-    private final Amplitude amplitude;
+    final Amplitude amplitude;
 
     public NormalizableColumn(String name, double weight, IValueNormalizer normalizer) {
         super(name, weight);

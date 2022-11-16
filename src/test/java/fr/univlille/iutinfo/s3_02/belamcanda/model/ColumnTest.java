@@ -66,7 +66,7 @@ public class ColumnTest {
 
     @Test
     public void column_updates_amplitude_when_he_needs_it() throws Exception {
-        Column columnWithAmplitude = PokemonColumns.HP.getColumn();
+        NormalizableColumn columnWithAmplitude = (NormalizableColumn) PokemonColumns.HP.getColumn();
         MVCModel model = new PokemonModel();
         Amplitude ampli = columnWithAmplitude.amplitude;
         assertEquals(null, ampli.getMin());
