@@ -1,13 +1,16 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
 
-public class NormalizableColumn extends Column{
+public class NormalizableColumn extends Column implements Observer {
     private final IValueNormalizer normalizer;
+    private final Amplitude amplitude;
 
     public NormalizableColumn(String name, double weight, IValueNormalizer normalizer) {
         super(name, weight);
         this.normalizer = normalizer;
+        this.amplitude = new Amplitude();
     }
 
     public NormalizableColumn(String name, IValueNormalizer normalizer) {
@@ -36,4 +39,20 @@ public class NormalizableColumn extends Column{
     private void autoUpdateAmplitude() {
         dataset.attach(this);
     }
+
+    @Override
+    public void update(Subject s) {
+        for (Point point: dataset) {
+            amplitude.update((Number) point.getValue(this));
+        }
+    }
+
+    @Override
+    public void update(Subject s, Object data) {
+        Point point = (Point) data;
+        amplitude.update((Number) point.getValue(this));
+    }
+
+    public Double min(){return amplitude.getMin();}
+    public Double max(){return amplitude.getMax();}
 }
