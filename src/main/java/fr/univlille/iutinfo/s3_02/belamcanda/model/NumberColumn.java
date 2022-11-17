@@ -11,4 +11,6 @@ public class NumberColumn extends NormalizableColumn{
     public NumberColumn(String name) {
         this(name, 1.);
     }
+    @Override
+    public boolean isNumeric(){return true;}
 }

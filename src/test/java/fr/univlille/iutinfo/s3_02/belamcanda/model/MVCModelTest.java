@@ -35,7 +35,7 @@ class MVCModelTest {
     public void new_element_should_be_registered_when_added() {
         PokemonPoint newPokemon = new PokemonPoint();
         model.addLine(newPokemon);
-        assertTrue(model.datas.contains(newPokemon));
+        assertTrue(model.data.contains(newPokemon));
     }
 
     @Test
@@ -45,7 +45,7 @@ class MVCModelTest {
             newPokemons.add(new PokemonPoint());
         }
         model.addAllLine(newPokemons);
-        assertTrue(model.datas.containsAll(newPokemons));
+        assertTrue(model.data.containsAll(newPokemons));
     }
 
     @Test

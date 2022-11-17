@@ -13,7 +13,7 @@ public class PokemonModel extends MVCModel {
 	}
 
 	@Override
-	protected Column[] getColumns() {
+	public Column[] getColumns() {
 		return IColumnDefinition.getColumns(PokemonColumns.values());
 	}
 
