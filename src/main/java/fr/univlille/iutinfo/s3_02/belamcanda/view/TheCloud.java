@@ -28,6 +28,7 @@ public class TheCloud {
 
     private static XYChart.Series getSeries(IDataset dataset, Column xCol, Column yCol) {
         var data = new XYChart.Series();
+        data.nameProperty().setValue(dataset.getTitle());
         for (Point point : dataset) {
             data.getData().add(getData(point, xCol, yCol));
         }
