@@ -2,6 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
 import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;
 
 public class PokemonPoint extends Point {
@@ -30,7 +31,7 @@ public class PokemonPoint extends Point {
 	@CsvBindByName(column = "speed")
 	protected double speed;
 	@CsvBindByName(column = "is_legendary")
-	protected boolean isLegendary;
+	protected Legendary isLegendary;
 
 	public Object category(){
 		return isLegendary;
