@@ -4,25 +4,31 @@ package fr.univlille.iutinfo.s3_02.belamcanda.view;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
 import javafx.scene.chart.*;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class TheCloud {
     public ScatterChart scatterChart(MVCModel model, Column xCol, Column yCol){
         var scatterChart = new ScatterChart(getAxis(xCol), getAxis(yCol));
-        XYChart.Series<String, Number> data = getSeries(model.getData(), xCol, yCol);
-        scatterChart.getData().add(data);
+        scatterChart.getData().addAll(getAllSeries(model, xCol, yCol));
         return scatterChart;
+    }
+
+    private static Set<XYChart.Series<String, Number>> getAllSeries(MVCModel model, Column xCol, Column yCol) {
+        Set<XYChart.Series<String, Number>> series = new HashSet<>();
+        for (Category category: model.allCategories()) {
+            series.add(getSeries(category, xCol, yCol));
+        }
+        return series;
     }
 
     public ScatterChart scatterChart(MVCModel model) {
         return scatterChart(model, model.defaultXCol(), model.defaultYCol());
     }
 
-    private static XYChart.Series getSeries(Collection<? extends Point> points, Column xCol, Column yCol) {
+    private static XYChart.Series getSeries(IDataset dataset, Column xCol, Column yCol) {
         var data = new XYChart.Series();
-        for (Point point : points) {
+        for (Point point : dataset) {
             data.getData().add(getData(point, xCol, yCol));
         }
         return data;

@@ -28,8 +28,8 @@ public abstract class Point {
         return col.getNormalizedValue(this);
     }
 
-    public String getStringValue(Column xCol) {
-        Object val = getValue(xCol);
+    public String getStringValue(Column col) {
+        Object val = getValue(col);
         if (val != null) return val.toString();
         return null;
     }
