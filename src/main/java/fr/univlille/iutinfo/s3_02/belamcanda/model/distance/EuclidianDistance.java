@@ -1,14 +1,13 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.distance;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
-import java.util.List;
-
 public class EuclidianDistance implements Distance {
-    public double distance(List<Column> columns, Point p1, Point p2) {
+    public double distance(MVCModel model, Point p1, Point p2) {
         double sum = 0;
-        for (Column column: columns) {
+        for (Column column: model.getNormalizableColumns()) {
             sum += Math.pow(column.compare(p1, p2), 2);
         }
         return Math.sqrt(sum);

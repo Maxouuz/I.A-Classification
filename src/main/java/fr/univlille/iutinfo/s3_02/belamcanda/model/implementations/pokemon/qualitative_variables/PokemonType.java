@@ -1,6 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables;
 
 public enum PokemonType {
+	NONE,
 	BUG,
 	DARK,
 	DRAGON,

@@ -24,6 +24,13 @@ public class NormalizableColumn extends Column implements Observer {
     }
 
     @Override
+    public Double compare(Point p1, Point p2) {
+        // TODO: Y'a une loi de demeter (pas très envie de transformer le normalizer en classe abstraite)
+        ColumnComparator comparator = normalizer.getComparator();
+        return comparator.compare(p1.getNormalizedValue(this), p2.getNormalizedValue(this));
+    }
+
+    @Override
     public boolean isNormalizable() {
         return true;
     }

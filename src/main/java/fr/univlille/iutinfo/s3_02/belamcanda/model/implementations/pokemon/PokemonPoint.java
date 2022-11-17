@@ -27,11 +27,16 @@ public class PokemonPoint extends Point {
 	@CsvBindByName(column = "type1")
 	protected PokemonType pokemonType;
 	@CsvBindByName(column = "type2")
-	protected PokemonType pokemonType2;
+	protected PokemonType pokemonType2 = PokemonType.NONE;
 	@CsvBindByName(column = "speed")
 	protected double speed;
 	@CsvBindByName(column = "is_legendary")
 	protected Legendary isLegendary;
+
+	@Override
+	public String toString() {
+		return name;
+	}
 
 	public Object category(){
 		return isLegendary;

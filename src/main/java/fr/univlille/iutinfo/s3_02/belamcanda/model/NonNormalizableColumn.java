@@ -14,6 +14,11 @@ public class NonNormalizableColumn extends Column{
     }
 
     @Override
+    public Double compare(Point p1, Point p2) {
+        return 0.0;
+    }
+
+    @Override
     public boolean isNormalizable() {
         return false;
     }

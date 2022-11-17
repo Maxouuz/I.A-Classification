@@ -1,5 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnComparator;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.NonDrasticComparator;
+
 public class StandardScoreNormalizer implements IValueNormalizer {
     @Override
     public double normalize(Object value, Amplitude amplitude) {
@@ -15,5 +18,10 @@ public class StandardScoreNormalizer implements IValueNormalizer {
     @Override
     public boolean needAmplitude() {
         return true;
+    }
+
+    @Override
+    public ColumnComparator getComparator() {
+        return new NonDrasticComparator();
     }
 }
