@@ -19,6 +19,6 @@ public class TitanicLoader extends SpecifiedLoader<TitanicPoint> {
 
     @Override
     protected MVCModel createModel() {
-        return null;
+        return new TitanicModel();
     }
 }

@@ -36,6 +36,7 @@ public class TheCloud {
     private static XYChart.Data getData(Point point, Column xCol, Column yCol){
         var x = xCol.isNumeric() ? point.getValue(xCol) : point.getStringValue(xCol);
         var y = yCol.isNumeric() ? point.getValue(yCol): point.getStringValue(yCol);
+        System.out.println(x +" ---> " +y);
         return new XYChart.Data<>(x, y);
     }
 

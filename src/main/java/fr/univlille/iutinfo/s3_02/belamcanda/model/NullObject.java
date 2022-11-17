@@ -1,8 +1,28 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
-public class NullObject extends Object{
+public class NullObject extends Number{
     @Override
     public String toString() {
         return "null";
+    }
+
+    @Override
+    public int intValue() {
+        return 0;
+    }
+
+    @Override
+    public long longValue() {
+        return 0;
+    }
+
+    @Override
+    public float floatValue() {
+        return 0;
+    }
+
+    @Override
+    public double doubleValue() {
+        return 0;
     }
 }

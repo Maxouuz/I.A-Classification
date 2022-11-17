@@ -8,6 +8,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.Pokem
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +35,8 @@ public class pourMonsieurClavierPetitCoeur extends Application {
     VBox scatterBox = new VBox();
     VBox root;
 
-    MVCModel model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
+//    MVCModel model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
+    MVCModel model = new TitanicLoader().createModelFromFile(DATA_PATH + "titanic.csv");
 
     public pourMonsieurClavierPetitCoeur() throws IOException {
     }

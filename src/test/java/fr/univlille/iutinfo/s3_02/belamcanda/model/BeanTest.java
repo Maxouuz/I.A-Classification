@@ -4,6 +4,9 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefiniti
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicColumns;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -29,12 +32,21 @@ class BeanTest {
     }
 
     @Test
-    void no_error_should_be_raised_when_requesting_all_columns() throws IOException {
+    void no_error_should_be_raised_when_requesting_all_pokemon_columns() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
         PokemonPoint tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(PokemonColumns.values())) {
             assertDoesNotThrow(() -> tropius.getValue(col));
         }
+    }
 
+    @Test
+    void no_error_should_be_raised_when_requesting_all_titanic_columns() throws IOException {
+        String dataPath = DATA_PATH + "titanic.csv";
+        TitanicPoint titanic = new TitanicLoader().loadFromFile(dataPath).get(0);
+        for (Column col : IColumnDefinition.getColumns(TitanicColumns.values())) {
+            assertDoesNotThrow(() -> titanic.getValue(col));
+            System.out.println(col.getName() +" ---> " + titanic.getValue(col));
+        }
     }
 }
