@@ -24,7 +24,7 @@ public class PokemonPoint extends Point {
 	protected int spAttack;
 	@CsvBindByName(column = "sp_defense")
 	protected int spDefense;
-	@CsvBindByName(column = "type")
+	@CsvBindByName(column = "type1")
 	protected PokemonType pokemonType;
 	@CsvBindByName(column = "type2")
 	protected PokemonType pokemonType2;
