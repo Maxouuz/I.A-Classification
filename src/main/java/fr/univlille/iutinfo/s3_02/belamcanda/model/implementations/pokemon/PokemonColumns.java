@@ -16,8 +16,8 @@ public enum PokemonColumns implements IColumnDefinition {
     HP(new NumberColumn("hp")),
     SP_ATTACK(new NumberColumn("spAttack")),
     SP_DEFENSE(new NumberColumn("spDefense")),
-    TYPE(new NormalizableColumn("type", new PokemonTypeNormalizer())),
-    TYPE_2(new NormalizableColumn("type2", new PokemonTypeNormalizer())),
+    TYPE(new NormalizableColumn("pokemonType", new PokemonTypeNormalizer())),
+    TYPE_2(new NormalizableColumn("pokemonType2", new PokemonTypeNormalizer())),
     SPEED(new NumberColumn("speed")),
     IS_LEGENDARY(new BooleanColumn("isLegendary"));
 
