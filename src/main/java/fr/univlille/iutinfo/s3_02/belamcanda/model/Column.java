@@ -10,7 +10,6 @@ public abstract class Column {
 	protected MVCModel dataset;
 	private final String name;
 	private double weight;
-
 	private ColumnComparator comparator;
 
 	public Double compare(Point p1, Point p2){

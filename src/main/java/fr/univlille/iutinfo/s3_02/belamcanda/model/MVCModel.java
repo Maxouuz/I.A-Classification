@@ -13,14 +13,13 @@ import java.util.*;
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final Set<Point> datas;
 	protected final Column[] columns;
-	protected final Set<ICategory> categories;
-
+	protected final Categories categories;
 
 	protected MVCModel() {
 		this.datas = new HashSet<>();
 		this.columns = getColumns();
 		setDatasetOfColumns();
-		this.categories = new HashSet<>();
+		this.categories = new Categories();
 	}
 
 	private void setDatasetOfColumns() {
@@ -44,17 +43,10 @@ public abstract class MVCModel extends Subject implements IDataset {
 	public abstract Column defaultYCol();
 
 	/**
-	 * Ajoute une Categorie (ou classe) de donnees au model.
-	 */
-	public void addCategory(ICategory classe) {
-		categories.add(classe);
-	}
-
-	/**
 	 * Retourne toutes les categories du modele.
 	 */
-	public Collection<ICategory> allCategories() {
-		return new ArrayList<>(categories);
+	public Collection<Category> allCategories() {
+		return categories.getCategories();
 	}
 
 	/**
@@ -89,6 +81,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 	@Override
 	public void setLines(List<? extends Point> lines) {
 		this.datas.clear();
+		categories.setLines(lines);
 		this.datas.addAll(lines);
 		notifyObservers();
 	}
@@ -96,12 +89,14 @@ public abstract class MVCModel extends Subject implements IDataset {
 	@Override
 	public void addLine(Point element) {
 		this.datas.add(element);
+		categories.addLine(element);
 		notifyObservers(element);
 	}
 
 	@Override
 	public void addAllLine(Collection<? extends Point> element) {
 		this.datas.addAll(element);
+		categories.addAllLine(element);
 		notifyObservers();
 	}
 
