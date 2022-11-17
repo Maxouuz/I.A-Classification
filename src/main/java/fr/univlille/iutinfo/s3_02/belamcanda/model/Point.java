@@ -14,7 +14,9 @@ public abstract class Point {
 
     public Object getValue(Column col) {
         try{
-            return getValueFromString(col.getName());
+            Object val = getValueFromString(col.getName());
+            if (val != null) return val;
+            return new NullObject();
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
@@ -24,5 +26,11 @@ public abstract class Point {
 
     public Double getNormalizedValue(Column col){
         return col.getNormalizedValue(this);
+    }
+
+    public String getStringValue(Column xCol) {
+        Object val = getValue(xCol);
+        if (val != null) return val.toString();
+        return null;
     }
 }

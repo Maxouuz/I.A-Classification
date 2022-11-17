@@ -32,6 +32,7 @@ public abstract class Column {
 	}
 
 	public abstract boolean isNormalizable();
+	public boolean isNumeric(){return false;}
 
 	public void setWeight(Double weight) {
 		this.weight = weight;
@@ -39,5 +40,10 @@ public abstract class Column {
 
 	public double getWeight() {
 		return weight;
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
 	}
 }
