@@ -9,7 +9,7 @@ public class EuclidianDistance implements Distance {
     public double distance(List<Column> columns, Point p1, Point p2) {
         double sum = 0;
         for (Column column: columns) {
-            sum += Math.pow(column.getNormalizedValue(p1) - column.getNormalizedValue(p2), 2);
+            sum += Math.pow(column.compare(p1, p2), 2);
         }
         return Math.sqrt(sum);
     }

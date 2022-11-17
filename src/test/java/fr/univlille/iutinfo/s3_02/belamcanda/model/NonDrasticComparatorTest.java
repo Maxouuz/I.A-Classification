@@ -16,7 +16,7 @@ class NonDrasticComparatorTest {
     }
 
     @Test
-    public void comparaison_between_different_values_can_be_negative() {
-        assertEquals(-3, new NonDrasticComparator().compare(6, 9));
+    public void comparaison_between_different_values_cant_be_negative() {
+        assertEquals(3, new NonDrasticComparator().compare(6, 9));
     }
 }
