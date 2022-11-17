@@ -15,4 +15,9 @@ public class IrisPoint extends Point {
     protected Double petalWidth;
     @CsvBindByName(column = "variety")
     protected IrisVariety variety;
+
+    @Override
+    public Object category() {
+        return variety;
+    }
 }

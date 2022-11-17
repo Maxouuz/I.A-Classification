@@ -23,8 +23,12 @@ public enum PokemonColumns implements IColumnDefinition {
 
     final Column column;
 
-    PokemonColumns(Column column){this.column = column;}
+    PokemonColumns(Column column) {
+        this.column = column;
+    }
 
     @Override
-    public Column getColumn() {      return this.column;    }
+    public Column getColumn() {
+        return this.column;
+    }
 }

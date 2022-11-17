@@ -30,4 +30,9 @@ public class TitanicPoint extends Point {
     protected String cabin;
     @CsvBindByName(column = "Embarked")
     protected Embarked embarked;
+
+    @Override
+    public Object category() {
+        return embarked;
+    }
 }

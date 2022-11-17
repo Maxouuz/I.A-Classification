@@ -9,7 +9,7 @@ public class ManhattanDistance implements Distance {
     public double distance(List<Column> columns, Point p1, Point p2) {
         double sum = 0;
         for (Column column: columns) {
-            sum += Math.abs(column.getNormalizedValue(p1) - column.getNormalizedValue(p2));
+            sum += column.compare(p1, p2);
         }
         return sum;
     }

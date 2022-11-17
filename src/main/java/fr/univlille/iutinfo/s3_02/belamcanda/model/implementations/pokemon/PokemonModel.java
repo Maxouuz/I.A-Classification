@@ -2,6 +2,8 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.NumberColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 
 public class PokemonModel extends MVCModel {
@@ -16,12 +18,12 @@ public class PokemonModel extends MVCModel {
 	}
 
 	@Override
-	public Column defaultXCol() {
-		return PokemonColumns.BASE_EGG_STEPS.getColumn();
+	public NormalizableColumn defaultXCol() {
+		return (NormalizableColumn)PokemonColumns.BASE_EGG_STEPS.getColumn();
 	}
 
 	@Override
-	public Column defaultYCol() {
-		return PokemonColumns.CAPTURE_RATE.getColumn();
+	public NormalizableColumn defaultYCol() {
+		return (NormalizableColumn)PokemonColumns.CAPTURE_RATE.getColumn();
 	}
 }
