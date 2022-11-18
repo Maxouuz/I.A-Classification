@@ -1,7 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.view;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -43,7 +42,7 @@ public class PourMonsieurClavierPetitCoeur extends Application {
         axeX.setOnAction(e -> updateChart(axeX.getValue(), axeY.getValue()));
         axeY.setOnAction(e -> updateChart(axeX.getValue(), axeY.getValue()));
 
-        scatterChart = new TheCloud().scatterChart(model);
+        scatterChart = new TheCloud(this).scatterChart(model);
         scatterBox.getChildren().add(scatterChart);
         VBox root = new VBox(scatterBox, axeX, axeY);
 
@@ -54,7 +53,7 @@ public class PourMonsieurClavierPetitCoeur extends Application {
 
     private void updateChart(Column x, Column y) {
         scatterBox.getChildren().remove(scatterChart);
-        scatterChart = new TheCloud().scatterChart(model, x, y);
+        scatterChart = new TheCloud(this).scatterChart(model, x, y);
         scatterBox.getChildren().add(scatterChart);
     }
 
@@ -63,4 +62,7 @@ public class PourMonsieurClavierPetitCoeur extends Application {
         launch();
     }
 
+    public void updatePointInfo(Point point) {
+
+    }
 }
