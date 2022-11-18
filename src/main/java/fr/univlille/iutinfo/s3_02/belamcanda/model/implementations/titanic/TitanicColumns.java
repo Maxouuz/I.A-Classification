@@ -1,6 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
+import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 
 public enum TitanicColumns implements IColumnDefinition {
@@ -8,21 +10,21 @@ public enum TitanicColumns implements IColumnDefinition {
      * mais je trouver que ça n'aurait sens
      */
     PASSENGER_ID(new NonNormalizableColumn("passengerId")),
-    SURVIVED(new BooleanColumn("survived")),
-    PCLASS(new NumberColumn("pClass")),
+    SURVIVED(ColumnFactory.booleanColumn("survived")),
+    PCLASS(ColumnFactory.numberColumn("pClass")),
     NAME(new NonNormalizableColumn("name")),
     /* TODO vérifier si boolean est correcte pour sex */
-    SEX(new BooleanColumn("sex")),
-    AGE(new NumberColumn("age")),
-    SIBSP(new NumberColumn("sibSp")),
-    PARCH(new NumberColumn("parch")),
+    SEX(ColumnFactory.booleanColumn("sex")),
+    AGE(ColumnFactory.numberColumn("age")),
+    SIBSP(ColumnFactory.numberColumn("sibSp")),
+    PARCH(ColumnFactory.numberColumn("parch")),
     TICKET(new NonNormalizableColumn("ticket")),
-    FARE(new NumberColumn("fare")),
+    FARE(ColumnFactory.numberColumn("fare")),
     CABIN(new NonNormalizableColumn("cabin")),
     /* TODO vérifier si il peut etre normaliser */
     EMBARKED(new NonNormalizableColumn("embarked"));
 
-    final Column column;
+    private final Column column;
 
     TitanicColumns(Column column) {
         this.column = column;
