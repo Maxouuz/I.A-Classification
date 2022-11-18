@@ -5,6 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.Titan
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.control.ComboBox;
@@ -44,7 +45,10 @@ public class PourMonsieurClavierPetitCoeur extends Application {
 
         scatterChart = new TheCloud(this).scatterChart(model);
         scatterBox.getChildren().add(scatterChart);
-        VBox root = new VBox(scatterBox, axeX, axeY);
+
+        Node tab = new PointRecap(model.getData().iterator().next(), model);
+        VBox root = new VBox(scatterBox, axeX, axeY, tab);
+
 
         Scene scene = new Scene(root, DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
         stage.setScene(scene);
