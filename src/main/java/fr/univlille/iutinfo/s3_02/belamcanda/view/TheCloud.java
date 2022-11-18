@@ -43,17 +43,15 @@ public class TheCloud {
     private static XYChart.Data getData(Point point, Column xCol, Column yCol){
         var x = xCol.isNumeric() ? point.getValue(xCol) : point.getStringValue(xCol);
         var y = yCol.isNumeric() ? point.getValue(yCol): point.getStringValue(yCol);
-        System.out.println(x +" ---> " +y);
         return new XYChart.Data<>(x, y);
     }
 
 
     private NumberAxis getNumberAxis(NumberColumn col) {
         String name = col.getName();
-        int min = (int) Math.floor(col.min());
-        int max = (int) Math.ceil(col.max());
-        int tick = (max - min) / 10;
-        return new NumberAxis(name, min, max, tick);
+        NumberAxis res = new NumberAxis();
+        res.setLabel(name);
+        return res;
     }
 
     private CategoryAxis getStringAxis(Column col){
