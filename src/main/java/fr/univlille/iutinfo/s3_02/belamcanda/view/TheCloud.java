@@ -11,6 +11,7 @@ public class TheCloud {
     public ScatterChart<?, ?> scatterChart(MVCModel model, Column xCol, Column yCol){
         var scatterChart = new ScatterChart(getAxis(xCol), getAxis(yCol));
         scatterChart.getData().addAll(getAllSeries(model, xCol, yCol));
+        scatterChart.setTitle(model.getTitle());
         return scatterChart;
     }
 
