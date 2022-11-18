@@ -13,6 +13,7 @@ import java.util.*;
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final Set<Point> data;
 	protected final Column[] columns;
+
 	protected final Categories categories;
 
 	protected MVCModel() {
@@ -32,7 +33,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 	}
 
 	public abstract Column[] getColumns();
-
+	public List<Column> getColumnList(){return Arrays.asList(getColumns());}
 	/**
 	 * Retourne la colonne à utiliser par defaut pour l'axe des X lors de
 	 * l'affichage du nuage de points.
