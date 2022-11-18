@@ -58,7 +58,7 @@ public class pourMonsieurClavierPetitCoeur extends Application {
         axeY.setOnAction(e -> updateChart(axeX.getValue(), axeY.getValue()));
 
 
-        scatterChart = new TheCloud().scatterChart(model);
+        scatterChart = new TheCloud(this).scatterChart(model);
         scatterBox.getChildren().add(scatterChart);
         root = new VBox(scatterBox, axeX, axeY);
 
@@ -71,7 +71,7 @@ public class pourMonsieurClavierPetitCoeur extends Application {
 
     private void updateChart(Column x, Column y) {
         scatterBox.getChildren().remove(scatterChart);
-        scatterChart = new TheCloud().scatterChart(model, x, y);
+        scatterChart = new TheCloud(this).scatterChart(model, x, y);
         scatterBox.getChildren().add(scatterChart);
     }
 
@@ -80,4 +80,7 @@ public class pourMonsieurClavierPetitCoeur extends Application {
         launch();
     }
 
+    public void updatePointInfo(Point point) {
+
+    }
 }

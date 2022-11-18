@@ -3,18 +3,25 @@ package fr.univlille.iutinfo.s3_02.belamcanda.view;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
 import javafx.scene.chart.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.util.Duration;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class TheCloud {
+    pourMonsieurClavierPetitCoeur thomas;
+
+    public TheCloud(pourMonsieurClavierPetitCoeur thomas){this.thomas = thomas;}
+
     public ScatterChart scatterChart(MVCModel model, Column xCol, Column yCol){
         var scatterChart = new ScatterChart(getAxis(xCol), getAxis(yCol));
         scatterChart.getData().addAll(getAllSeries(model, xCol, yCol));
         return scatterChart;
     }
 
-    private static Set<XYChart.Series<String, Number>> getAllSeries(MVCModel model, Column xCol, Column yCol) {
+    private Set<XYChart.Series<String, Number>> getAllSeries(MVCModel model, Column xCol, Column yCol) {
         Set<XYChart.Series<String, Number>> series = new HashSet<>();
         for (Category category: model.allCategories()) {
             series.add(getSeries(category, xCol, yCol));
@@ -26,7 +33,7 @@ public class TheCloud {
         return scatterChart(model, model.defaultXCol(), model.defaultYCol());
     }
 
-    private static XYChart.Series getSeries(IDataset dataset, Column xCol, Column yCol) {
+    private XYChart.Series getSeries(IDataset dataset, Column xCol, Column yCol) {
         var data = new XYChart.Series();
         data.nameProperty().setValue(dataset.getTitle());
         for (Point point : dataset) {
@@ -40,11 +47,23 @@ public class TheCloud {
         return getStringAxis(col);
     }
 
-    private static XYChart.Data getData(Point point, Column xCol, Column yCol){
+    private XYChart.Data getData(Point point, Column xCol, Column yCol){
         var x = xCol.isNumeric() ? point.getValue(xCol) : point.getStringValue(xCol);
         var y = yCol.isNumeric() ? point.getValue(yCol): point.getStringValue(yCol);
-        return new XYChart.Data<>(x, y);
+        XYChart.Data res = new XYChart.Data<>(x, y);
+        res.setNode(button(thomas, point));
+        return res;
     }
+
+    private Button button(pourMonsieurClavierPetitCoeur thomas, Point point){
+        Button bt = new Button();
+        Tooltip tip = new Tooltip(point.category().toString());
+        tip.setShowDelay(Duration.millis(75));
+        Tooltip.install(bt, tip);
+        bt.setOnAction(e -> thomas.updatePointInfo(point));
+        return bt;
+    }
+
 
 
     private NumberAxis getNumberAxis(NumberColumn col) {

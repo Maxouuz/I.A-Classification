@@ -1,7 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
-
 import java.lang.reflect.Field;
 
 public abstract class Point {
