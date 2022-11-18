@@ -36,7 +36,7 @@ public class TheCloud {
     }
 
     private Axis getAxis(Column col) {
-        if (col.isNumeric()) return getNumberAxis((NumberColumn) col);
+        if (col.isNumeric()) return getNumberAxis(col);
         return getStringAxis(col);
     }
 
@@ -47,7 +47,7 @@ public class TheCloud {
     }
 
 
-    private NumberAxis getNumberAxis(NumberColumn col) {
+    private NumberAxis getNumberAxis(Column col) {
         String name = col.getName();
         NumberAxis res = new NumberAxis();
         res.setLabel(name);
