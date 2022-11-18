@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class TheCloud {
-    public ScatterChart scatterChart(MVCModel model, Column xCol, Column yCol){
+    public ScatterChart<?, ?> scatterChart(MVCModel model, Column xCol, Column yCol){
         var scatterChart = new ScatterChart(getAxis(xCol), getAxis(yCol));
         scatterChart.getData().addAll(getAllSeries(model, xCol, yCol));
         return scatterChart;
