@@ -1,50 +1,31 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.distance;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestEuclidianDistance {
     static double DELTA = 0.005;
+    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
-    @BeforeAll
-    public static void init_points(){
-        
-    } 
-/**
+
     @Test
-    @Disabled
-    public void object_one_unit_away_should_be_at_distance_one() {
-        TempObject o0 = new TempObject(0, 0, 0, 0);
-        TempObject o1 = new TempObject(1, 0, 0, 0);
-        TempObject o2 = new TempObject(0, 1, 0, 0);
-        TempObject o3 = new TempObject(0, 0, 1, 0);
-        TempObject o4 = new TempObject(0, 0, 0, 1);
-        
-        assertEquals(1, new EuclidianDistance().distance(o0, o1, null), DELTA);
-        assertEquals(1, new EuclidianDistance().distance(o0, o2, null), DELTA);
-        assertEquals(1, new EuclidianDistance().distance(o0, o3, null), DELTA);
-        assertEquals(1, new EuclidianDistance().distance(o0, o4, null), DELTA);
+    void two_identical_points_are_equal_to_zero() throws IOException {
+        String dataPath = DATA_PATH + "iris.csv";
+
+        IrisPoint point1 = new IrisPoint(1., 1., 1., 1., IrisVariety.SETOSA);
+        IrisPoint point1Bis = new IrisPoint(1., 1., 1., 1., IrisVariety.SETOSA);
+
+        EuclidianDistance euclid = new EuclidianDistance();
+        IrisLoader load = new IrisLoader();
+        assertEquals(0., euclid.distance(load.createModelFromFile(dataPath), point1, point1Bis));
     }
-
-    @Test
-    public void object_with_weighted_distance() {
-        Map<String, Double> weights = new HashMap<>();
-        weights.put("Tennis", 0.);
-        weights.put("Foot", .5);
-        weights.put("Ping", 1.);
-        weights.put("Golf", 2.);
-
-
-        TempObject o0 = new TempObject(0, 0, 0, 0);
-        TempObject o1 = new TempObject(1, 0, 0, 0);
-        TempObject o2 = new TempObject(0, 1, 0, 0);
-        TempObject o3 = new TempObject(0, 0, 1, 0);
-        TempObject o4 = new TempObject(0, 0, 0, 1);
-        TempObject o5 = new TempObject(1, 1, 1, 1);
-        
-        assertEquals(0, new EuclidianDistance().distance(o0, o1, weights), DELTA);
-        assertEquals(.5, new EuclidianDistance().distance(o0, o2, weights), DELTA);
-        assertEquals(1, new EuclidianDistance().distance(o0, o3, weights), DELTA);
-        assertEquals(2, new EuclidianDistance().distance(o0, o4, weights), DELTA);
-        assertEquals(0 + .5 + 1 + 2, new EuclidianDistance().distance(o0, o5, weights), DELTA);
-    }*/
 }
