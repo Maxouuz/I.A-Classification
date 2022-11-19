@@ -26,4 +26,6 @@ class TitanicLoaderTest {
         assertEquals("Dooley, Mr. Patrick", dernier.getValueFromString("name"));
         assertEquals(Embarked.Q, dernier.getValueFromString("embarked"));
     }
+
+
 }

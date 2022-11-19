@@ -35,4 +35,21 @@ public class TitanicPoint extends Point {
     public Object category() {
         return embarked;
     }
+
+    public TitanicPoint(){}
+
+    public TitanicPoint(Integer passengerId, Boolean survived, int pClass, String name, Gender sex, Double age, int sibSp, int parch, String ticket, Double fare, String cabin, Embarked embarked){
+        this.passengerId = passengerId;
+        this.survived = survived;
+        this.pClass = pClass;
+        this.name = name;
+        this.sex = sex;
+        this.age = age;
+        this.sibSp = sibSp;
+        this.parch = parch;
+        this.ticket = ticket;
+        this.fare = fare;
+        this.cabin = cabin;
+        this.embarked = embarked;
+    }
 }
