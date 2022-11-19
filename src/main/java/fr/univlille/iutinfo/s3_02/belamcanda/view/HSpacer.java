@@ -8,4 +8,7 @@ public class HSpacer extends Region {
     public HSpacer(){
         HBox.setHgrow(this, Priority.ALWAYS);
     }
+    public HSpacer(double width){
+        this.setWidth(width);
+    }
 }

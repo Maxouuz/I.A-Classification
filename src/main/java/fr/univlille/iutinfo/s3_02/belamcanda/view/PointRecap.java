@@ -8,11 +8,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class PointRecap extends VBox {
+    Point point;
 
-    public PointRecap(Point point, MVCModel model){
+    public PointRecap(Point point, Column[] columns){
+        this.point = point;
         Label attr;
         Label value;
-        for (Column col : model.getColumnList()){
+        for (Column col : columns){
             attr = new Label(col.getName());
             value = new Label(point.getStringValue(col));
             getChildren().add(new HBox(attr, new HSpacer(), value));

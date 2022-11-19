@@ -34,6 +34,9 @@ public class NormalizableColumn extends Column implements Observer {
     public boolean isNormalizable() {
         return true;
     }
+    public boolean isNumeric() {
+        return  normalizer.needAmplitude();
+    }
 
     @Override
     public void setDataset(MVCModel dataset) {
