@@ -4,12 +4,12 @@ import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 
-public enum IrisColumns implements IColumnDefinition{
+public enum IrisColumns implements IColumnDefinition {
     SEPAL_LENGTH(ColumnFactory.numberColumn("sepalLength")),
     SEPAL_WIDTH(ColumnFactory.numberColumn("sepalWidth")),
     PETAL_LENGTH(ColumnFactory.numberColumn("petalLength")),
     PETAL_WIDTH(ColumnFactory.numberColumn("petalWidth")),
-    VARIETY(new NonNormalizableColumn("Variety"));
+    VARIETY(new NonNormalizableColumn("variety"));
 
     final Column column;
 
@@ -21,5 +21,7 @@ public enum IrisColumns implements IColumnDefinition{
     public Column getColumn() {
         return this.column;
     }
+
+
 }
 

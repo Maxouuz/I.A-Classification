@@ -8,7 +8,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefiniti
 public class IrisModel extends MVCModel {
 	@Override
 	public String getTitle() {
-		return "Pokémon";
+		return "Iris";
 	}
 
 	@Override

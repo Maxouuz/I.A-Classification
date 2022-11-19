@@ -19,6 +19,6 @@ public class IrisLoader extends SpecifiedLoader<IrisPoint> {
 
     @Override
     protected MVCModel createModel() {
-        return null;
+        return new IrisModel();
     }
 }
