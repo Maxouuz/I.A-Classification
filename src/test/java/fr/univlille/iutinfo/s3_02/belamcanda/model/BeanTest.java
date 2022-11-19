@@ -46,7 +46,6 @@ class BeanTest {
         TitanicPoint titanic = new TitanicLoader().loadFromFile(dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(TitanicColumns.values())) {
             assertDoesNotThrow(() -> titanic.getValue(col));
-            System.out.println(col.getName() +" ---> " + titanic.getValue(col));
         }
     }
 }
