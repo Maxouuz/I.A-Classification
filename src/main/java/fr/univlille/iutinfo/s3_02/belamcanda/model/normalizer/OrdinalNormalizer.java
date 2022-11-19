@@ -4,13 +4,15 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnComparator;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.DrasticComparator;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 
-public abstract class OrdinalNormalizer implements IValueNormalizer {
+public class OrdinalNormalizer<T extends Enum> implements IValueNormalizer {
     @Override
-    public abstract double normalize(Object value, Amplitude amplitude);
+    public double normalize(Object value, Amplitude amplitude) {
+        T type = (T) value;
+        Class<? extends Enum> clazz = type.getClass();
+        return (type.ordinal() * 1.0) / (clazz.getEnumConstants().length - 1);
 
-    protected double normalize(double ordinal, int enumLength){
-        return ordinal / (enumLength - 1);
     }
+
 
     @Override
     public boolean isNull() {

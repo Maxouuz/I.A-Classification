@@ -5,6 +5,8 @@ import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.OrdinalNormalizer;
 
@@ -18,10 +20,10 @@ public enum PokemonColumns implements IColumnDefinition {
     HP(ColumnFactory.numberColumn("hp")),
     SP_ATTACK(ColumnFactory.numberColumn("spAttack")),
     SP_DEFENSE(ColumnFactory.numberColumn("spDefense")),
-    TYPE(new NormalizableColumn("pokemonType", new PokemonTypeNormalizer())),
-    TYPE_2(new NormalizableColumn("pokemonType2", new PokemonTypeNormalizer())),
+    TYPE(new NormalizableColumn("pokemonType", new OrdinalNormalizer<PokemonType>())),
+    TYPE_2(new NormalizableColumn("pokemonType2", new OrdinalNormalizer<PokemonType>())),
     SPEED(ColumnFactory.numberColumn("speed")),
-    IS_LEGENDARY(new NormalizableColumn("isLegendary", new LegendaryNormalizer()));
+    IS_LEGENDARY(new NormalizableColumn("isLegendary", new OrdinalNormalizer<Legendary>()));
 
     private final Column column;
 
