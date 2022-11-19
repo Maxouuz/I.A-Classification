@@ -22,9 +22,7 @@ public class TestManhattanDistance {
         IrisPoint point1 = new IrisPoint(1., 1., 1., 1., IrisVariety.SETOSA);
         IrisPoint point1Bis = new IrisPoint(1., 1., 1., 1., IrisVariety.SETOSA);
 
-        ManhattanDistance manhattan = new ManhattanDistance();
-        IrisLoader load = new IrisLoader();
-        assertEquals(0., manhattan.distance(load.createModelFromFile(dataPath), point1, point1Bis));
+        assertEquals(0., new ManhattanDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point1Bis));
     }
 
     @Test
@@ -35,10 +33,9 @@ public class TestManhattanDistance {
         IrisPoint point2 = new IrisPoint(0., 0., 0., 0., IrisVariety.VIRGINICA);
         IrisPoint point3 = new IrisPoint(1., 1., 1., 0.9, IrisVariety.SETOSA);
 
-        ManhattanDistance manhattan = new ManhattanDistance();
-        IrisLoader load = new IrisLoader();
-        assertEquals(1.2806026365348397, manhattan.distance(load.createModelFromFile(dataPath), point1, point2));
-        assertEquals(0.04166666666666663, manhattan.distance(load.createModelFromFile(dataPath), point1, point3));
+        assertEquals(1.2806026365348397, new ManhattanDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point2));
+        assertEquals(0.04166666666666663, new ManhattanDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point3));
+
 
     }
 }
