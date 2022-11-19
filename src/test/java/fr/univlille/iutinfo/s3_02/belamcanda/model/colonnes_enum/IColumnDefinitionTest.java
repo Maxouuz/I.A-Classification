@@ -10,10 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class IColumnDefinitionTest {
-    // TODO IMPLEMENTER LES NORMALISEURS AVANT DE PASSER LES TEST
 
     @Test
-    public void column_attributes_should_be_singletons(){
+    public void column_attributes_should_be_predefined_columns(){
         IColumnDefinition[] columnDefinitions = PokemonColumns.values();
         ArrayList<Column> columns = new ArrayList<>();
 
@@ -23,7 +22,7 @@ class IColumnDefinitionTest {
 
         int i =0;
         for (Column col : columns){
-            assertEquals(col, PokemonColumns.values()[i++].getColumn());
+            assertEquals(col.getName(), PokemonColumns.values()[i++].getColumn().getName());
         }
     }
 
