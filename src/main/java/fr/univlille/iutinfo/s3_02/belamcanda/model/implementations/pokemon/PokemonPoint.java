@@ -33,10 +33,6 @@ public class PokemonPoint extends Point {
 	@CsvBindByName(column = "is_legendary")
 	protected Legendary isLegendary;
 
-	@Override
-	public String toString() {
-		return name;
-	}
 
 	public Object category(){
 		return isLegendary;
