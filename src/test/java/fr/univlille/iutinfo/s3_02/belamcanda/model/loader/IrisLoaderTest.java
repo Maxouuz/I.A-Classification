@@ -25,4 +25,11 @@ class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + 
         assertEquals(5.9, dernier.getValueFromString("sepalLength"));
         assertEquals(IrisVariety.VIRGINICA, dernier.getValueFromString("variety"));
     }
+
+    @Test
+    void data_format_validator_checks_if_file_is_valid(){
+        /** TODO Implémenter la fonctionnalité si on a le temps*/
+        String dataPath = DATA_PATH + "iris.csv";
+        assertTrue(new IrisLoader().dataIsValid(dataPath));
+    }
 }
