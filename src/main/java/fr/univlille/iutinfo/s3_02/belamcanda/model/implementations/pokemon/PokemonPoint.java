@@ -37,4 +37,22 @@ public class PokemonPoint extends Point {
 	public Object category(){
 		return isLegendary;
 	}
+
+	public PokemonPoint(){}
+
+	public PokemonPoint(String name, int attack, int baseEggSteps, double captureRate, int defense, int experienceGrowth, int hp, int spAttack, int spDefense, PokemonType pokemonType, PokemonType pokemonType2, double speed, Legendary isLegendary){
+	this.name = name;
+	this.attack = attack;
+	this.baseEggSteps = baseEggSteps;
+	this.captureRate = captureRate;
+	this.defense = defense;
+	this.experienceGrowth = experienceGrowth;
+	this.hp = hp;
+	this.spAttack = spAttack;
+	this.spDefense = spDefense;
+	this.pokemonType = pokemonType;
+	this.pokemonType2 = pokemonType2;
+	this.speed = speed;
+	this.isLegendary = isLegendary;
+	}
 }
