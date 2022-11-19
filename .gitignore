@@ -4,3 +4,4 @@ target
 .project
 .settings
 .idea
+/test_coverage_report/*

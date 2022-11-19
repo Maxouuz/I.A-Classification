@@ -5,6 +5,8 @@ import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.OrdinalNormalizer;
 
 public enum PokemonColumns implements IColumnDefinition {
     NAME(new NonNormalizableColumn("name")),
