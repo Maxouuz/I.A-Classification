@@ -20,4 +20,14 @@ public class IrisPoint extends Point {
     public Object category() {
         return variety;
     }
+
+    public IrisPoint(){}
+
+    public IrisPoint(Double sepalLength, Double sepalWidth, Double petalLength, Double petalWidth, IrisVariety variety ){
+        this.sepalLength = sepalLength;
+        this.sepalWidth = sepalWidth;
+        this.petalLength = petalLength;
+        this.petalWidth = petalWidth;
+        this.variety = variety;
+    }
 }
