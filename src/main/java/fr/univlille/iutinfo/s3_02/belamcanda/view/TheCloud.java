@@ -11,9 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class TheCloud {
-    MVCView thomas;
+    MainController thomas;
 
-    public TheCloud(MVCView thomas){this.thomas = thomas;}
+    public TheCloud(MainController thomas){this.thomas = thomas;}
 
     public ScatterChart scatterChart(MVCModel model, Column xCol, Column yCol){
         var scatterChart = new ScatterChart(getAxis(xCol), getAxis(yCol));
@@ -56,7 +56,7 @@ public class TheCloud {
         return res;
     }
 
-    private Button button(MVCView thomas, Point point){
+    private Button button(MainController thomas, Point point){
         Button bt = new Button();
         Tooltip tip = new Tooltip(point.category().toString());
         tip.setShowDelay(Duration.millis(75));
@@ -68,7 +68,6 @@ public class TheCloud {
 
 
     private NumberAxis getNumberAxis(Column col) {
-        System.out.println("NUMBERSSS");
         String name = col.getName();
         NumberAxis res = new NumberAxis();
         res.setLabel(name);
