@@ -38,7 +38,7 @@ public class TitanicPoint extends Point {
 
     public TitanicPoint(){}
 
-    public TitanicPoint(Integer passengerId, Boolean survived, int pClass, String name, Gender sex, Double age, int sibSp, int parch, String ticket, Double fare, String cabin, Embarked embarked){
+    /**public TitanicPoint(Integer passengerId, Boolean survived, int pClass, String name, Gender sex, Double age, int sibSp, int parch, String ticket, Double fare, String cabin, Embarked embarked){
         this.passengerId = passengerId;
         this.survived = survived;
         this.pClass = pClass;
@@ -51,5 +51,5 @@ public class TitanicPoint extends Point {
         this.fare = fare;
         this.cabin = cabin;
         this.embarked = embarked;
-    }
+    }*/
 }
