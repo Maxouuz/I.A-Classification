@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.qualitative_variables.Embarked;
@@ -27,5 +28,10 @@ class TitanicLoaderTest {
         assertEquals(Embarked.Q, dernier.getValueFromString("embarked"));
     }
 
-
+    @Test
+    void data_format_validator_checks_if_file_is_valid(){
+        // TODO : Implémenter la fonctionnalité
+        String dataPath = DATA_PATH + "titanic.csv";
+        assertTrue(new TitanicLoader().dataIsValid(dataPath));
+    }
 }
