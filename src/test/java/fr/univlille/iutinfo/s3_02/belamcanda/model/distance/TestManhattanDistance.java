@@ -33,7 +33,7 @@ public class TestManhattanDistance {
         IrisPoint point2 = new IrisPoint(0., 0., 0., 0., IrisVariety.VIRGINICA);
         IrisPoint point3 = new IrisPoint(1., 1., 1., 0.9, IrisVariety.SETOSA);
 
-        assertEquals(1.2806026365348397, new ManhattanDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point2));
+        assertEquals(2.28060263653484, new ManhattanDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point2));
         assertEquals(0.04166666666666663, new ManhattanDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point3));
 
 

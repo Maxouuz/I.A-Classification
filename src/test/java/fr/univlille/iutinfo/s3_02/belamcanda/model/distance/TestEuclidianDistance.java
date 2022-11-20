@@ -36,6 +36,6 @@ public class TestEuclidianDistance {
         IrisPoint point3 = new IrisPoint(1., 1., 1., 0.9, IrisVariety.SETOSA);
 
         assertEquals(0.04166666666666663, new EuclidianDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point3));
-        assertEquals(0.6731345283372746, new EuclidianDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point2));
+        assertEquals(1.20545016207218, new EuclidianDistance().distance(new IrisLoader().createModelFromFile(dataPath), point1, point2));
     }
 }
