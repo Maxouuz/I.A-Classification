@@ -13,13 +13,18 @@ public class TitanicModelTest {
     private MVCModel model;
 
     @BeforeEach
-    public void initialization() throws IOException {
+    void initialization() throws IOException {
         final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
         model = new TitanicLoader().createModelFromFile(DATA_PATH + "titanic.csv");
     }
 
     @Test
-    public void titanic_title_should_be_Titanic() {
+    void titanic_title_should_be_Titanic() {
         assertEquals("Titanic", model.getTitle());
+    }
+
+    @Test
+    void titanic_default_x_col_is_survived(){
+        assertEquals(TitanicColumns.SURVIVED.getColumn(), model.defaultXCol());
     }
 }
