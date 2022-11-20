@@ -27,4 +27,9 @@ public class TitanicModelTest {
     void titanic_default_x_col_is_survived(){
         assertEquals(TitanicColumns.SURVIVED.getColumn(), model.defaultXCol());
     }
+
+    @Test
+    void titanic_default_y_col_is_age(){
+        assertEquals(TitanicColumns.AGE.getColumn(), model.defaultYCol());
+    }
 }
