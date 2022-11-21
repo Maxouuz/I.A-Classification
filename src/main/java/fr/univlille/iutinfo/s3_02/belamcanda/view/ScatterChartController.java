@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ScatterChartController {
-    MainController thomas;
+    MainController mainController;
     @FXML private VBox scatterChart;
     @FXML private ScatterChart chart;
 
@@ -44,7 +44,7 @@ public class ScatterChartController {
         var x = xCol.isNumeric() ? point.getValue(xCol) : point.getStringValue(xCol);
         var y = yCol.isNumeric() ? point.getValue(yCol): point.getStringValue(yCol);
         XYChart.Data res = new XYChart.Data<>(x, y);
-        res.setNode(button(thomas, point));
+        res.setNode(button(mainController, point));
         return res;
     }
 
@@ -56,8 +56,6 @@ public class ScatterChartController {
         bt.setOnAction(e -> thomas.setPointDescription(point));
         return bt;
     }
-
-
 
     private NumberAxis getNumberAxis(Column col) {
         String name = col.getName();
@@ -73,14 +71,13 @@ public class ScatterChartController {
         return res;
     }
 
-
     public void injectMainController(MainController mainController) {
-        this.thomas = mainController;
+        this.mainController = mainController;
     }
 
     public void setAxis(Column xCol, Column yCol) {
         chart = new ScatterChart(getAxis(xCol), getAxis(yCol));
-        MVCModel model = thomas.getModel();
+        MVCModel model = mainController.getModel();
         chart.getData().addAll(getAllSeries(model, xCol, yCol));
         chart.setTitle(model.getTitle());
         updateNewChart();
