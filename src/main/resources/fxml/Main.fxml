@@ -35,7 +35,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
@@ -126,34 +125,7 @@
                     <panes>
                       <TitledPane animated="false" text="Graphique">
                            <content>
-                              <VBox>
-                                 <children>
-                                    <GridPane hgap="10.0" minHeight="-Infinity">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="NEVER" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <Label text="X:" />
-                                          <Label text="Y:" GridPane.rowIndex="1" />
-                                          <ChoiceBox maxWidth="1.7976931348623157E308" minHeight="-Infinity" GridPane.columnIndex="1" fx:id="xColCB">
-                                             <opaqueInsets>
-                                                <Insets />
-                                             </opaqueInsets>
-                                          </ChoiceBox>
-                                          <ChoiceBox fx:id="yColCB" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                             <opaqueInsets>
-                                                <Insets />
-                                             </opaqueInsets>
-                                          </ChoiceBox>
-                                       </children>
-                                    </GridPane>
-                                 </children>
-                              </VBox>
+                              <fx:include fx:id="axisChoiceBox" source="AxisChoiceBox.fxml" />
                            </content>
                       </TitledPane>
                     </panes>

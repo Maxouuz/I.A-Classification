@@ -83,7 +83,10 @@ public class ScatterChartController {
         MVCModel model = thomas.getModel();
         chart.getData().addAll(getAllSeries(model, xCol, yCol));
         chart.setTitle(model.getTitle());
+        updateNewChart();
+    }
 
+    private void updateNewChart() {
         VBox.setVgrow(chart, Priority.ALWAYS);
         scatterChart.getChildren().set(0, chart);
     }
