@@ -8,7 +8,7 @@ public class ManhattanDistance implements Distance {
     public double distance(MVCModel model, Point p1, Point p2) {
         double sum = 0;
         for (Column column: model.getNormalizableColumns()) {
-            sum += column.compare(p1, p2);
+            sum += column.compare(p1, p2) * column.getWeight();
         }
         return sum;
     }
