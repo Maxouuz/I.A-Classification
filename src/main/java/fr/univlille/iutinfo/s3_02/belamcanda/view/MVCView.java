@@ -6,19 +6,22 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 public class MVCView extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        URL url = new File("src/main/resources/fxml/Main.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
+        Parent root = getParent();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private Parent getParent() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Main.fxml"));
+        return loader.load();
     }
 
     public static void main(String[] args) {
