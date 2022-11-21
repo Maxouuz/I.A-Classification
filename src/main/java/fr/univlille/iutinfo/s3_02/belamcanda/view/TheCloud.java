@@ -61,7 +61,7 @@ public class TheCloud {
         Tooltip tip = new Tooltip(point.category().toString());
         tip.setShowDelay(Duration.millis(75));
         Tooltip.install(bt, tip);
-        bt.setOnAction(e -> thomas.updatePointInfo(point));
+        bt.setOnAction(e -> thomas.setPointDescription(point));
         return bt;
     }
 

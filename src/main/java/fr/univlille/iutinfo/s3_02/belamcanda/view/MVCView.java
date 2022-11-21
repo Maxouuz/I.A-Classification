@@ -1,7 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.view;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,7 +13,7 @@ import java.net.URL;
 public class MVCView extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        URL url = new File("src/main/resources/fxml/main.fxml").toURI().toURL();
+        URL url = new File("src/main/resources/fxml/Main.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
 
         Scene scene = new Scene(root);
