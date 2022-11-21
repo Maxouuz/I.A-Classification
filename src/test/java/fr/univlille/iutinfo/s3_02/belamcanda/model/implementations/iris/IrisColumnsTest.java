@@ -1,7 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

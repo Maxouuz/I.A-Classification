@@ -1,7 +1,5 @@
-package fr.univlille.iutinfo.s3_02.belamcanda;
+package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.BooleanNormalizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.NumberNormalizer;
 

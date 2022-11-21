@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;

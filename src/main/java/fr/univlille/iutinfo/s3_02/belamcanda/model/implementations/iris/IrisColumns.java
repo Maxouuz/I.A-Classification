@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.ColumnFactory;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
