@@ -16,6 +16,7 @@ public class MainController {
     @FXML private PointInfoController pointInfoTabController;
     @FXML private ScatterChartController scatterChartController;
     @FXML private AxisChoiceBoxController axisChoiceBoxController;
+    @FXML private CategorizerSettingsController categorizerSettingsController;
     MVCModel model;
     @FXML private Font x3;
     @FXML private Color x4;
