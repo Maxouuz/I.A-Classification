@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="axisChoiceBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.AxisChoiceBoxController">
+<VBox fx:id="axisChoiceBox" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.AxisChoiceBoxController">
    <children>
       <GridPane hgap="10.0" minHeight="-Infinity">
          <columnConstraints>

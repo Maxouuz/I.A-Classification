@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="trainingData" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.TrainingDataController">
+<VBox fx:id="trainingData" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.TrainingDataController">
    <children>
       <GridPane hgap="10.0">
          <columnConstraints>

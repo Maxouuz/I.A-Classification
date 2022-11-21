@@ -1,4 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.view;
+package fr.univlille.iutinfo.s3_02.belamcanda.view.controller;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;

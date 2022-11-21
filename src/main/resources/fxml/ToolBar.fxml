@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToolBar?>
 
-<ToolBar fx:id="toolBar" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.ToolBarController">
+<ToolBar fx:id="toolBar" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.ToolBarController">
    <items>
       <Button mnemonicParsing="false" text="Générer un modèle" />
       <Button mnemonicParsing="false" text="Ajouter un point" />
