@@ -13,10 +13,11 @@ import java.io.IOException;
 
 public class MainController {
     private static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
-    @FXML private PointInfoController pointInfoTabController;
+    @FXML private PointInfoController pointInfoController;
     @FXML private ScatterChartController scatterChartController;
     @FXML private AxisChoiceBoxController axisChoiceBoxController;
     @FXML private CategorizerSettingsController categorizerSettingsController;
+    @FXML private TrainingDataController trainingDataController;
     MVCModel model;
     @FXML private Font x3;
     @FXML private Color x4;
@@ -36,7 +37,7 @@ public class MainController {
     }
 
     public void setPointDescription(Point point) {
-        pointInfoTabController.setPointDescription(point, model.getColumns());
+        pointInfoController.setPointDescription(point, model.getColumns());
     }
 
     public MVCModel getModel() {
