@@ -5,9 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import javafx.fxml.FXML;
-import javafx.scene.chart.ScatterChart;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -19,9 +17,8 @@ public class MainController {
     @FXML private Color x4;
     @FXML private ChoiceBox<Column> xColCB;
     @FXML private ChoiceBox<Column> yColCB;
-    @FXML private VBox chartContainer;
-    @FXML private ScatterChart<?, ?> chart;
     @FXML private PointInfoController pointInfoTabController;
+    @FXML private ScatterChartController scatterChartController;
     MVCModel model;
     private static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
 
@@ -30,7 +27,7 @@ public class MainController {
         model = new TitanicLoader().createModelFromFile(DATA_PATH + "titanic.csv");
         setChoiceBox(xColCB, model.defaultXCol());
         setChoiceBox(yColCB, model.defaultYCol());
-
+        scatterChartController.injectMainController(this);
         updateChartAxis();
     }
 
@@ -43,12 +40,14 @@ public class MainController {
     private void updateChartAxis() {
         Column xCol = xColCB.getSelectionModel().getSelectedItem();
         Column yCol = yColCB.getSelectionModel().getSelectedItem();
-        this.chart = new TheCloud(this).scatterChart(model, xCol, yCol);
-        VBox.setVgrow(chart, Priority.ALWAYS);
-        chartContainer.getChildren().set(0, chart);
+        scatterChartController.setAxis(xCol, yCol);
     }
 
     public void setPointDescription(Point point) {
         pointInfoTabController.setPointDescription(point, model.getColumns());
+    }
+
+    public MVCModel getModel() {
+        return model;
     }
 }

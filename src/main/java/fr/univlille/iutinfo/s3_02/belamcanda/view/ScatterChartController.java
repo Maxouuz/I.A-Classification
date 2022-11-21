@@ -2,25 +2,21 @@ package fr.univlille.iutinfo.s3_02.belamcanda.view;
 
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
+import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class TheCloud {
+public class ScatterChartController {
     MainController thomas;
-
-    public TheCloud(MainController thomas){this.thomas = thomas;}
-
-    public ScatterChart scatterChart(MVCModel model, Column xCol, Column yCol){
-        var scatterChart = new ScatterChart(getAxis(xCol), getAxis(yCol));
-        scatterChart.getData().addAll(getAllSeries(model, xCol, yCol));
-        scatterChart.setTitle(model.getTitle());
-        return scatterChart;
-    }
+    @FXML private VBox scatterChart;
+    @FXML private ScatterChart chart;
 
     private Set<XYChart.Series> getAllSeries(MVCModel model, Column xCol, Column yCol) {
         Set<XYChart.Series> series = new HashSet<>();
@@ -28,10 +24,6 @@ public class TheCloud {
             series.add(getSeries(category, xCol, yCol));
         }
         return series;
-    }
-
-    public ScatterChart scatterChart(MVCModel model) {
-        return scatterChart(model, model.defaultXCol(), model.defaultYCol());
     }
 
     private XYChart.Series getSeries(IDataset dataset, Column xCol, Column yCol) {
@@ -82,4 +74,17 @@ public class TheCloud {
     }
 
 
+    public void injectMainController(MainController mainController) {
+        this.thomas = mainController;
+    }
+
+    public void setAxis(Column xCol, Column yCol) {
+        chart = new ScatterChart(getAxis(xCol), getAxis(yCol));
+        MVCModel model = thomas.getModel();
+        chart.getData().addAll(getAllSeries(model, xCol, yCol));
+        chart.setTitle(model.getTitle());
+
+        VBox.setVgrow(chart, Priority.ALWAYS);
+        scatterChart.getChildren().set(0, chart);
+    }
 }
