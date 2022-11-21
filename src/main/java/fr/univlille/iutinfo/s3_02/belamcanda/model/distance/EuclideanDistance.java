@@ -4,7 +4,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
-public class EuclidianDistance implements Distance {
+public class EuclideanDistance implements Distance {
     public double distance(MVCModel model, Point p1, Point p2) {
         double sum = 0;
         for (Column column: model.getNormalizableColumns()) {

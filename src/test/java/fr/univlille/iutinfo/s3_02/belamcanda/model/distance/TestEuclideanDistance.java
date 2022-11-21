@@ -15,10 +15,10 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestEuclidianDistance {
+public class TestEuclideanDistance {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
     private MVCModel model;
-    private EuclidianDistance distance;
+    private EuclideanDistance distance;
     private Column weightedColumn;
 
     @BeforeEach
@@ -27,7 +27,7 @@ public class TestEuclidianDistance {
         weightedColumn = IrisColumns.SEPAL_WIDTH.getColumn();
         weightedColumn.setWeight(1.0);
         model = new IrisLoader().createModelFromFile(dataPath);
-        distance = new EuclidianDistance();
+        distance = new EuclideanDistance();
     }
 
     @Test
