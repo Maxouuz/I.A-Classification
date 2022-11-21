@@ -17,7 +17,7 @@ public class TitanicPoint extends Point {
     @CsvBindByName(column = "Sex")
     protected Gender sex;
     @CsvBindByName(column = "Age")
-    protected Double age;
+    protected Double age = 0.0;
     @CsvBindByName(column = "SibSp")
     protected int sibSp;
     @CsvBindByName(column = "Parch")

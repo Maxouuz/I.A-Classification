@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,12 +28,12 @@ class CSVLoaderTest {
     }
 
     @Test
-    public void loaded_pokemons_should_be_the_right_pokemons() throws NoSuchFieldException, IllegalAccessException {
+    public void loaded_pokemons_should_be_the_right_pokemons() {
         PokemonPoint premier = list.get(0);
-        assertEquals("Tropius", premier.getValueFromString("name"));
-        assertEquals(68, premier.getValueFromString("attack"));
+        assertEquals("Tropius", premier.getValue(PokemonColumns.NAME.getColumn()));
+        assertEquals(68, premier.getValue(PokemonColumns.ATTACK.getColumn()));
         PokemonPoint dernier = list.get(272);
-        assertEquals("Weavile", dernier.getValueFromString("name"));
-        assertEquals(120, dernier.getValueFromString("attack"));
+        assertEquals("Weavile", dernier.getValue(PokemonColumns.NAME.getColumn()));
+        assertEquals(120, dernier.getValue(PokemonColumns.ATTACK.getColumn()));
     }
 }
