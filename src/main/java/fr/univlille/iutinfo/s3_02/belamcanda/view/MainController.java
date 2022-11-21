@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class MainController {
     private static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    @FXML private ToolBarController toolBarController;
     @FXML private PointInfoController pointInfoController;
     @FXML private ScatterChartController scatterChartController;
     @FXML private AxisChoiceBoxController axisChoiceBoxController;

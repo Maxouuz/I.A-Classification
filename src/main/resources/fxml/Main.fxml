@@ -34,11 +34,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -49,16 +47,6 @@
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.MainController">
   <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-         <top>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <items>
-                  <Button mnemonicParsing="false" text="Générer un modèle" />
-                <Button mnemonicParsing="false" text="Ajouter un point" />
-                  <Button mnemonicParsing="false" text="Fournir des données de test" />
-                  <Button mnemonicParsing="false" prefWidth="100.0" text="Classifier" />
-              </items>
-            </ToolBar>
-         </top>
          <left>
             <VBox minWidth="-Infinity" BorderPane.alignment="CENTER">
                <children>
@@ -141,6 +129,9 @@
          <center>
             <fx:include fx:id="scatterChart" source="ScatterChart.fxml" />
          </center>
+         <top>
+            <fx:include fx:id="toolBar" source="ToolBar.fxml" />
+         </top>
       </BorderPane>
   </children>
 </VBox>
