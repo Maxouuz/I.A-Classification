@@ -1,11 +1,12 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.view.controller;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Categorizer;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
 import javafx.fxml.FXML;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CategorizerSettingsController {
     public static final int MIN_K = 0;
@@ -13,7 +14,10 @@ public class CategorizerSettingsController {
     public static final int DEFAULT_K = 3;
     @FXML private Spinner<Integer> kSpinner;
     private Categorizer categorizer;
-
+    @FXML private TableView<Column> columnList;
+    @FXML private TableColumn<Column, String> nameColumn;
+    @FXML private TableColumn<Column, Spinner> weightColumn;
+    @FXML private TableColumn<Column, CheckBox> isUsedColumn;
 
     public int getK() {
         return kSpinner.getValue();
@@ -25,6 +29,11 @@ public class CategorizerSettingsController {
             new SpinnerValueFactory.IntegerSpinnerValueFactory(MIN_K, MAX_K, DEFAULT_K)
         );
         kSpinner.valueProperty().addListener(e -> updateCategorizer());
+        setNameColumnCellFactory();
+    }
+
+    private void setNameColumnCellFactory() {
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
     private void updateCategorizer() {
@@ -33,5 +42,11 @@ public class CategorizerSettingsController {
 
     public void createCategorizer(MVCModel model) {
         categorizer = new Categorizer(model, new EuclideanDistance(), getK());
+    }
+
+    public void createTableView(Column[] columns) {
+        for (Column column: columns) {
+            columnList.getItems().add(column);
+        }
     }
 }

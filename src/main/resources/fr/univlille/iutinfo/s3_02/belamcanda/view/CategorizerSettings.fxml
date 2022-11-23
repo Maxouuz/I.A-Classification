@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="categorizerSettings" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.CategorizerSettingsController">
+<VBox fx:id="categorizerSettings" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.CategorizerSettingsController">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -31,11 +31,11 @@
             <Spinner fx:id="kSpinner" editable="true" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <TableView VBox.vgrow="ALWAYS">
+      <TableView fx:id="columnList" VBox.vgrow="ALWAYS">
          <columns>
-            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="90.0" text="Attribut" />
-            <TableColumn prefWidth="63.0" text="Poids" />
-            <TableColumn minWidth="-1.0" prefWidth="60.0" text="Utiliser" />
+            <TableColumn fx:id="nameColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="90.0" text="Attribut" />
+            <TableColumn fx:id="weightColumn" prefWidth="63.0" text="Poids" />
+            <TableColumn fx:id="isUsedColumn" minWidth="-1.0" prefWidth="60.0" text="Utiliser" />
          </columns>
          <VBox.margin>
             <Insets top="20.0" />
