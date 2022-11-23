@@ -54,11 +54,7 @@
                     <panes>
                       <TitledPane fx:id="trainingDataTab" animated="false" text="Classification">
                            <content>
-                              <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
-                                 <content>
-                                    <fx:include fx:id="trainingData" source="TrainingData.fxml" />
-                                 </content>
-                              </ScrollPane>
+                              <fx:include fx:id="trainingData" source="TrainingData.fxml" />
                            </content>
                       </TitledPane>
                     </panes>

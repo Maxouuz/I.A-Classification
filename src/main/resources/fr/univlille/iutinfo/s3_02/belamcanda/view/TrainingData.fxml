@@ -10,7 +10,7 @@
 
 <VBox fx:id="trainingData" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.TrainingDataController">
    <children>
-      <GridPane hgap="10.0">
+      <GridPane hgap="10.0" minHeight="-Infinity" VBox.vgrow="ALWAYS">
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
