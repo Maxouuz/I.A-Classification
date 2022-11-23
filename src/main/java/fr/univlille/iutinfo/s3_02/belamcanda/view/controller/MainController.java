@@ -5,8 +5,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import javafx.fxml.FXML;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,15 +17,16 @@ public class MainController {
     @FXML private AxisChoiceBoxController axisChoiceBoxController;
     @FXML private CategorizerSettingsController categorizerSettingsController;
     @FXML private TrainingDataController trainingDataController;
-    MVCModel model;
-    @FXML private Font x3;
-    @FXML private Color x4;
+    private MVCModel model;
 
     @FXML
     private void initialize() throws IOException {
         model = new TitanicLoader().createModelFromFile(DATA_PATH + "titanic.csv");
+
         axisChoiceBoxController.initChoiceBoxes(this);
         scatterChartController.injectMainController(this);
+        categorizerSettingsController.injectMainController(this);
+
         updateChartAxis();
     }
 
@@ -43,5 +42,9 @@ public class MainController {
 
     public MVCModel getModel() {
         return model;
+    }
+
+    public int getK() {
+        return categorizerSettingsController.getK();
     }
 }
