@@ -25,7 +25,7 @@ public class MainController {
 
         axisChoiceBoxController.initChoiceBoxes(this);
         scatterChartController.injectMainController(this);
-        categorizerSettingsController.injectMainController(this);
+        categorizerSettingsController.createCategorizer(getModel());
 
         updateChartAxis();
     }
@@ -42,9 +42,5 @@ public class MainController {
 
     public MVCModel getModel() {
         return model;
-    }
-
-    public int getK() {
-        return categorizerSettingsController.getK();
     }
 }

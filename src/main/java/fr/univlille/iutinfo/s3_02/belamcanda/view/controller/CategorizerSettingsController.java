@@ -1,6 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.view.controller;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Categorizer;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
 import javafx.fxml.FXML;
 import javafx.scene.control.Spinner;
@@ -30,7 +31,7 @@ public class CategorizerSettingsController {
         categorizer.setK(getK());
     }
 
-    public void injectMainController(MainController mainController) {
-        categorizer = new Categorizer(mainController.getModel(), new EuclideanDistance(), getK());
+    public void createCategorizer(MVCModel model) {
+        categorizer = new Categorizer(model, new EuclideanDistance(), getK());
     }
 }
