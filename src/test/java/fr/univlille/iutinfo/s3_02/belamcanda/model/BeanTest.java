@@ -20,21 +20,21 @@ class BeanTest {
     @Test
     void getting_an_attribute_from_its_name_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        PokemonPoint tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        Point tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
         assertEquals("Tropius", tropius.getValueFromString("name"));
     }
 
     @Test
     void getting_an_attribute_from_its_column_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        PokemonPoint tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        Point tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
         assertEquals("Tropius", tropius.getValue(PokemonColumns.NAME.getColumn()));
     }
 
     @Test
     void no_error_should_be_raised_when_requesting_all_pokemon_columns() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        PokemonPoint tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        Point tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(PokemonColumns.values())) {
             assertDoesNotThrow(() -> tropius.getValue(col));
         }
@@ -43,7 +43,7 @@ class BeanTest {
     @Test
     void no_error_should_be_raised_when_requesting_all_titanic_columns() throws IOException {
         String dataPath = DATA_PATH + "titanic.csv";
-        TitanicPoint titanic = new TitanicLoader().loadFromFile(dataPath).get(0);
+        Point titanic = new TitanicLoader().loadFromFile(dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(TitanicColumns.values())) {
             assertDoesNotThrow(() -> titanic.getValue(col));
         }

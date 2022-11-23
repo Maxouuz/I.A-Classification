@@ -1,19 +1,20 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.SpecifiedLoader;
 
 import java.io.IOException;
 import java.util.List;
 
-public class TitanicLoader extends SpecifiedLoader<TitanicPoint> {
+public class TitanicLoader extends SpecifiedLoader {
     @Override
     public boolean dataIsValid(String filePath) {
         return true;
     }
 
     @Override
-    public List<TitanicPoint> loadFromFile(String filePath) throws IOException {
+    public List<Point> loadFromFile(String filePath) throws IOException {
         return super.loadFromFile(TitanicPoint.class, filePath, ',');
     }
 

@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
@@ -17,12 +18,12 @@ class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + 
     @Test
     public void iris_loader_should_load_iris_beans() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
-        List<IrisPoint> list = new IrisLoader().loadFromFile(dataPath);
+        List<Point> list = new IrisLoader().loadFromFile(dataPath);
         assertEquals(150, list.size());
-        IrisPoint premier = list.get(0);
+        IrisPoint premier = (IrisPoint) list.get(0);
         assertEquals(5.1, premier.getValue(IrisColumns.SEPAL_LENGTH.getColumn()));
         assertEquals(IrisVariety.SETOSA, premier.getValue(IrisColumns.VARIETY.getColumn()));
-        IrisPoint dernier = list.get(149);
+        IrisPoint dernier = (IrisPoint) list.get(149);
         assertEquals(5.9, dernier.getValue(IrisColumns.SEPAL_LENGTH.getColumn()));
         assertEquals(IrisVariety.VIRGINICA, dernier.getValue(IrisColumns.VARIETY.getColumn()));
     }

@@ -3,6 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.view.controller;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import javafx.fxml.FXML;
 
@@ -21,11 +22,14 @@ public class MainController {
 
     @FXML
     private void initialize() throws IOException {
-        model = new TitanicLoader().createModelFromFile(DATA_PATH + "titanic.csv");
+        model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
 
         axisChoiceBoxController.initChoiceBoxes(this);
+        trainingDataController.injectMainController(this);
         scatterChartController.injectMainController(this);
         categorizerSettingsController.createCategorizer(getModel());
+
+        trainingDataController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
 
         updateChartAxis();
     }

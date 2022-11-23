@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class CSVLoader<T> {
-    public List<T> loadFromFile(Class<T> clazz, String path, char separator) throws IOException {
+    public List<T> loadFromFile(Class<? extends T> clazz, String path, char separator) throws IOException {
         List<T> res;
         res = new CsvToBeanBuilder<T>(Files.newBufferedReader(Paths.get(path)))
                 .withSeparator(separator)
