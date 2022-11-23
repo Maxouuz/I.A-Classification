@@ -44,15 +44,15 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.MainController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.view.controller.MainController">
   <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <left>
             <VBox minWidth="-Infinity" BorderPane.alignment="CENTER">
                <children>
-                  <Accordion>
+                  <Accordion expandedPane="$trainingDataTab">
                     <panes>
-                      <TitledPane animated="false" text="Classification">
+                      <TitledPane fx:id="trainingDataTab" animated="false" text="Classification">
                            <content>
                               <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
                                  <content>
@@ -63,9 +63,9 @@
                       </TitledPane>
                     </panes>
                   </Accordion>
-                  <Accordion VBox.vgrow="ALWAYS">
+                  <Accordion expandedPane="$pointInfoTab" VBox.vgrow="ALWAYS">
                      <panes>
-                      <TitledPane animated="false" text="Sélection">
+                      <TitledPane fx:id="pointInfoTab" animated="false" text="Sélection">
                            <content>
                               <ScrollPane minHeight="-Infinity" prefWidth="200.0">
                                  <content>
@@ -82,18 +82,18 @@
          <right>
             <VBox minWidth="-Infinity" BorderPane.alignment="CENTER">
                <children>
-                  <Accordion VBox.vgrow="ALWAYS">
+                  <Accordion expandedPane="$axisChoiceBoxTab" VBox.vgrow="ALWAYS">
                     <panes>
-                      <TitledPane animated="false" text="Graphique">
+                      <TitledPane fx:id="axisChoiceBoxTab" animated="false" text="Graphique">
                            <content>
                               <fx:include fx:id="axisChoiceBox" source="AxisChoiceBox.fxml" />
                            </content>
                       </TitledPane>
                     </panes>
                   </Accordion>
-                  <Accordion VBox.vgrow="ALWAYS">
+                  <Accordion expandedPane="$categorizerSettingsTab" VBox.vgrow="ALWAYS">
                      <panes>
-                        <TitledPane animated="false" text="Paramètres">
+                        <TitledPane fx:id="categorizerSettingsTab" animated="false" text="Paramètres">
                            <content>
                               <ScrollPane fitToWidth="true">
                                  <content>
