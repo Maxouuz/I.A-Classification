@@ -22,4 +22,9 @@ public class MockPoint extends Point {
     public Object category() {
         return isReligious;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

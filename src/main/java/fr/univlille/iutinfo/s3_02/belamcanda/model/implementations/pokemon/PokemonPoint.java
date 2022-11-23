@@ -38,6 +38,11 @@ public class PokemonPoint extends Point {
 		return isLegendary;
 	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+
 	public PokemonPoint(){}
 
 	/**public PokemonPoint(String name, int attack, int baseEggSteps, double captureRate, int defense, int experienceGrowth, int hp, int spAttack, int spDefense, PokemonType pokemonType, PokemonType pokemonType2, double speed, Legendary isLegendary){

@@ -29,4 +29,7 @@ public abstract class Point {
         if (val != null) return val.toString();
         return null;
     }
+
+    @Override
+    public abstract String toString();
 }

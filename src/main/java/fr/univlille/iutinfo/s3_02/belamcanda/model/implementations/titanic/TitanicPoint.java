@@ -36,6 +36,11 @@ public class TitanicPoint extends Point {
         return embarked;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public TitanicPoint(){}
 
     /**public TitanicPoint(Integer passengerId, Boolean survived, int pClass, String name, Gender sex, Double age, int sibSp, int parch, String ticket, Double fare, String cabin, Embarked embarked){

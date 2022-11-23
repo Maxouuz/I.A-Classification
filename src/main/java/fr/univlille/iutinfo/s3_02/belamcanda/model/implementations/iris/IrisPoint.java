@@ -21,6 +21,11 @@ public class IrisPoint extends Point {
         return variety;
     }
 
+    @Override
+    public String toString() {
+        return sepalLength + " " + sepalWidth + " " + petalLength + " " + petalLength + " " + variety;
+    }
+
     public IrisPoint(){}
 
     public IrisPoint(Double sepalLength, Double sepalWidth, Double petalLength, Double petalWidth, IrisVariety variety ){
