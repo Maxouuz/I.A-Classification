@@ -22,16 +22,18 @@ public class MainController {
     @FXML
     private void initialize() throws IOException {
         model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
-
-        axisChoiceBoxController.initChoiceBoxes(this);
-        trainingDataController.injectMainController(this);
-        scatterChartController.injectMainController(this);
-        categorizerSettingsController.createTableView(model.getColumns());
-        categorizerSettingsController.createCategorizer(getModel());
-
         trainingDataController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
 
+        initializeControllers();
         updateChartAxis();
+    }
+
+    private void initializeControllers() {
+        trainingDataController.injectMainController(this);
+        scatterChartController.injectMainController(this);
+        axisChoiceBoxController.initChoiceBoxes(this);
+        categorizerSettingsController.createTableView(model.getColumns());
+        categorizerSettingsController.createCategorizer(getModel());
     }
 
     public void updateChartAxis() {
