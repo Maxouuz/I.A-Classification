@@ -4,6 +4,7 @@ public abstract class Column {
 	protected MVCModel dataset;
 	private final String name;
 	private double weight;
+	private boolean used;
 
 	public Column(String name, double weight) {
 		this.name = name;
@@ -45,5 +46,13 @@ public abstract class Column {
 	@Override
 	public String toString() {
 		return this.name;
+	}
+
+	public boolean isUsed() {
+		return used;
+	}
+
+	public void setUsed(boolean used) {
+		this.used = used;
 	}
 }
