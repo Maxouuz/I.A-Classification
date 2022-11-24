@@ -50,11 +50,11 @@
          <left>
             <VBox minWidth="-Infinity" BorderPane.alignment="CENTER">
                <children>
-                  <Accordion expandedPane="$trainingDataTab">
+                  <Accordion expandedPane="$dataToClassifyTab">
                     <panes>
-                      <TitledPane fx:id="trainingDataTab" animated="false" text="Classification">
+                      <TitledPane fx:id="dataToClassifyTab" animated="false" text="Classification">
                            <content>
-                              <fx:include fx:id="trainingData" source="TrainingData.fxml" />
+                              <fx:include fx:id="dataToClassify" source="DataToClassify.fxml" />
                            </content>
                       </TitledPane>
                     </panes>

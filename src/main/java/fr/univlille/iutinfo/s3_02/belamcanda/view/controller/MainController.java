@@ -16,19 +16,19 @@ public class MainController {
     @FXML private ScatterChartController scatterChartController;
     @FXML private AxisChoiceBoxController axisChoiceBoxController;
     @FXML private CategorizerSettingsController categorizerSettingsController;
-    @FXML private TrainingDataController trainingDataController;
+    @FXML private DataToClassifyController dataToClassifyController;
     private MVCModel model;
 
     @FXML
     private void initialize() throws IOException {
         model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
         initializeControllers();
-        trainingDataController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
+        dataToClassifyController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
         updateChartAxis();
     }
 
     private void initializeControllers() {
-        trainingDataController.injectMainController(this);
+        dataToClassifyController.injectMainController(this);
         scatterChartController.injectMainController(this);
         axisChoiceBoxController.initChoiceBoxes(this);
         categorizerSettingsController.createTableView(model.getColumns());

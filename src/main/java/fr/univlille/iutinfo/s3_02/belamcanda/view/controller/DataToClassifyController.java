@@ -6,17 +6,17 @@ import javafx.scene.control.ListView;
 
 import java.util.List;
 
-public class TrainingDataController {
-    @FXML private ListView<Point> trainingDataList;
+public class DataToClassifyController {
+    @FXML private ListView<Point> toClassify;
     private MainController mainController;
 
     @FXML
     public void initialize() {
-        trainingDataList.setOnMouseClicked(e -> updatePointDescription());
+        toClassify.setOnMouseClicked(e -> updatePointDescription());
     }
 
     private void updatePointDescription() {
-        mainController.setPointDescription(trainingDataList.getSelectionModel().getSelectedItem());
+        mainController.setPointDescription(toClassify.getSelectionModel().getSelectedItem());
     }
 
     @FXML
@@ -26,7 +26,7 @@ public class TrainingDataController {
 
     @FXML
     public void addTrainingData(List<Point> datas) {
-        trainingDataList.getItems().addAll(datas);
+        toClassify.getItems().addAll(datas);
         mainController.getModel().addDataToClassify(datas);
     }
 
