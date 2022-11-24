@@ -22,9 +22,8 @@ public class MainController {
     @FXML
     private void initialize() throws IOException {
         model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
-        trainingDataController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
-
         initializeControllers();
+        trainingDataController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
         updateChartAxis();
     }
 

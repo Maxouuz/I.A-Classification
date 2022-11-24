@@ -21,12 +21,13 @@ public class TrainingDataController {
 
     @FXML
     public void addTrainingData(Point data) {
-        trainingDataList.getItems().add(data);
+        addTrainingData(List.of(data));
     }
 
     @FXML
     public void addTrainingData(List<Point> datas) {
         trainingDataList.getItems().addAll(datas);
+        mainController.getModel().addDataToClassify(datas);
     }
 
     public void injectMainController(MainController mainController) {

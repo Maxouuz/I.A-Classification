@@ -11,19 +11,20 @@ import java.util.*;
  * categories
  */
 public abstract class MVCModel extends Subject implements IDataset {
-	protected final Set<Point> data;
+	protected final Set<Point> trainingData;
+	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
-
 	protected final Categories categories;
 
 	protected MVCModel() {
-		this.data = new HashSet<>();
+		this.trainingData = new HashSet<>();
+		this.toClassifyData = new HashSet<>();
 		this.columns = getColumns();
 		setDatasetOfColumns();
 		this.categories = new Categories();
 	}
 
-	public Set<Point> getData(){return Set.copyOf(data);}
+	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
 
 
 	private void setDatasetOfColumns() {
@@ -79,38 +80,41 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	@Override
 	public int getNbLines() {
-		return data.size();
+		return trainingData.size();
 	}
 
 	@Override
 	public void setLines(List<? extends Point> lines) {
-		this.data.clear();
-		this.data.addAll(lines);
-		this.data.clear();
+		this.trainingData.clear();
+		this.trainingData.addAll(lines);
+		this.trainingData.clear();
 		categories.setLines(lines);
-		this.data.addAll(lines);
+		this.trainingData.addAll(lines);
 		notifyObservers();
 	}
 
 	@Override
 	public void addLine(Point element) {
-		this.data.add(element);
-		this.data.add(element);
+		this.trainingData.add(element);
+		this.trainingData.add(element);
 		categories.addLine(element);
 		notifyObservers(element);
 	}
 
 	@Override
 	public void addAllLine(Collection<? extends Point> element) {
-		this.data.addAll(element);
-		this.data.addAll(element);
+		this.trainingData.addAll(element);
+		this.trainingData.addAll(element);
 		categories.addAllLine(element);
 		notifyObservers();
 	}
 
-	@Override
-	public Iterator<Point> iterator() {
-		return data.iterator();
+	public void addDataToClassify(Collection<? extends Point> toClassifyData) {
+		this.toClassifyData.addAll(toClassifyData);
 	}
 
+	@Override
+	public Iterator<Point> iterator() {
+		return trainingData.iterator();
+	}
 }
