@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="dataToClassify" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.DataToClassifyController">
+<VBox fx:id="dataToClassify" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.DataToClassifyController">
    <children>
       <GridPane hgap="10.0" minHeight="-Infinity" VBox.vgrow="ALWAYS">
          <columnConstraints>
@@ -20,7 +20,7 @@
          </rowConstraints>
          <children>
             <Label text="Robustesse:" />
-            <Label text="100%" GridPane.columnIndex="1" />
+            <Label fx:id="robustness" text="0%" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <ListView fx:id="toClassify" />

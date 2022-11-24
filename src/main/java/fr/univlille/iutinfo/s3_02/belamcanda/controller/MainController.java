@@ -49,4 +49,12 @@ public class MainController {
     public MVCModel getModel() {
         return model;
     }
+
+    public double getRobustness() {
+        return categorizerSettingsController.getRobustness();
+    }
+
+    public void updateRobustness(double robustness) {
+        dataToClassifyController.updateRobustness(robustness);
+    }
 }

@@ -49,4 +49,8 @@ public class CategorizerSettingsController {
             columnList.getItems().add(column);
         }
     }
+
+    public double getRobustness() {
+        return categorizer.getRobustness();
+    }
 }

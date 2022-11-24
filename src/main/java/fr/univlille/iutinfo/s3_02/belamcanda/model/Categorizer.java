@@ -26,6 +26,18 @@ public class Categorizer {
         return getCategoryMostPresent(nbPointsByCategory);
     }
 
+    public double getRobustness() {
+        int acc = 0;
+        int total = 0;
+        for (Point point: model.getDataToClassify()) {
+            if (categorize(point).equals(point.category())) {
+                acc += 1;
+            }
+            total++;
+        }
+        return acc * 100.0 / total;
+    }
+
     private Object getCategoryMostPresent(Map<Object, Integer> nbPointsByCategory) {
         int maxOccurrence = 0;
         Object categoryMostPresent = null;
@@ -46,7 +58,7 @@ public class Categorizer {
     private List<Point> keepOnlyKNearestNeighbors(Map<Double, Point> nearestNeighbors) {
         return nearestNeighbors.values().stream()
                 .toList()
-                .subList(0, k);
+                .subList(0, Math.min(k, nearestNeighbors.size()));
     }
 
     private Map<Double, Point> computeDistanceWithAllThePoints(Point toCategorize) {

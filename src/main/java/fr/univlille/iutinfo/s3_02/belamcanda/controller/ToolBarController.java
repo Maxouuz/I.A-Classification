@@ -24,6 +24,12 @@ public class ToolBarController {
         stage.showAndWait();
     }
 
+    @FXML
+    public void classify() {
+        double robustness = mainController.getRobustness();
+        mainController.updateRobustness(robustness);
+    }
+
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;
     }

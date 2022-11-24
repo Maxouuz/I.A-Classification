@@ -78,6 +78,17 @@ public abstract class MVCModel extends Subject implements IDataset {
 		return normalizableColumns;
 	}
 
+	public List<Column> getUsedColumns() {
+		List<Column> normalizableColumns = new ArrayList<>();
+		for (Column column: columns) {
+			if (column.isUsed()) {
+				normalizableColumns.add(column);
+			}
+		}
+		return normalizableColumns;
+	}
+
+
 	@Override
 	public int getNbLines() {
 		return trainingData.size();
@@ -107,6 +118,10 @@ public abstract class MVCModel extends Subject implements IDataset {
 		this.trainingData.addAll(element);
 		categories.addAllLine(element);
 		notifyObservers();
+	}
+
+	public Set<Point> getDataToClassify() {
+		return toClassifyData;
 	}
 
 	public void addDataToClassify(Collection<? extends Point> toClassifyData) {
