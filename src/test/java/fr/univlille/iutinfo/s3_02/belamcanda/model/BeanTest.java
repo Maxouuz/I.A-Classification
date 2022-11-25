@@ -2,11 +2,9 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -20,21 +18,21 @@ class BeanTest {
     @Test
     void getting_an_attribute_from_its_name_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        Point tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        Point tropius = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath).get(0);
         assertEquals("Tropius", tropius.getValueFromString("name"));
     }
 
     @Test
     void getting_an_attribute_from_its_column_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        Point tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        Point tropius = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath).get(0);
         assertEquals("Tropius", tropius.getValue(PokemonColumns.NAME.getColumn()));
     }
 
     @Test
     void no_error_should_be_raised_when_requesting_all_pokemon_columns() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        Point tropius = new PokemonLoader().loadFromFile(dataPath).get(0);
+        Point tropius = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(PokemonColumns.values())) {
             assertDoesNotThrow(() -> tropius.getValue(col));
         }
@@ -43,7 +41,7 @@ class BeanTest {
     @Test
     void no_error_should_be_raised_when_requesting_all_titanic_columns() throws IOException {
         String dataPath = DATA_PATH + "titanic.csv";
-        Point titanic = new TitanicLoader().loadFromFile(dataPath).get(0);
+        Point titanic = new CSVLoader().loadFromFile(CSVModel.TITANIC, dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(TitanicColumns.values())) {
             assertDoesNotThrow(() -> titanic.getValue(col));
         }

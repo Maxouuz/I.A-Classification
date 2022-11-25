@@ -3,7 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import javafx.fxml.FXML;
 
 import java.io.File;
@@ -21,9 +21,9 @@ public class MainController {
 
     @FXML
     private void initialize() throws IOException {
-        model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
+        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
         initializeControllers();
-        dataToClassifyController.addTrainingData(new PokemonLoader().loadFromFile(DATA_PATH + "pokemon_test.csv"));
+        // TODO: dataToClassifyController.addTrainingData(DATA_PATH + "pokemon_test.csv");
         updateChartAxis();
     }
 

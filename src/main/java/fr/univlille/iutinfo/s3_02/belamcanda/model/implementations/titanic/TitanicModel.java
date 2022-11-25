@@ -6,7 +6,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 
 public class TitanicModel extends MVCModel {
     protected TitanicModel() {
@@ -31,5 +31,10 @@ public class TitanicModel extends MVCModel {
     @Override
     public Column defaultYCol() {
         return (NormalizableColumn)TitanicColumns.AGE.getColumn();
+    }
+
+    @Override
+    protected CSVModel getCSVModel() {
+        return CSVModel.TITANIC;
     }
 }

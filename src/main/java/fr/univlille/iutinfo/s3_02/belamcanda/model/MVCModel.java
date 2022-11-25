@@ -1,6 +1,10 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
+
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -10,7 +14,7 @@ import java.util.*;
  * ligne par defaut pour afficher un nuage de point et il peut avoir des
  * categories
  */
-public abstract class MVCModel extends Subject implements IDataset {
+public abstract class MVCModel<T extends Point> extends Subject implements IDataset {
 	protected final Class<? extends Point> clazz;
 
 	protected final Set<Point> trainingData;
@@ -129,9 +133,12 @@ public abstract class MVCModel extends Subject implements IDataset {
 		return toClassifyData;
 	}
 
-	public void addDataToClassify(Collection<? extends Point> toClassifyData) {
-		this.toClassifyData.addAll(toClassifyData);
+	public void addDataToClassify(String path) throws IOException {
+		List<Point> toClassify = new CSVLoader().loadFromFile(getCSVModel(), path);
+		this.toClassifyData.addAll(toClassify);
 	}
+
+	protected abstract CSVModel getCSVModel();
 
 	@Override
 	public Iterator<Point> iterator() {

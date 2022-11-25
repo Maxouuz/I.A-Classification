@@ -2,6 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Category;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +19,7 @@ class PokemonModelTest {
     @BeforeEach
     public void initialization() throws IOException {
         final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
-        model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_test.csv");
+        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_test.csv");
     }
 
     @Test

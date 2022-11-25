@@ -2,7 +2,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.qualitative_variables.Embarked;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ class TitanicLoaderTest {
     @Test
     public void titanic_loader_should_load_titanic_beans() throws IOException {
         String dataPath = DATA_PATH + "titanic.csv";
-        List<Point> list = new TitanicLoader().loadFromFile(dataPath);
+        List<Point> list = new CSVLoader().loadFromFile(CSVModel.TITANIC, dataPath);
         assertEquals(891, list.size());
         TitanicPoint premier = (TitanicPoint) list.get(0);
         assertEquals("Braund, Mr. Owen Harris", premier.getValue(TitanicColumns.NAME.getColumn()));
@@ -27,12 +26,5 @@ class TitanicLoaderTest {
         TitanicPoint dernier = (TitanicPoint) list.get(890);
         assertEquals("Dooley, Mr. Patrick", dernier.getValue(TitanicColumns.NAME.getColumn()));
         assertEquals(Embarked.Q, dernier.getValue(TitanicColumns.EMBARKED.getColumn()));
-    }
-
-    @Test
-    void data_format_validator_checks_if_file_is_valid(){
-        // TODO : Implémenter la fonctionnalité
-        String dataPath = DATA_PATH + "titanic.csv";
-        assertTrue(new TitanicLoader().dataIsValid(dataPath));
     }
 }

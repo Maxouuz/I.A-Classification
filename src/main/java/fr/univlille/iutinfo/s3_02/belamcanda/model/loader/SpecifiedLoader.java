@@ -1,28 +1,20 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import com.opencsv.bean.CsvToBeanBuilder;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
 import java.io.IOException;
-import java.util.HashSet;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
-import java.util.Set;
 
-public abstract class SpecifiedLoader extends CSVLoader<Point> {
-    public abstract boolean dataIsValid(String filePath);
-
-    public Set<Point> loadPoints(String filePath) throws Exception {
-        if (!dataIsValid(filePath)) throw new Exception("Mauvais format de fichier !");
-        return new HashSet<>(loadFromFile(filePath));
+public class SpecifiedLoader<T extends Point> {
+    protected List<Point> loadFromFile(Class<? extends Point> clazz, String path, char separator) throws IOException {
+        List<Point> res;
+        res = new CsvToBeanBuilder<Point>(Files.newBufferedReader(Paths.get(path)))
+                .withSeparator(separator)
+                .withType(clazz)
+                .build().parse();
+        return res;
     }
-
-    public abstract List<Point> loadFromFile(String filePath) throws IOException;
-
-    public MVCModel createModelFromFile(String filePath) throws IOException {
-        MVCModel model = createModel();
-        model.addAllLine(loadFromFile(filePath));
-        return model;
-    }
-
-    protected abstract MVCModel createModel();
 }

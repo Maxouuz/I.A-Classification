@@ -3,7 +3,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.view;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;

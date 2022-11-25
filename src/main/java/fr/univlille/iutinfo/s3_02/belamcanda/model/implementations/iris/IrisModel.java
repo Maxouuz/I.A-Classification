@@ -5,6 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 
 public class IrisModel extends MVCModel {
 	protected IrisModel() {
@@ -29,5 +30,10 @@ public class IrisModel extends MVCModel {
 	@Override
 	public NormalizableColumn defaultYCol() {
 		return (NormalizableColumn)IrisColumns.PETAL_WIDTH.getColumn();
+	}
+
+	@Override
+	protected CSVModel getCSVModel() {
+		return CSVModel.IRIS;
 	}
 }

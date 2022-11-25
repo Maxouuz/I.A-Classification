@@ -29,7 +29,7 @@ public class DataToClassifyController {
     @FXML
     public void addTrainingData(List<Point> datas) {
         toClassify.getItems().addAll(datas);
-        mainController.getModel().addDataToClassify(datas);
+        //TODO: mainController.getModel().addDataToClassify(datas);
     }
 
     public void injectMainController(MainController mainController) {

@@ -1,12 +1,11 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.NumberNormalizer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 
 import java.io.File;
 
@@ -67,10 +66,10 @@ public class ColumnTest {
     @Test
     public void column_updates_amplitude_when_he_needs_it() throws Exception {
         NormalizableColumn columnWithAmplitude = (NormalizableColumn) PokemonColumns.HP.getColumn();
-        MVCModel model = new PokemonModel();
+        new PokemonModel();
         Amplitude ampli = columnWithAmplitude.amplitude;
         assertEquals(null, ampli.getMin());
-        model.addAllLine(new PokemonLoader().loadPoints(DATA_PATH + "pokemon_test.csv"));
+        new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_test.csv");
         assertNotEquals(null, ampli.getMin());
     }
 }

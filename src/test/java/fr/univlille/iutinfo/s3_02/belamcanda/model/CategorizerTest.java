@@ -2,7 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ class CategorizerTest {
     @BeforeEach
     public void initialization() throws IOException {
         final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
-        model = new PokemonLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
+        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
         categorizer = new Categorizer(model, new EuclideanDistance(), 3);
     }
 

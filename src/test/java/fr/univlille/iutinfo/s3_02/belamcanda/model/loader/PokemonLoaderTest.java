@@ -2,7 +2,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.loader;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +17,7 @@ class PokemonLoaderTest {
     @Test
     public void pokemon_loader_should_load_pokemon_beans() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        List<Point> list = new PokemonLoader().loadFromFile(dataPath);
+        List<Point> list = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath);
         assertEquals(273, list.size());
         PokemonPoint premier = (PokemonPoint) list.get(0);
         assertEquals("Tropius", premier.getValue(PokemonColumns.NAME.getColumn()));

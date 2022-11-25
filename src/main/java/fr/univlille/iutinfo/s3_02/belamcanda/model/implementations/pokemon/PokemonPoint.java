@@ -1,6 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
 import com.opencsv.bean.CsvBindByName;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;

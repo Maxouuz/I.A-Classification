@@ -18,8 +18,6 @@ public abstract class Point {
         }
     }
 
-    public abstract Object category();
-
     public Double getNormalizedValue(Column col){
         return col.getNormalizedValue(this);
     }
@@ -29,6 +27,8 @@ public abstract class Point {
         if (val != null) return val.toString();
         return null;
     }
+
+    public abstract Object category();
 
     @Override
     public abstract String toString();
