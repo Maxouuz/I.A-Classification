@@ -3,6 +3,8 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -18,7 +20,7 @@ class IrisLoaderTest {
     @Test
     public void iris_loader_should_load_iris_beans() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
-        List<Point> list = new IrisLoader().loadFromFile(dataPath);
+        List<Point> list = new CSVLoader().loadFromFile(CSVModel.IRIS, dataPath);
         assertEquals(150, list.size());
         IrisPoint premier = (IrisPoint) list.get(0);
         assertEquals(5.1, premier.getValue(IrisColumns.SEPAL_LENGTH.getColumn()));
@@ -31,7 +33,7 @@ class IrisLoaderTest {
     @Test
     void load_model_should_return_correctly_specified_model() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
-        MVCModel iris = new IrisLoader().createModelFromFile(dataPath);
+        MVCModel iris = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
         assertEquals(iris.getTitle(), "Iris");
         assertEquals(iris.defaultXCol(), IrisColumns.PETAL_LENGTH.getColumn());
         assertEquals(iris.defaultYCol(), IrisColumns.PETAL_WIDTH.getColumn());

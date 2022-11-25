@@ -2,8 +2,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualita
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class IrisVarietyTest {
 
     @Test

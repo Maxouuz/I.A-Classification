@@ -3,13 +3,11 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
 
 public class TitanicModel extends MVCModel {
-    protected TitanicModel() {
+    public TitanicModel() {
         super(IrisPoint.class);
     }
 

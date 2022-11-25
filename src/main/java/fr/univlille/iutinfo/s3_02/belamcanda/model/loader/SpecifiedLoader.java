@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public abstract class SpecifiedLoader extends CSVLoader<Point> {
+public abstract class SpecifiedLoader extends CSVLoader {
     public abstract boolean dataIsValid(String filePath);
 
     public Set<Point> loadPoints(String filePath) throws Exception {

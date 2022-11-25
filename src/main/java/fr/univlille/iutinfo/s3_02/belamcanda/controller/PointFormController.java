@@ -1,10 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Observer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,10 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
-import javafx.util.converter.IntegerStringConverter;
-import javafx.util.converter.NumberStringConverter;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;

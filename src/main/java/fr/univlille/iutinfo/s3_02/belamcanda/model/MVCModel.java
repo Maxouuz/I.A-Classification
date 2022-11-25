@@ -32,7 +32,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
 
 
-	private void setDatasetOfColumns() {
+	public void setDatasetOfColumns() {
 		for (Column column: columns) {
 			column.setDataset(this);
 		}
@@ -101,6 +101,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	@Override
 	public void setLines(List<? extends Point> lines) {
+		setDatasetOfColumns();
 		this.trainingData.clear();
 		this.trainingData.addAll(lines);
 		this.trainingData.clear();

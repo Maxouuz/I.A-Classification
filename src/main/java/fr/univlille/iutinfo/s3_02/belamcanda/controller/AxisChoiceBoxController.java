@@ -19,7 +19,7 @@ public class AxisChoiceBoxController {
 
     private void setChoiceBox(ChoiceBox<Column> choiceBox, Column defaultCol) {
         MVCModel model = mainController.getModel();
-        choiceBox.getItems().addAll(model.getColumns());
+        choiceBox.getItems().setAll(model.getColumns());
         choiceBox.getSelectionModel().select(defaultCol);
         choiceBox.setOnAction(e -> mainController.updateChartAxis());
     }
