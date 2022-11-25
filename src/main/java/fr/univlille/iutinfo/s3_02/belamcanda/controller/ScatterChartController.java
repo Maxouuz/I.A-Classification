@@ -15,34 +15,40 @@ import java.util.Set;
 
 public class ScatterChartController {
     MainController mainController;
+    Column xCol, yCol;
+    Boolean xNum, yNum;
+    XYChart.Series aClassifier;
     @FXML private VBox scatterChart;
     @FXML private ScatterChart chart;
 
-    private Set<XYChart.Series> getAllSeries(MVCModel model, Column xCol, Column yCol) {
-        Set<XYChart.Series> series = new HashSet<>();
+    private Set<XYChart.Series> allSeries(MVCModel model) {
+        Set<XYChart.Series> res = new HashSet<>();
         for (Category category: model.allCategories()) {
-            series.add(getSeries(category, xCol, yCol));
+            res.add(series(category, category.getTitle()));
         }
-        return series;
+        return res;
     }
 
-    private XYChart.Series getSeries(IDataset dataset, Column xCol, Column yCol) {
-        var data = new XYChart.Series();
-        data.nameProperty().setValue(dataset.getTitle());
+    private XYChart.Series series(Iterable<Point> dataset, String title) {
+        var res = new XYChart.Series();
+        res.nameProperty().setValue(title);
         for (Point point : dataset) {
-            data.getData().add(getData(point, xCol, yCol));
+            res.getData().add(dataPoint(point));
         }
-        return data;
+        return res;
     }
 
     private Axis getAxis(Column col) {
-        if (col.isNumeric()) return getNumberAxis(col);
-        return getStringAxis(col);
+        Axis res;
+        if (col.isNumeric()) res = new NumberAxis();
+        else res = new CategoryAxis();
+        res.setLabel(col.getName());
+        return res;
     }
 
-    private XYChart.Data getData(Point point, Column xCol, Column yCol){
-        var x = xCol.isNumeric() ? point.getValue(xCol) : point.getStringValue(xCol);
-        var y = yCol.isNumeric() ? point.getValue(yCol): point.getStringValue(yCol);
+    private XYChart.Data dataPoint(Point point){
+        var x = xNum ? point.getValue(xCol) : point.getStringValue(xCol);
+        var y = yNum ? point.getValue(yCol): point.getStringValue(yCol);
         XYChart.Data res = new XYChart.Data<>(x, y);
         res.setNode(button(mainController, point));
         return res;
@@ -57,34 +63,31 @@ public class ScatterChartController {
         return bt;
     }
 
-    private NumberAxis getNumberAxis(Column col) {
-        String name = col.getName();
-        NumberAxis res = new NumberAxis();
-        res.setLabel(name);
-        return res;
-    }
-
-    private CategoryAxis getStringAxis(Column col){
-        String name = col.getName();
-        CategoryAxis res = new CategoryAxis();
-        res.setLabel(name);
-        return res;
-    }
-
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    public void setAxis(Column xCol, Column yCol) {
-        chart = new ScatterChart(getAxis(xCol), getAxis(yCol));
-        MVCModel model = mainController.getModel();
-        chart.getData().addAll(getAllSeries(model, xCol, yCol));
-        chart.setTitle(model.getTitle());
-        updateNewChart();
+    public void updateChart(Column xCol, Column yCol) {
+        this.xCol = xCol;
+        this.xNum = xCol.isNumeric();
+        this.yCol = yCol;
+        this.yNum = yCol.isNumeric();
+        this.aClassifier = series(mainController.getModel().getDataToClassify(), "A classifier");
+        chart = newChart();
+        scatterChart.getChildren().set(0, chart);
     }
 
-    private void updateNewChart() {
-        VBox.setVgrow(chart, Priority.ALWAYS);
-        scatterChart.getChildren().set(0, chart);
+    public void addToClassify(Point p){
+        aClassifier.getData().add(dataPoint(p));
+    }
+
+    public ScatterChart newChart(){
+        var res = new ScatterChart(getAxis(xCol), getAxis(yCol));
+        MVCModel model = mainController.getModel();
+        res.getData().addAll(allSeries(model));
+        res.getData().add(aClassifier);
+        res.setTitle(model.getTitle());
+        VBox.setVgrow(res, Priority.ALWAYS);
+        return res;
     }
 }

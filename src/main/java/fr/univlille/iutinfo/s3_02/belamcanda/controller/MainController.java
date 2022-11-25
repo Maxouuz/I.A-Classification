@@ -39,7 +39,7 @@ public class MainController {
     public void updateChartAxis() {
         Column xCol = axisChoiceBoxController.getXCol();
         Column yCol = axisChoiceBoxController.getYCol();
-        scatterChartController.setAxis(xCol, yCol);
+        scatterChartController.updateChart(xCol, yCol);
     }
 
     public void setPointDescription(Point point) {
