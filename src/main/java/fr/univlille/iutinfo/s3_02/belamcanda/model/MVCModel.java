@@ -11,18 +11,23 @@ import java.util.*;
  * categories
  */
 public abstract class MVCModel extends Subject implements IDataset {
+	protected final Class<? extends Point> clazz;
+
 	protected final Set<Point> trainingData;
 	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
 	protected final Categories categories;
 
-	protected MVCModel() {
+	protected MVCModel(Class<? extends Point> clazz) {
+		this.clazz = clazz;
 		this.trainingData = new HashSet<>();
 		this.toClassifyData = new HashSet<>();
 		this.columns = getColumns();
 		setDatasetOfColumns();
 		this.categories = new Categories();
 	}
+
+	public Class<? extends Point> pointClass(){return clazz;}
 
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
 

@@ -3,9 +3,14 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
 
 public class IrisModel extends MVCModel {
+	protected IrisModel() {
+		super(IrisPoint.class);
+	}
+
 	@Override
 	public String getTitle() {
 		return "Iris";
