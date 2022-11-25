@@ -9,6 +9,7 @@ public abstract class Column {
 	public Column(String name, double weight) {
 		this.name = name;
 		this.weight = weight;
+		this.used = true;
 	}
 
 	public Column(String name) {
