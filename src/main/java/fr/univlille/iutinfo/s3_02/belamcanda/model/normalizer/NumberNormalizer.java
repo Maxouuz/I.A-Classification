@@ -1,7 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnComparator;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.NonDrasticComparator;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.ColumnComparator;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.NonDrasticComparator;
 
 public class NumberNormalizer implements IValueNormalizer{
     @Override

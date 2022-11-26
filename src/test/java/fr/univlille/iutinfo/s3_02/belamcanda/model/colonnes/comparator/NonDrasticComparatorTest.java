@@ -1,5 +1,6 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.NonDrasticComparator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

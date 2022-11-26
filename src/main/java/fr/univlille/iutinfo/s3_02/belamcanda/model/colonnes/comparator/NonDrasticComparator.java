@@ -1,4 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator;
 
 public class NonDrasticComparator implements ColumnComparator {
     @Override

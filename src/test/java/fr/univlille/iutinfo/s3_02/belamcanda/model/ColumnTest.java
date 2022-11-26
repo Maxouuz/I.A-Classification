@@ -1,5 +1,8 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NonNormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
@@ -54,21 +57,21 @@ public class ColumnTest {
     public void column_is_attached_to_the_model_when_he_have_an_amplitude() {
         Column columnWithAmplitude = PokemonColumns.HP.getColumn();
         MVCModel model = new PokemonModel();
-        assertTrue(model.observers.contains(columnWithAmplitude));
+        assertTrue(model.observers().contains(columnWithAmplitude));
     }
 
     @Test
     public void column_is_not_attached_to_the_model_when_he_dont_have_an_amplitude() {
         Column columnWithAmplitude = PokemonColumns.TYPE.getColumn();
         MVCModel model = new PokemonModel();
-        assertFalse(model.observers.contains(columnWithAmplitude));
+        assertFalse(model.observers().contains(columnWithAmplitude));
     }
 
     @Test
     public void column_updates_amplitude_when_he_needs_it() throws Exception {
         NormalizableColumn columnWithAmplitude = (NormalizableColumn) PokemonColumns.HP.getColumn();
         MVCModel model = new PokemonModel();
-        Amplitude ampli = columnWithAmplitude.amplitude;
+        Amplitude ampli = columnWithAmplitude.amplitude();
         assertEquals(null, ampli.getMin());
         model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
         assertNotEquals(null, ampli.getMin());

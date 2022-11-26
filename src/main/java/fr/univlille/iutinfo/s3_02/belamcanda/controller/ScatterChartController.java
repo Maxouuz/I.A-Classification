@@ -2,6 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Button;

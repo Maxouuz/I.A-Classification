@@ -1,6 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
