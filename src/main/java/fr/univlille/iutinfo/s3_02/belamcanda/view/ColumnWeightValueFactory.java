@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.view;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Spinner;

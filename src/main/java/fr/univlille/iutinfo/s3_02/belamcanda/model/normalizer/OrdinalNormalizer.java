@@ -1,7 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnComparator;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.DrasticComparator;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.ColumnComparator;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.DrasticComparator;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 
 public class OrdinalNormalizer<T extends Enum> implements IValueNormalizer {

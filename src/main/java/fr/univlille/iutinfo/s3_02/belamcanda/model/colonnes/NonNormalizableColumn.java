@@ -1,6 +1,8 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes;
 
-public class NonNormalizableColumn extends Column{
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
+
+public class NonNormalizableColumn extends Column {
     public NonNormalizableColumn(String name, double weight) {
         super(name, weight);
     }

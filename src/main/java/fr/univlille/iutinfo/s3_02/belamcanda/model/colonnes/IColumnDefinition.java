@@ -1,6 +1,4 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum;
-
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes;
 
 public interface IColumnDefinition {
     Column getColumn();

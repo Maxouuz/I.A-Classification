@@ -1,9 +1,9 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnFactory;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.ColumnFactory;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NonNormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 
 public enum TitanicColumns implements IColumnDefinition {
     /* TODO Si il y a besoin de normaliser PassengerId, on peut utiliser un NumberColumn, 

@@ -1,7 +1,11 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.*;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.ColumnComparator;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Observer;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
 public class NormalizableColumn extends Column implements Observer {
     private final IValueNormalizer normalizer;
@@ -65,4 +69,7 @@ public class NormalizableColumn extends Column implements Observer {
 
     public Double min(){return amplitude.getMin();}
     public Double max(){return amplitude.getMax();}
+
+    public Amplitude amplitude() {return amplitude;
+    }
 }

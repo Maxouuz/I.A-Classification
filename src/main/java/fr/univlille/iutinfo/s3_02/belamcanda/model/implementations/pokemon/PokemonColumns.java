@@ -1,10 +1,10 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Column;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnFactory;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.NonNormalizableColumn;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.NormalizableColumn;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes_enum.IColumnDefinition;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.ColumnFactory;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NonNormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.OrdinalNormalizer;

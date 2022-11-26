@@ -1,4 +1,8 @@
-package fr.univlille.iutinfo.s3_02.belamcanda.model;
+package fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes;
+
+import fr.univlille.iutinfo.s3_02.belamcanda.model.IDataset;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
 public abstract class Column {
 	protected MVCModel dataset;

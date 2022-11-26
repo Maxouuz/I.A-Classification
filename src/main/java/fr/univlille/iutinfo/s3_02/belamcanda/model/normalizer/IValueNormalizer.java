@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.ColumnComparator;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.comparator.ColumnComparator;
 
 public interface IValueNormalizer {
     double normalize(Object value, Amplitude amplitude);

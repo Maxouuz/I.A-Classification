@@ -1,6 +1,10 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
+
 import java.util.*;
 
 /**
