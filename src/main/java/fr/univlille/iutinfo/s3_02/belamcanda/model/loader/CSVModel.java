@@ -35,4 +35,11 @@ public enum CSVModel {
     public char getSeparator() {
         return separator;
     }
+
+    public static CSVModel fromClazz(Class<? extends Point> clazz) {
+        for (CSVModel m : values()) {
+            if (clazz.equals(m.getClazz())) return m;
+        }
+        return null;
+    }
 }

@@ -10,7 +10,6 @@ public class OrdinalNormalizer<T extends Enum> implements IValueNormalizer {
         T type = (T) value;
         Class<? extends Enum> clazz = type.getClass();
         return (type.ordinal() * 1.0) / (clazz.getEnumConstants().length - 1);
-
     }
 
 

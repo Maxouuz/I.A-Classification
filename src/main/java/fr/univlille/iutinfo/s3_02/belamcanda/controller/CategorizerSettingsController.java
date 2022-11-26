@@ -1,6 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Categorizer;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer.Categorizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
