@@ -6,7 +6,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisColu
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +24,7 @@ public class TestManhattanDistance {
     @BeforeEach
     public void initialization() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
-        model = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
+        model = new CSVLoader().createModelFromFile(dataPath);
         weightedColumn = model.getColumn(IrisColumns.SEPAL_WIDTH);
         weightedColumn.setWeight(1.0);
         distance = new ManhattanDistance();

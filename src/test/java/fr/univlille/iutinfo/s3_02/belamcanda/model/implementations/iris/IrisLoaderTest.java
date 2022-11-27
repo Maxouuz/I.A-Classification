@@ -33,7 +33,7 @@ class IrisLoaderTest {
     @Test
     void load_model_should_return_correctly_specified_model() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
-        MVCModel iris = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
+        MVCModel iris = new CSVLoader().createModelFromFile(dataPath);
         assertEquals(iris.getTitle(), "Iris");
         assertEquals(iris.defaultXCol(), IrisColumns.PETAL_LENGTH.getColumn());
         assertEquals(iris.defaultYCol(), IrisColumns.PETAL_WIDTH.getColumn());

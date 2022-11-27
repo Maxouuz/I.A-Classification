@@ -1,7 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,16 +16,9 @@ public class ToolBarController {
 
     @FXML
     public void importModel() throws IOException {
-        FXMLLoader loader = getFxmlLoader("ChooseModel.fxml");
-        Parent parent = loader.load();
-        showWindowAndWait(parent);
-
-        ChooseModelController controller = loader.getController();
-        CSVModel model = controller.getSelected();
-
         FileChooser fileChooser = new FileChooser();
         String path = fileChooser.showOpenDialog(new Stage()).toString();
-        mainController.setNewModel(new CSVLoader().createModelFromFile(model, path));
+        mainController.setNewModel(new CSVLoader().createModelFromFile(path));
     }
 
     @FXML

@@ -19,7 +19,7 @@ class CSVLoaderTest {
     @BeforeEach
     public void initialization() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
-        list = new CSVLoader().loadFromFile(PokemonPoint.class, dataPath, ',');
+        list = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath);
     }
 
     @Test

@@ -22,7 +22,7 @@ public class MainController {
 
     @FXML
     private void initialize() throws IOException {
-        model = new CSVLoader().createModelFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_train.csv");
+        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
         initializeControllers();
         updateModel();
         model.addDataToClassify(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));

@@ -4,7 +4,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.io.File;
@@ -21,7 +20,7 @@ public class TestRandomDistance {
         String dataPath = DATA_PATH + "iris.csv";
         weightedColumn = IrisColumns.SEPAL_WIDTH.getColumn();
         weightedColumn.setWeight(1.0);
-        model = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
+        model = new CSVLoader().createModelFromFile(dataPath);
         distance = new RandomDistance();
     }
     /** TODO Pour maxhoue */

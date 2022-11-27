@@ -45,7 +45,7 @@ public class Scenario {
         printTwoRobustness();
 
         printTitle("DISTANCE ALÉATOIRE AUTRE MODÈLE (cross-validation)");
-        model = new CSVLoader().createModelFromFile(CSVModel.IRIS, DATA_PATH + "iris.csv");
+        model = new CSVLoader().createModelFromFile(DATA_PATH + "iris.csv");
         categorizer = new Categorizer(model, new RandomDistance(), 3);
         getRobustnessWithCrossValidation();
         printConclusionIrisCrossValidation();
@@ -74,7 +74,7 @@ public class Scenario {
         categorizer.setK(10);
         getRobustnessWithTestDatas();
 
-        // Validation à partir de la cross-validationv
+        // Validation à partir de la cross-validation
         System.out.println("\n- Cross-validation (k = 3)\n");
         categorizer.setK(3);
         getRobustnessWithCrossValidation();
@@ -95,7 +95,7 @@ public class Scenario {
     }
 
     private static void initClasses() throws IOException {
-        model = new CSVLoader().createModelFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_train.csv");
+        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
         categorizer = new Categorizer(model, new EuclideanDistance(), 3);
         new ModelPrinter().print(model);
         new CategorizerPrinter().print(categorizer);
