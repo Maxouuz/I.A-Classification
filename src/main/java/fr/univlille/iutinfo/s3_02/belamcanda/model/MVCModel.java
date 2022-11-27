@@ -43,7 +43,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 	}
 
 	public abstract Column[] getColumns();
-	public List<Column> getColumnList(){return Arrays.asList(getColumns());}
+
 	/**
 	 * Retourne la colonne à utiliser par defaut pour l'axe des X lors de
 	 * l'affichage du nuage de points.
@@ -108,15 +108,12 @@ public abstract class MVCModel extends Subject implements IDataset {
 		setDatasetOfColumns();
 		this.trainingData.clear();
 		this.trainingData.addAll(lines);
-		this.trainingData.clear();
 		categories.setLines(lines);
-		this.trainingData.addAll(lines);
 		notifyObservers();
 	}
 
 	@Override
 	public void addLine(Point element) {
-		this.trainingData.add(element);
 		this.trainingData.add(element);
 		categories.addLine(element);
 		notifyObservers(element);
@@ -124,7 +121,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	@Override
 	public void addAllLine(Collection<? extends Point> element) {
-		this.trainingData.addAll(element);
 		this.trainingData.addAll(element);
 		categories.addAllLine(element);
 		notifyObservers();
