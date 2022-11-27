@@ -8,7 +8,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoin
 
 public class TitanicModel extends MVCModel {
     public TitanicModel() {
-        super(IrisPoint.class);
+        super(TitanicPoint.class);
     }
 
     @Override
