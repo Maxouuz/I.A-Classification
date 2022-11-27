@@ -20,7 +20,7 @@
          </rowConstraints>
          <children>
             <Label text="Robustesse:" />
-            <Label fx:id="robustness" text="0%" GridPane.columnIndex="1" />
+            <Label fx:id="robustness" text="0.0%" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <ListView fx:id="toClassify" />
