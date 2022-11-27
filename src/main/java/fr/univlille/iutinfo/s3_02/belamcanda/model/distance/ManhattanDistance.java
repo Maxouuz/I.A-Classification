@@ -12,4 +12,10 @@ public class ManhattanDistance implements Distance {
         }
         return sum;
     }
+
+    @Override
+    public String toString() {
+        return "de Manhattan";
+    }
+
 }

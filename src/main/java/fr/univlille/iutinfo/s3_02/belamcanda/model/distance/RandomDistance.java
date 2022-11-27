@@ -11,4 +11,9 @@ public class RandomDistance implements Distance{
     public double distance(MVCModel model, Point p1, Point p2) {
         return rng.nextDouble();
     }
+
+    @Override
+    public String toString() {
+        return "Aléatoire";
+    }
 }

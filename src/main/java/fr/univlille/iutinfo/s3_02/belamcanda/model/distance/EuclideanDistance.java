@@ -12,4 +12,9 @@ public class EuclideanDistance implements Distance {
         }
         return Math.sqrt(sum);
     }
+
+    @Override
+    public String toString() {
+        return "Euclidienne";
+    }
 }
