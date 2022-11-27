@@ -44,39 +44,18 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	public abstract Column[] getColumns();
 
-	/**
-	 * Retourne la colonne à utiliser par defaut pour l'axe des X lors de
-	 * l'affichage du nuage de points.
-	 */
 	public abstract NormalizableColumn defaultXCol();
 
-	/**
-	 * Retourne la colonne à utiliser par defaut pour l'axe des Y lors de
-	 * l'affichage du nuage de points.
-	 */
 	public abstract Column defaultYCol();
 
-	/**
-	 * Retourne toutes les categories du modele.
-	 */
 	public Collection<Category> allCategories() {
 		return categories.getCategories();
 	}
 
-	/**
-	 * Nombre de colonnes dans le modele (egale au nombre de colonnes du DataSet
-	 * associe a ce modele)
-	 */
 	public int nbColumns() {
 		return columns.length;
 	}
 
-	/**
-	 * Retourne la collection de toutes les colonnes du DataSet dont les valeurs
-	 * peuvent etre normalisees. Seules les colonnes normalisables peuvent servir
-	 * d'axes dans le nuage de points. La normalisation doit retourner une valeur
-	 * dans l’intervalle [0;1]
-	 */
 	public List<Column> getNormalizableColumns() {
 		List<Column> normalizableColumns = new ArrayList<>();
 		for (Column column: columns) {
@@ -96,7 +75,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 		}
 		return normalizableColumns;
 	}
-
 
 	@Override
 	public int getNbLines() {
