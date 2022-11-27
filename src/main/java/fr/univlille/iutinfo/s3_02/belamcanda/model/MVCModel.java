@@ -2,6 +2,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
@@ -106,5 +107,14 @@ public abstract class MVCModel extends Subject implements IDataset {
 	@Override
 	public Iterator<Point> iterator() {
 		return trainingData.iterator();
+	}
+
+	public Column getColumn(IColumnDefinition definition) {
+		for (Column column: columns) {
+			if (column.equals(definition.getColumn())) {
+				return column;
+			}
+		}
+		throw new IllegalArgumentException();
 	}
 }

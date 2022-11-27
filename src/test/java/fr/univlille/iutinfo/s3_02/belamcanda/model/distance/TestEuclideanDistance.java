@@ -25,9 +25,9 @@ public class TestEuclideanDistance {
     @BeforeEach
     public void initialization() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
-        weightedColumn = IrisColumns.SEPAL_WIDTH.getColumn();
-        weightedColumn.setWeight(1.0);
         model = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
+        weightedColumn = model.getColumn(IrisColumns.SEPAL_WIDTH);
+        weightedColumn.setWeight(1.0);
         distance = new EuclideanDistance();
     }
 

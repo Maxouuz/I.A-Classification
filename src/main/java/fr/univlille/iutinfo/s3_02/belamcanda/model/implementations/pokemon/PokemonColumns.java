@@ -2,36 +2,43 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.ColumnFactory;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NonNormalizableColumn;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.NumberNormalizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.OrdinalNormalizer;
 
 public enum PokemonColumns implements IColumnDefinition {
-    NAME(new NonNormalizableColumn("name")),
-    ATTACK(ColumnFactory.numberColumn("attack")),
-    BASE_EGG_STEPS(ColumnFactory.numberColumn("baseEggSteps")),
-    CAPTURE_RATE(ColumnFactory.numberColumn("captureRate")),
-    DEFENSE(ColumnFactory.numberColumn("defense")),
-    EXPERIENCE_GROWTH(ColumnFactory.numberColumn("experienceGrowth")),
-    HP(ColumnFactory.numberColumn("hp")),
-    SP_ATTACK(ColumnFactory.numberColumn("spAttack")),
-    SP_DEFENSE(ColumnFactory.numberColumn("spDefense")),
-    TYPE(new NormalizableColumn("pokemonType", new OrdinalNormalizer<PokemonType>())),
-    TYPE_2(new NormalizableColumn("pokemonType2", new OrdinalNormalizer<PokemonType>())),
-    SPEED(ColumnFactory.numberColumn("speed")),
-    IS_LEGENDARY(new NormalizableColumn("isLegendary", new OrdinalNormalizer<Legendary>()));
+    NAME("name"),
+    ATTACK("attack", new NumberNormalizer()),
+    BASE_EGG_STEPS("baseEggSteps", new NumberNormalizer()),
+    CAPTURE_RATE("captureRate", new NumberNormalizer()),
+    DEFENSE("defense", new NumberNormalizer()),
+    EXPERIENCE_GROWTH("experienceGrowth", new NumberNormalizer()),
+    HP("hp", new NumberNormalizer()),
+    SP_ATTACK("spAttack", new NumberNormalizer()),
+    SP_DEFENSE("spDefense", new NumberNormalizer()),
+    TYPE("pokemonType", new OrdinalNormalizer<PokemonType>()),
+    TYPE_2("pokemonType2", new OrdinalNormalizer<PokemonType>()),
+    SPEED("speed", new NumberNormalizer()),
+    IS_LEGENDARY("isLegendary", new OrdinalNormalizer<Legendary>());
 
-    private final Column column;
+    final String name;
+    final IValueNormalizer normalizer;
 
-    PokemonColumns(Column column) {
-        this.column = column;
+    PokemonColumns(String name, IValueNormalizer normalizer) {
+        this.name = name;
+        this.normalizer = normalizer;
+    }
+
+    PokemonColumns(String name) {
+        this.name = name;
+        this.normalizer = null;
     }
 
     @Override
     public Column getColumn() {
-        return this.column;
+        return ColumnFactory.createColumn(name, normalizer);
     }
 }

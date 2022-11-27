@@ -9,12 +9,8 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.Amplitude;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.NumberNormalizer;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-import org.junit.jupiter.api.parallel.Isolated;
-import org.junit.jupiter.api.parallel.ResourceLock;
 
 import java.io.File;
 
@@ -55,9 +51,10 @@ public class ColumnTest {
 
     @Test
     public void column_is_correctly_bound_to_the_model() {
-        Column columnWithAmplitude = PokemonColumns.HP.getColumn();
         MVCModel model = new PokemonModel();
-        assertEquals(columnWithAmplitude.getDataset(), model);
+        for (Column columnWithAmplitude: model.getNormalizableColumns()) {
+            assertEquals(columnWithAmplitude.getDataset(), model);
+        }
     }
 
     @Test
@@ -77,13 +74,13 @@ public class ColumnTest {
 
     @Test
     public void column_updates_amplitude_when_he_needs_it() throws Exception {
-        NormalizableColumn columnWithAmplitude = (NormalizableColumn) PokemonColumns.HP.getColumn();
+        MVCModel model = new PokemonModel();
+        NormalizableColumn columnWithAmplitude = (NormalizableColumn) model.getColumn(PokemonColumns.HP);
         columnWithAmplitude.resetAmplitude();
         Amplitude ampli = columnWithAmplitude.amplitude();
 
         /** TODO CA BUG PERIODIQUMNET CETTE MERDE" */
         assertNull(ampli.getMin());
-        MVCModel model = new PokemonModel();
         model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
         assertNotEquals(null, ampli.getMin());
     }

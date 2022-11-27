@@ -7,6 +7,8 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Observer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
+import java.util.Objects;
+
 public class NormalizableColumn extends Column implements Observer {
     private final IValueNormalizer normalizer;
     Amplitude amplitude;
@@ -72,6 +74,20 @@ public class NormalizableColumn extends Column implements Observer {
     public Double min(){return amplitude.getMin();}
     public Double max(){return amplitude.getMax();}
 
-    public Amplitude amplitude() {return amplitude;
+    public Amplitude amplitude() {
+        return amplitude;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NormalizableColumn that = (NormalizableColumn) o;
+        return Objects.equals(normalizer, that.normalizer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(normalizer);
     }
 }

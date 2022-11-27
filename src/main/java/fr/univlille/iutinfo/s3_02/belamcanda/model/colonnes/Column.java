@@ -4,6 +4,8 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.IDataset;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
+import java.util.Objects;
+
 public abstract class Column {
 	protected MVCModel dataset;
 	private final String name;
@@ -59,5 +61,18 @@ public abstract class Column {
 
 	public void setUsed(boolean used) {
 		this.used = used;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Column column = (Column) o;
+		return Double.compare(column.weight, weight) == 0 && Objects.equals(name, column.name);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, weight);
 	}
 }
