@@ -43,6 +43,20 @@ public class Scenario {
         printTitle("DISTANCE ALÉATOIRE");
         categorizer.setDistanceMethod(new RandomDistance());
         printTwoRobustness();
+
+        printTitle("DISTANCE ALÉATOIRE AUTRE MODÈLE (cross-validation)");
+        model = new CSVLoader().createModelFromFile(CSVModel.IRIS, DATA_PATH + "iris.csv");
+        categorizer = new Categorizer(model, new RandomDistance(), 3);
+        getRobustnessWithCrossValidation();
+        printConclusionIrisCrossValidation();
+    }
+
+    private static void printConclusionIrisCrossValidation() {
+        String conclusion = "On devrait trouver un nombre égal à environ 33%, " +
+                            "le résultat est logique vu que nous avons 3 types d'Iris (donc environ 1/3 de probabilités), " +
+                            "et que les différentes catégories sont présentes plus équitablement que par rapport " +
+                            "aux pokémons légendaires et non légendaires";
+        System.out.println(conclusion);
     }
 
     private static void printTitle(String title) {
