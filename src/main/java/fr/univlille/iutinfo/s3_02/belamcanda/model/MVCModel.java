@@ -2,21 +2,14 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
 import java.util.*;
 
-/**
- * Decrit un modele de donnee dans le MVC.
- * Un modele de donnee est un {@link IDataset}, il peut en plus lire ses donnees
- * d'un fichier (CSV) ou d'une chaine de caracteres, il a une colonne et une
- * ligne par defaut pour afficher un nuage de point et il peut avoir des
- * categories
- */
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final Class<? extends Point> clazz;
-
 	protected final Set<Point> trainingData;
 	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
@@ -35,7 +28,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
 
-
 	public void setDatasetOfColumns() {
 		for (Column column: columns) {
 			column.setDataset(this);
@@ -44,39 +36,18 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	public abstract Column[] getColumns();
 
-	/**
-	 * Retourne la colonne à utiliser par defaut pour l'axe des X lors de
-	 * l'affichage du nuage de points.
-	 */
 	public abstract NormalizableColumn defaultXCol();
 
-	/**
-	 * Retourne la colonne à utiliser par defaut pour l'axe des Y lors de
-	 * l'affichage du nuage de points.
-	 */
 	public abstract Column defaultYCol();
 
-	/**
-	 * Retourne toutes les categories du modele.
-	 */
 	public Collection<Category> allCategories() {
 		return categories.getCategories();
 	}
 
-	/**
-	 * Nombre de colonnes dans le modele (egale au nombre de colonnes du DataSet
-	 * associe a ce modele)
-	 */
 	public int nbColumns() {
 		return columns.length;
 	}
 
-	/**
-	 * Retourne la collection de toutes les colonnes du DataSet dont les valeurs
-	 * peuvent etre normalisees. Seules les colonnes normalisables peuvent servir
-	 * d'axes dans le nuage de points. La normalisation doit retourner une valeur
-	 * dans l’intervalle [0;1]
-	 */
 	public List<Column> getNormalizableColumns() {
 		List<Column> normalizableColumns = new ArrayList<>();
 		for (Column column: columns) {
@@ -96,7 +67,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 		}
 		return normalizableColumns;
 	}
-
 
 	@Override
 	public int getNbLines() {
@@ -137,5 +107,14 @@ public abstract class MVCModel extends Subject implements IDataset {
 	@Override
 	public Iterator<Point> iterator() {
 		return trainingData.iterator();
+	}
+
+	public Column getColumn(IColumnDefinition definition) {
+		for (Column column: columns) {
+			if (column.equals(definition.getColumn())) {
+				return column;
+			}
+		}
+		throw new IllegalArgumentException();
 	}
 }

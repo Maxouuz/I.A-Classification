@@ -37,6 +37,5 @@ class IrisLoaderTest {
         assertEquals(iris.getTitle(), "Iris");
         assertEquals(iris.defaultXCol(), IrisColumns.PETAL_LENGTH.getColumn());
         assertEquals(iris.defaultYCol(), IrisColumns.PETAL_WIDTH.getColumn());
-
     }
 }
