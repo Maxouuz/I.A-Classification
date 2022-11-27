@@ -45,7 +45,7 @@ public class TestEuclideanDistance {
         IrisPoint point3 = new IrisPoint(1., 1., 1., 0.9, IrisVariety.SETOSA);
 
         assertEquals(0.04166666666666663, distance.distance(model, point1, point3));
-        assertEquals(1.20545016207218, distance.distance(model, point1, point2));
+        assertEquals(0.6731345283372746, distance.distance(model, point1, point2));
     }
 
     @Test
