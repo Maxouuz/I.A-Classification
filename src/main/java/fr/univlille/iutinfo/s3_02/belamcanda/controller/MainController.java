@@ -39,6 +39,7 @@ public class MainController {
         categorizerSettingsController.createTableView(model.getColumns());
         categorizerSettingsController.createCategorizer(getModel());
         axisChoiceBoxController.initChoiceBoxes(this);
+        updateChartAxis();
     }
 
     public void updateChartAxis() {

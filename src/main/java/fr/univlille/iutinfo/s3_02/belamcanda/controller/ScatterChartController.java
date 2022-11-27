@@ -82,7 +82,7 @@ public class ScatterChartController {
         aClassifier.getData().add(dataPoint(p));
     }
 
-    public ScatterChart newChart(){
+    private ScatterChart newChart(){
         var res = new ScatterChart(getAxis(xCol), getAxis(yCol));
         MVCModel model = mainController.getModel();
         res.getData().addAll(allSeries(model));
