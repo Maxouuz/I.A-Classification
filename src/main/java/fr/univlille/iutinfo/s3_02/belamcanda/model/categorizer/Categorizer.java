@@ -58,7 +58,7 @@ public class Categorizer {
 
     public Set<Point> trainingData(){return model.getTrainingData();}
 
-    private Object dominantCategory(Map<Object, Integer> counts) {
+    public static Object dominantCategory(Map<Object, Integer> counts) {
         int maxOccurrence = 0;
         Object categoryMostPresent = null;
         for (Object category: counts.keySet()) {
