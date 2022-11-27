@@ -5,3 +5,4 @@ target
 .settings
 .idea
 /test_coverage_report/*
+/doc/~$*
