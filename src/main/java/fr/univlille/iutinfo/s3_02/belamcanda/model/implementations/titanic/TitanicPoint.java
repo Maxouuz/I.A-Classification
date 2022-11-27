@@ -5,9 +5,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.qualitative_variables.Embarked;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.qualitative_variables.Gender;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-
 public class TitanicPoint extends Point {
     @CsvBindByName(column = "PassengerId")
     protected Integer passengerId;
@@ -32,7 +29,7 @@ public class TitanicPoint extends Point {
     @CsvBindByName(column = "Cabin")
     protected String cabin;
     @CsvBindByName(column = "Embarked")
-    protected Embarked embarked;
+    protected Embarked embarked = Embarked.NULL;
 
     @Override
     public Object category() {

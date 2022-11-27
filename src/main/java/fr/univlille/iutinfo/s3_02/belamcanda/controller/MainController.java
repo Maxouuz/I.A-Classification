@@ -23,11 +23,9 @@ public class MainController {
     @FXML
     private void initialize() throws IOException {
         model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
+        model.addDataToClassify(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
         initializeControllers();
         updateModel();
-        model.addDataToClassify(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
-        dataToClassifyController.updateTrainingData();
-        updateChartAxis();
     }
 
     private void initializeControllers() {
@@ -37,6 +35,7 @@ public class MainController {
     }
 
     private void updateModel() {
+        dataToClassifyController.updateTrainingData();
         categorizerSettingsController.createTableView(model.getNormalizableColumns());
         categorizerSettingsController.createCategorizer(getModel());
         axisChoiceBoxController.initChoiceBoxes(this);
@@ -65,7 +64,6 @@ public class MainController {
 
     public void setNewModel(MVCModel model) {
         this.model = model;
-        dataToClassifyController.updateTrainingData();
         updateModel();
     }
 }
