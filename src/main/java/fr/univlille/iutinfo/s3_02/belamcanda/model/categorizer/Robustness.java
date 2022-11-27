@@ -6,22 +6,32 @@ import java.util.*;
 
 public class Robustness {
     Double compute(Categorizer categorizer, Collection<Point> testData, Collection<Point> trainingData) {
-        return testData.stream()
-                .mapToDouble(point -> wellCategorized(categorizer, point, trainingData))
+        Map<Point, Object> categorized = categorize(categorizer, testData, trainingData);
+        return computeSuccessRate(categorized);
+    }
+
+    Map<Point, Object> categorize(Categorizer categorizer, Collection<Point> testData, Collection<Point> trainingData) {
+        Map<Point, Object> res = new HashMap<>();
+        for (Point point : testData) {
+            res.put(point, categorizer.categorize(point, trainingData));
+        }
+        return res;
+    }
+
+    Double computeSuccessRate(Map<Point, Object> categorized) {
+        return categorized.entrySet().stream()
+                .mapToDouble(e -> e.getKey().category().equals(e.getValue()) ? 1 : 0)
                 .average().getAsDouble();
     }
 
-    private int wellCategorized(Categorizer categorizer, Point point, Collection<Point> trainingData) {
-        return categorizer.categorize(point, trainingData).equals(point.category()) ? 1 : 0;
-    }
 
-    public Double crossValidate(Categorizer categorizer, Collection<Point> trainingData){
+    public Double crossValidate(Categorizer categorizer, Collection<Point> trainingData) {
         List<List<Point>> fifths = splitData(trainingData);
-        Collection<Point> makeShifTrainingData;
+        Collection<Point> makeShiftTrainingData;
         double sum = 0;
         for (int i = 0; i < 5; i++) {
-            makeShifTrainingData = extractTrainingData(fifths, i);
-            sum += compute(categorizer, fifths.get(i), makeShifTrainingData);
+            makeShiftTrainingData = extractTrainingData(fifths, i);
+            sum += compute(categorizer, fifths.get(i), makeShiftTrainingData);
         }
         return sum / 5.0;
     }
@@ -35,7 +45,7 @@ public class Robustness {
         return trainingData;
     }
 
-    public List<List<Point>> splitData(Collection<Point> points){
+    public List<List<Point>> splitData(Collection<Point> points) {
         List<List<Point>> res = new ArrayList<>();
         List<Point> list = new ArrayList<>(points);
         Collections.shuffle(list);

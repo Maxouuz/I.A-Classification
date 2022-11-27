@@ -51,6 +51,10 @@ public class Categorizer {
 
     public double getRobustness(String csvFile) throws IOException {
         Collection<Point> testData = new CSVLoader().loadFromFile( CSVModel.fromClazz(model.pointClass()), csvFile);
+        return getRobustness(testData);
+    }
+
+    public double getRobustness(Collection<Point> testData) {
         return new Robustness().compute(this, testData, trainingData());
     }
 
