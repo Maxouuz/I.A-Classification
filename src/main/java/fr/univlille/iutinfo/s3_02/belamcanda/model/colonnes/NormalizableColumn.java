@@ -9,7 +9,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
 public class NormalizableColumn extends Column implements Observer {
     private final IValueNormalizer normalizer;
-    final Amplitude amplitude;
+    Amplitude amplitude;
 
     public NormalizableColumn(String name, double weight, IValueNormalizer normalizer) {
         super(name, weight);
@@ -53,6 +53,8 @@ public class NormalizableColumn extends Column implements Observer {
     private void autoUpdateAmplitude() {
         dataset.attach(this);
     }
+
+    public void resetAmplitude(){this.amplitude = new Amplitude();}
 
     @Override
     public void update(Subject s) {
