@@ -47,6 +47,7 @@ public class CategorizerSettingsController {
     }
 
     public void createTableView(List<Column> columns) {
+        columnList.getItems().clear();
         for (Column column: columns) {
             columnList.getItems().add(column);
         }
