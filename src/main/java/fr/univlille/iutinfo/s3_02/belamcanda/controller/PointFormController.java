@@ -19,6 +19,7 @@ public class PointFormController {
     private GridPane grid;
 
     public void generateForm(MVCModel model) {
+
         int row = 0;
         Class<? extends Point> clazz = model.pointClass();
         Field[] fields = clazz.getDeclaredFields();
@@ -30,7 +31,6 @@ public class PointFormController {
     }
 
     private static Node getWidgetOf(Class<?> clazz) {
-        System.out.print(clazz + "  ");
         if (clazz.isEnum()) return enumWidget(clazz);
         else if (isInt(clazz)) return intWidget();
         else if (isDouble(clazz)) return doubleWidget();
@@ -43,7 +43,7 @@ public class PointFormController {
     }
 
     private static boolean isInt(Class<?> clazz) {
-        return clazz.equals(Integer.class) | clazz.equals(int.class) ;
+        return clazz.equals(Integer.class) | clazz.equals(int.class);
     }
 
     private static Node doubleWidget() {
@@ -62,7 +62,9 @@ public class PointFormController {
 
     private static Node enumWidget(Class<?> clazz) {
         ObservableList<?> list = FXCollections.observableList(Arrays.asList(clazz.getEnumConstants()));
-        return new ComboBox<>(list);
+        ComboBox<?> res = new ComboBox<>(list);
+        res.getSelectionModel().select(0);
+        return res;
     }
 
 }
