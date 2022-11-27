@@ -3,6 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.view;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -14,6 +15,8 @@ public class MVCView extends Application {
         Parent root = getParent();
 
         Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("/img/logo.png"));
+        stage.setTitle("Belamcanda");
         stage.setScene(scene);
         stage.show();
     }

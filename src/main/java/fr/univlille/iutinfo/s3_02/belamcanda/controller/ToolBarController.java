@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -45,8 +46,10 @@ public class ToolBarController {
         return loader;
     }
 
-    private static void showWindowAndWait(Parent root) {
+    private void showWindowAndWait(Parent root) {
         Stage stage = new Stage();
+        stage.setTitle("Ajout d'un point " + mainController.getModel().getTitle());
+        stage.getIcons().add(new Image("/img/logo.png"));
         stage.setScene(new Scene(root));
         stage.showAndWait();
     }
