@@ -1,6 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
-import com.opencsv.exceptions.CsvValidationException;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import javafx.fxml.FXML;
@@ -57,8 +56,7 @@ public class ToolBarController {
 
     @FXML
     public void classify() {
-        double robustness = mainController.getRobustness();
-        mainController.updateRobustness(robustness);
+        mainController.updateRobustness();
     }
 
     public void injectMainController(MainController mainController) {
