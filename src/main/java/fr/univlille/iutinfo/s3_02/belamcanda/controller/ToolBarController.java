@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
+import com.opencsv.exceptions.CsvValidationException;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import javafx.fxml.FXML;
