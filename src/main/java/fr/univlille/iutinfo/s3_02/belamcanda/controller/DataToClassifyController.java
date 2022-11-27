@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-import java.util.List;
-
 public class DataToClassifyController {
     @FXML private ListView<Point> toClassify;
     @FXML private Label robustness;
@@ -22,14 +20,8 @@ public class DataToClassifyController {
     }
 
     @FXML
-    public void addTrainingData(Point data) {
-        addTrainingData(List.of(data));
-    }
-
-    @FXML
-    public void addTrainingData(List<Point> datas) {
-        toClassify.getItems().addAll(datas);
-        mainController.getModel().addDataToClassify(datas);
+    public void updateTrainingData() {
+        toClassify.getItems().setAll(mainController.getModel().getDataToClassify());
     }
 
     public void injectMainController(MainController mainController) {

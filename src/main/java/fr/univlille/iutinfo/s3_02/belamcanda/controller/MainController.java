@@ -25,7 +25,8 @@ public class MainController {
         model = new CSVLoader().createModelFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_train.csv");
         initializeControllers();
         updateModel();
-        dataToClassifyController.addTrainingData(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
+        model.addDataToClassify(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
+        dataToClassifyController.updateTrainingData();
         updateChartAxis();
     }
 
@@ -66,6 +67,7 @@ public class MainController {
 
     public void setNewModel(MVCModel model) {
         this.model = model;
+        dataToClassifyController.updateTrainingData();
         updateModel();
     }
 }
