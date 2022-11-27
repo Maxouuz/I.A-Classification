@@ -7,16 +7,8 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
 import java.util.*;
 
-/**
- * Decrit un modele de donnee dans le MVC.
- * Un modele de donnee est un {@link IDataset}, il peut en plus lire ses donnees
- * d'un fichier (CSV) ou d'une chaine de caracteres, il a une colonne et une
- * ligne par defaut pour afficher un nuage de point et il peut avoir des
- * categories
- */
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final Class<? extends Point> clazz;
-
 	protected final Set<Point> trainingData;
 	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
@@ -34,7 +26,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 	public Class<? extends Point> pointClass(){return clazz;}
 
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
-
 
 	public void setDatasetOfColumns() {
 		for (Column column: columns) {
