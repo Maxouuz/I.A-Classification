@@ -72,9 +72,6 @@ public class NormalizableColumn extends Column implements Observer {
         amplitude.update((Number) point.getValue(this));
     }
 
-    public Double min(){return amplitude.getMin();}
-    public Double max(){return amplitude.getMax();}
-
     public Amplitude amplitude() {
         return amplitude;
     }
