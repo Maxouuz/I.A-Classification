@@ -13,7 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.List;
 
 public class CategorizerSettingsController {
-    public static final int MIN_K = 0;
+    public static final int MIN_K = 1;
     public static final int MAX_K = 100;
     public static final int DEFAULT_K = 3;
     @FXML private Spinner<Integer> kSpinner;
