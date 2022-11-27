@@ -37,7 +37,7 @@ public class MainController {
     }
 
     private void updateModel() {
-        categorizerSettingsController.createTableView(model.getColumns());
+        categorizerSettingsController.createTableView(model.getNormalizableColumns());
         categorizerSettingsController.createCategorizer(getModel());
         axisChoiceBoxController.initChoiceBoxes(this);
         updateChartAxis();

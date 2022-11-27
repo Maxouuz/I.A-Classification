@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.List;
+
 public class CategorizerSettingsController {
     public static final int MIN_K = 0;
     public static final int MAX_K = 100;
@@ -44,7 +46,7 @@ public class CategorizerSettingsController {
         categorizer = new Categorizer(model, new EuclideanDistance(), getK());
     }
 
-    public void createTableView(Column[] columns) {
+    public void createTableView(List<Column> columns) {
         for (Column column: columns) {
             columnList.getItems().add(column);
         }
