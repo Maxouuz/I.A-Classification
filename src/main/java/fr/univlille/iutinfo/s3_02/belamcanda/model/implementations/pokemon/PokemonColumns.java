@@ -3,7 +3,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.ColumnFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.IValueNormalizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.normalizer.NumberNormalizer;
@@ -22,7 +21,7 @@ public enum PokemonColumns implements IColumnDefinition {
     TYPE("pokemonType", new OrdinalNormalizer<PokemonType>()),
     TYPE_2("pokemonType2", new OrdinalNormalizer<PokemonType>()),
     SPEED("speed", new NumberNormalizer()),
-    IS_LEGENDARY("isLegendary", new OrdinalNormalizer<Legendary>());
+    IS_LEGENDARY("isLegendary");
 
     final String name;
     final IValueNormalizer normalizer;

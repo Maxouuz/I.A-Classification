@@ -10,12 +10,11 @@ public abstract class Column {
 	protected MVCModel dataset;
 	private final String name;
 	private double weight;
-	private boolean used;
+	protected boolean used;
 
 	public Column(String name, double weight) {
 		this.name = name;
 		this.weight = weight;
-		this.used = true;
 	}
 
 	public Column(String name) {

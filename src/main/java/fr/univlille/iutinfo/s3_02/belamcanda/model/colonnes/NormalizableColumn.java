@@ -17,6 +17,7 @@ public class NormalizableColumn extends Column implements Observer {
         super(name, weight);
         this.normalizer = normalizer;
         this.amplitude = new Amplitude();
+        used = true;
     }
 
     public NormalizableColumn(String name, IValueNormalizer normalizer) {

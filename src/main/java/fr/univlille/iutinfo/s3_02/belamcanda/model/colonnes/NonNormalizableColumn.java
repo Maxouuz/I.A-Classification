@@ -5,6 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 public class NonNormalizableColumn extends Column {
     public NonNormalizableColumn(String name, double weight) {
         super(name, weight);
+        used = false;
     }
     public NonNormalizableColumn(String name) {
         this(name, 1.);

@@ -49,8 +49,8 @@ class PokemonModelTest {
     }
 
     @Test
-    public void all_columns_but_name_are_normalizable() {
-        assertEquals(model.nbColumns() - 1, model.getNormalizableColumns().size());
+    public void all_columns_but_name_and_legendary_status_are_normalizable() {
+        assertEquals(model.nbColumns() - 2, model.getNormalizableColumns().size());
     }
 
     @Test

@@ -3,10 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.Distance;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 
-import java.io.IOException;
 import java.util.*;
 
 public class Categorizer {
@@ -36,7 +33,7 @@ public class Categorizer {
         return categorize(toCategorize, model.getTrainingData());
     }
 
-    public double getRobustness() {
+    public double getRobustnessByCrossValidation() {
 //        int acc = 0;
 //        int total = 0;
 //        for (Point point: model.getDataToClassify()) {
@@ -46,17 +43,13 @@ public class Categorizer {
 //            total++;
 //        }
 //        return acc * 100.0 / total;
-        return new Robustness().crossValidate(this, trainingData());
+        return new Robustness().crossValidate(this, model.getTrainingData());
     }
 
-    public double getRobustness(String csvFile) throws IOException {
-        Collection<Point> testData = new CSVLoader().loadFromFile( CSVModel.fromClazz(model.pointClass()), csvFile);
-        return new Robustness().compute(this, testData, trainingData());
+    public double getRobustness() {
+        return new Robustness().compute(this, model.getDataToClassify(), model.getTrainingData());
     }
 
-
-
-    public Set<Point> trainingData(){return model.getTrainingData();}
 
     public static Object dominantCategory(Map<Object, Integer> counts) {
         int maxOccurrence = 0;

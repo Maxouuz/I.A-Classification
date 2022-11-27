@@ -5,7 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import java.util.*;
 
 public class Robustness {
-    Double compute(Categorizer categorizer, Collection<Point> testData, Collection<Point> trainingData) {
+    public Double compute(Categorizer categorizer, Collection<Point> testData, Collection<Point> trainingData) {
         return testData.stream()
                 .mapToDouble(point -> wellCategorized(categorizer, point, trainingData))
                 .average().getAsDouble();
