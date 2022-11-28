@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class ToolBarController {
@@ -17,8 +19,11 @@ public class ToolBarController {
     @FXML
     public void importModel() throws IOException {
         FileChooser fileChooser = new FileChooser();
-        String path = fileChooser.showOpenDialog(new Stage()).toString();
-        mainController.setNewModel(new CSVLoader().createModelFromFile(path));
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file != null) {
+            MVCModel model = new CSVLoader().createModelFromFile(file.toString());
+            mainController.setNewModel(model);
+        }
     }
 
     @FXML
