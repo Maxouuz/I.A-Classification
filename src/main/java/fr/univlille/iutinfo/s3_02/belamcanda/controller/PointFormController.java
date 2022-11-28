@@ -19,7 +19,6 @@ public class PointFormController {
     private GridPane grid;
 
     public void generateForm(MVCModel model) {
-
         int row = 0;
         Class<? extends Point> clazz = model.pointClass();
         Field[] fields = clazz.getDeclaredFields();

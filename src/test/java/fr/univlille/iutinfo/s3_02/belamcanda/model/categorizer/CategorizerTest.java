@@ -7,7 +7,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CategorizerTest {
+class CategorizerTest {
 
     @Test
     void dominant_category_ts_the_return_category(){

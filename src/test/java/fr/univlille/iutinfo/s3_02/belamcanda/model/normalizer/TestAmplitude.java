@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class TestAmplitude {
+class TestAmplitude {
     static final double DELTA = .005;
 
     @Test
-    public void min_max_should_be_equal_after_first_update(){
+    void min_max_should_be_equal_after_first_update(){
         Amplitude ampli = new Amplitude();
         ampli.update(4.0);
         assertEquals(4.0, ampli.getMax());
@@ -17,7 +17,7 @@ public class TestAmplitude {
     }
 
     @Test
-    public void min_and_max_should_be_same_value_when_having_one_value(){
+    void min_and_max_should_be_same_value_when_having_one_value(){
         Amplitude ampli = new Amplitude();
         ampli.update(4.0);
         assertEquals(4.0, ampli.getMax());
@@ -25,7 +25,7 @@ public class TestAmplitude {
     }
 
     @Test
-    public void average_should_be_same_value_when_having_one_value() {
+    void average_should_be_same_value_when_having_one_value() {
         Amplitude ampli = new Amplitude();
         double value = 4.0;
         ampli.update(value);
@@ -33,7 +33,7 @@ public class TestAmplitude {
     }
 
     @Test
-    public void average_should_be_the_average_of_the_current_value_with_the_previous_one() {
+    void average_should_be_the_average_of_the_current_value_with_the_previous_one() {
         Amplitude ampli = new Amplitude();
         ampli.update(2);
         ampli.update(4);
@@ -45,14 +45,14 @@ public class TestAmplitude {
     }
 
     @Test
-    public void variance_should_be_zero_when_the_only_number_is_one() {
+    void variance_should_be_zero_when_the_only_number_is_one() {
         Amplitude ampli = new Amplitude();
         ampli.update(1);
         assertEquals(0, ampli.getVariance());
     }
 
     @Test
-    public void variance_should_be_the_variance_of_the_current_value_with_the_previous_one(){
+    void variance_should_be_the_variance_of_the_current_value_with_the_previous_one(){
         Amplitude ampli = new Amplitude();
         ampli.update(1);
         ampli.update(2);

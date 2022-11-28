@@ -21,7 +21,7 @@ public class CategorizerSettingsController {
     @FXML private TableView<Column> columnList;
     @FXML private TableColumn<Column, String> nameColumn;
     @FXML private TableColumn<Column, Spinner<Double>> weightColumn;
-    @FXML private TableColumn<Column, CheckBox> isUsedColumn;
+    @FXML private TableColumn<Column, CheckBox> usedColumn;
 
     public int getK() {
         return kSpinner.getValue();
@@ -34,7 +34,7 @@ public class CategorizerSettingsController {
         );
         kSpinner.valueProperty().addListener(e -> categorizer.setK(getK()));
         weightColumn.setCellValueFactory(new ColumnWeightValueFactory());
-        isUsedColumn.setCellValueFactory(new ColumnIsUsedValueFactory());
+        usedColumn.setCellValueFactory(new ColumnIsUsedValueFactory());
         setNameColumnCellFactory();
     }
 

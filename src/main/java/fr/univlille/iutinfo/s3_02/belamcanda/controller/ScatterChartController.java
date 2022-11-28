@@ -6,8 +6,7 @@ import javafx.scene.chart.*;
 import javafx.scene.layout.VBox;
 
 public class ScatterChartController {
-    MainController mainController;
-    Column xCol, yCol;
+    private MainController mainController;
     @FXML private VBox scatterChart;
     @FXML private ScatterChart<?, ?> chart;
 
@@ -16,8 +15,8 @@ public class ScatterChartController {
     }
 
     public void updateChart() {
-        this.xCol = mainController.getXColSelected();
-        this.yCol = mainController.getYColSelected();
+        Column xCol = mainController.getXColSelected();
+        Column yCol = mainController.getYColSelected();
         chart = new ModelScatterChart<>(getAxis(xCol), getAxis(yCol), mainController);
         scatterChart.getChildren().set(0, chart);
     }

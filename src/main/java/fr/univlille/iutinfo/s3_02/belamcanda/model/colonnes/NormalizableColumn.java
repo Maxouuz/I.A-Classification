@@ -41,6 +41,8 @@ public class NormalizableColumn extends Column implements Observer {
     public boolean isNormalizable() {
         return true;
     }
+
+    @Override
     public boolean isNumeric() {
         return  normalizer.needAmplitude();
     }

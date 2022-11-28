@@ -17,13 +17,13 @@ class MVCModelTest {
     private MVCModel model;
 
     @BeforeEach
-    public void initialization() throws IOException {
+    void initialization() throws IOException {
         final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
         model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_test.csv");
     }
 
     @Test
-    public void iterator_should_browse_all_the_elements_in_the_csv() {
+    void iterator_should_browse_all_the_elements_in_the_csv() {
         int i = 0;
         for (Point element: model) {
             i++;
@@ -32,14 +32,14 @@ class MVCModelTest {
     }
 
     @Test
-    public void new_element_should_be_registered_when_added() {
+    void new_element_should_be_registered_when_added() {
         PokemonPoint newPokemon = new PokemonPoint();
         model.addLine(newPokemon);
         assertTrue(model.trainingData.contains(newPokemon));
     }
 
     @Test
-    public void new_elements_should_be_registered_when_added() {
+    void new_elements_should_be_registered_when_added() {
         List<PokemonPoint> newPokemons = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             newPokemons.add(new PokemonPoint());
@@ -49,7 +49,7 @@ class MVCModelTest {
     }
 
     @Test
-    public void datas_are_reset_when_setting_new_lines() {
+    void datas_are_reset_when_setting_new_lines() {
         assertEquals(273, model.getNbLines());
 
         List<Point> lines = new ArrayList<>();

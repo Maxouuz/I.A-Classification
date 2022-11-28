@@ -16,7 +16,7 @@ class TitanicLoaderTest {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void titanic_loader_should_load_titanic_beans() throws IOException {
+    void titanic_loader_should_load_titanic_beans() throws IOException {
         String dataPath = DATA_PATH + "titanic.csv";
         List<Point> list = new CSVLoader().loadFromFile(CSVModel.TITANIC, dataPath);
         assertEquals(891, list.size());

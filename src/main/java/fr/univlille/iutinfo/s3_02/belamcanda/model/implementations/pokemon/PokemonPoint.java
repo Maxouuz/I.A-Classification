@@ -33,7 +33,7 @@ public class PokemonPoint extends Point {
 	@CsvBindByName(column = "is_legendary")
 	protected Legendary isLegendary;
 
-
+	@Override
 	public Object category(){
 		return isLegendary;
 	}

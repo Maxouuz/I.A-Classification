@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class IColumnDefinitionTest {
 
     @Test
-    public void column_attributes_should_be_predefined_columns(){
+    void column_attributes_should_be_predefined_columns(){
         IColumnDefinition[] columnDefinitions = PokemonColumns.values();
         ArrayList<Column> columns = new ArrayList<>();
 
@@ -26,7 +26,7 @@ class IColumnDefinitionTest {
     }
 
     @Test
-    public void getting_columns_from_enum_list_should_return_column_list(){
+    void getting_columns_from_enum_list_should_return_column_list(){
         IColumnDefinition[] definitions = new IColumnDefinition[]{PokemonColumns.HP, PokemonColumns.ATTACK};
         assertArrayEquals(new Column[]{PokemonColumns.HP.getColumn(), PokemonColumns.ATTACK.getColumn()}, IColumnDefinition.getColumns(definitions));
     }

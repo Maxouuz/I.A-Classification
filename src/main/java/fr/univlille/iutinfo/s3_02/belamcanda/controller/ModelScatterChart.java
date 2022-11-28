@@ -11,33 +11,57 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
     private final MainController mainController;
+    private final Series<X,Y> dataToClassifySeries;
 
     public ModelScatterChart(Axis<X> xAxis, Axis<Y> yAxis, MainController mainController) {
         super(xAxis, yAxis);
         this.mainController = mainController;
+        this.dataToClassifySeries = getOneSeries(mainController.getModel().getDataToClassify(), "A classifier");
+        initDataToClassify();
         createChart();
     }
 
-    private Set<Series<X,Y>> allSeries(MVCModel model) {
+    private void initDataToClassify() {
+        Set<Point> dataToClassify = mainController.getModel().getDataToClassify();
+        if (!dataToClassify.isEmpty()) {
+            addDataToClassify(dataToClassify);
+        }
+    }
+
+    private void createChart(){
+        MVCModel model = mainController.getModel();
+        getData().addAll(getAllSeries(model));
+        setTitle(model.getTitle());
+        VBox.setVgrow(this, Priority.ALWAYS);
+    }
+
+    private Set<Series<X,Y>> getAllSeries(MVCModel model) {
         Set<XYChart.Series<X,Y>> res = new HashSet<>();
         for (Category category: model.allCategories()) {
-            res.add(series(category, category.getTitle()));
+            res.add(getOneSeries(category, category.getTitle()));
         }
         return res;
     }
 
-    private XYChart.Series<X,Y> series(Iterable<Point> dataset, String title) {
+    private XYChart.Series<X,Y> getOneSeries(Iterable<Point> dataset, String title) {
         XYChart.Series<X,Y> res = new XYChart.Series<>();
         res.nameProperty().setValue(title);
         for (Point point : dataset) {
             res.getData().add(dataPoint(point));
         }
         return res;
+    }
+
+    private void addDataToClassify(Collection<Point> dataToClassify) {
+        if (getData().isEmpty()) {
+            getData().add(dataToClassifySeries);
+        }
+        dataToClassifySeries.getData().addAll(dataPoint(dataToClassify));
     }
 
     private XYChart.Data<X,Y> dataPoint(Point point){
@@ -50,18 +74,10 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
         return res;
     }
 
-    private XYChart.Series<X,Y> getSeriesOfDataToClassify() {
-        return series(mainController.getModel().getDataToClassify(), "A classifier");
-    }
-
-    private void createChart(){
-        MVCModel model = mainController.getModel();
-        getData().addAll(allSeries(model));
-        if (!model.getDataToClassify().isEmpty()) {
-            getData().add(getSeriesOfDataToClassify());
-        }
-        setTitle(model.getTitle());
-        VBox.setVgrow(this, Priority.ALWAYS);
+    private Set<XYChart.Data<X,Y>> dataPoint(Collection<Point> points){
+        return points.stream()
+                .map(this::dataPoint)
+                .collect(Collectors.toSet());
     }
 
     private Button button(MainController mainController, Point point){

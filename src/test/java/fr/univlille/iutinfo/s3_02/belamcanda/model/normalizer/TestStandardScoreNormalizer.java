@@ -8,13 +8,13 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class TestStandardScoreNormalizer {
+class TestStandardScoreNormalizer {
     static List<Integer> values;
     static Amplitude ampli;
     static final double DELTA = .005;
 
     @BeforeAll
-    static public void initialization(){
+    static void initialization(){
         values = new ArrayList<>();
         ampli = new Amplitude();
         for (int i = 0; i <= 10; i++) {
@@ -24,7 +24,7 @@ public class TestStandardScoreNormalizer {
     }
 
     @Test
-    public void standard_score_should_be_correct(){
+    void standard_score_should_be_correct(){
         int i = 0;
         List<Double> normalized = new ArrayList<>();
         for (int value: values) {

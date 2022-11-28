@@ -18,7 +18,7 @@ class IrisLoaderTest {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void iris_loader_should_load_iris_beans() throws IOException {
+    void iris_loader_should_load_iris_beans() throws IOException {
         String dataPath = DATA_PATH + "iris.csv";
         List<Point> list = new CSVLoader().loadFromFile(CSVModel.IRIS, dataPath);
         assertEquals(150, list.size());

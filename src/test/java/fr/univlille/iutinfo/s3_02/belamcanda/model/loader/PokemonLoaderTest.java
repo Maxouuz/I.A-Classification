@@ -15,7 +15,7 @@ class PokemonLoaderTest {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void pokemon_loader_should_load_pokemon_beans() throws IOException {
+    void pokemon_loader_should_load_pokemon_beans() throws IOException {
         String dataPath = DATA_PATH + "pokemon_test.csv";
         List<Point> list = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath);
         assertEquals(273, list.size());

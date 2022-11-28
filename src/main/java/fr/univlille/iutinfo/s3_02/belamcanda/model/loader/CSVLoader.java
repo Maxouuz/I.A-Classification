@@ -8,8 +8,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.io.IOException;
@@ -60,8 +59,8 @@ public class CSVLoader {
         }
     }
 
-    private static CSVReaderBuilder getCsvReaderBuilder(char separator, String path) throws FileNotFoundException {
-        return new CSVReaderBuilder(new FileReader(path))
+    private static CSVReaderBuilder getCsvReaderBuilder(char separator, String path) throws IOException {
+        return new CSVReaderBuilder(Files.newBufferedReader(Path.of(path)))
                         .withCSVParser(new CSVParserBuilder()
                         .withSeparator(separator)
                         .build());

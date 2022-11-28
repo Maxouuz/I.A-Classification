@@ -11,6 +11,7 @@ public class Category implements IDataset {
         datas = new HashSet<>();
     }
 
+    @Override
     public String getTitle() {
         return title;
     }

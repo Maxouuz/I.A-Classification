@@ -9,6 +9,7 @@ public enum Legendary {
         this.label = label;
     }
 
+    @Override
     public String toString() {
         return label;
     }
