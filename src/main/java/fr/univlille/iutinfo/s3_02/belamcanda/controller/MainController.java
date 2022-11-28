@@ -43,9 +43,7 @@ public class MainController {
     }
 
     public void updateChartAxis() {
-        Column xCol = axisChoiceBoxController.getXCol();
-        Column yCol = axisChoiceBoxController.getYCol();
-        scatterChartController.updateChart(xCol, yCol);
+        scatterChartController.updateChart();
     }
 
     public void setPointDescription(Point point) {
@@ -65,5 +63,13 @@ public class MainController {
     public void setNewModel(MVCModel model) {
         this.model = model;
         updateModel();
+    }
+
+    public Column getXColSelected() {
+        return axisChoiceBoxController.getXCol();
+    }
+
+    public Column getYColSelected() {
+        return axisChoiceBoxController.getYCol();
     }
 }
