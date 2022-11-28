@@ -23,7 +23,7 @@ public class PointFormController {
         Class<? extends Point> clazz = model.pointClass();
         Field[] fields = clazz.getDeclaredFields();
         for (Field f : fields) {
-            Label fieldName = new Label(f.getName() + ":");
+            Label fieldName = new Label(f.getName() + ": ");
             Node input = getWidgetOf(f.getType());
             grid.addRow(row++, fieldName, input);
         }
@@ -38,11 +38,11 @@ public class PointFormController {
     }
 
     private static boolean isDouble(Class<?> clazz) {
-        return clazz.equals(double.class) | clazz.equals(Double.class);
+        return clazz.equals(double.class) || clazz.equals(Double.class);
     }
 
     private static boolean isInt(Class<?> clazz) {
-        return clazz.equals(Integer.class) | clazz.equals(int.class);
+        return clazz.equals(Integer.class) || clazz.equals(int.class);
     }
 
     private static Node doubleWidget() {
