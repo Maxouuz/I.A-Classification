@@ -19,6 +19,7 @@ public class ToolBarController {
     @FXML
     public void importModel() throws IOException {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
         File file = fileChooser.showOpenDialog(new Stage());
         if (file != null) {
             MVCModel model = new CSVLoader().createModelFromFile(file.toString());
