@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -17,22 +18,36 @@ public class ToolBarController {
     private MainController mainController;
 
     @FXML
-    public void importModel() throws IOException {
-        File file = chooseCSVFile();
-        if (file != null) {
-            MVCModel model = new CSVLoader().createModelFromFile(file.toString());
-            mainController.setNewModel(model);
+    public void importModel() {
+        try {
+            File file = chooseCSVFile();
+            if (file != null) {
+                MVCModel model = new CSVLoader().createModelFromFile(file.toString());
+                mainController.setNewModel(model);
+            }
+        } catch (IOException e) {
+            showErrorMessage(e.getMessage());
         }
     }
 
     @FXML
     public void addDataToClassify() {
-        File file = chooseCSVFile();
+        // TODO: Répétition ici
         try {
-            mainController.addDataToClassify(file.toString());
-        } catch (NullPointerException | IOException e) {
-            throw new RuntimeException();
+            File file = chooseCSVFile();
+            if (file != null) {
+                mainController.addDataToClassify(file.toString());
+            }
+        } catch (IOException e) {
+            showErrorMessage(e.getMessage());
         }
+    }
+
+    private void showErrorMessage(String message) {
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText("Le fichier CSV est invalide");
+        errorAlert.setContentText(message);
+        errorAlert.showAndWait();
     }
 
     private static File chooseCSVFile() {

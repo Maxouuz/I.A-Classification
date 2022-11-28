@@ -9,6 +9,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class CSVLoader {
     public List<Point> loadFromFile(CSVModel csvModel, String path) throws IOException {
         List<Point> res;
         if (!fileIsValid(csvModel, path)) {
-            throw new IOException();
+            throw new IOException("Les colonnes du fichier CSV ne correspondent pas au modèle chargé");
         }
         res = new CsvToBeanBuilder<Point>(Files.newBufferedReader(Paths.get(path)))
                 .withSeparator(csvModel.getSeparator())
@@ -46,7 +47,7 @@ public class CSVLoader {
     public CSVModel getCSVModelFromFile(String path) throws IOException {
         List<String> fileHeader = getHeader(',', path);
         if (!csvModelFromColumns.containsKey(fileHeader)) {
-            throw new IOException();
+            throw new IOException("Les colonnes du fichier CSV ne correspondent à aucun modèle existant");
         }
         return csvModelFromColumns.get(fileHeader);
     }
@@ -55,7 +56,7 @@ public class CSVLoader {
         try (CSVReader csvReader = getCsvReaderBuilder(separator, path).build()) {
             return List.of(csvReader.readNext());
         } catch (CsvValidationException e) {
-            throw new RuntimeException(e);
+            return new ArrayList<>();
         }
     }
 
