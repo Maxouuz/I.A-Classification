@@ -13,7 +13,11 @@ public class DataToClassifyController {
 
     @FXML
     public void initialize() {
-        toClassify.setOnMouseClicked(e -> updatePointDescription());
+        toClassify.setOnMouseClicked(e -> {
+            if (!toClassify.getSelectionModel().isEmpty()) {
+                updatePointDescription();
+            }
+        });
     }
 
     private void updatePointDescription() {
