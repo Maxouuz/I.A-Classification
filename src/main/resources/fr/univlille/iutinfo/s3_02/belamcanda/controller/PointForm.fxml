@@ -21,7 +21,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" />
          </rowConstraints>
       </GridPane>
-      <Button minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Ajouter un point">
+      <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#addPoint" prefHeight="30.0" prefWidth="200.0" text="Ajouter un point">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin></Button>

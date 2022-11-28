@@ -6,9 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
 import java.lang.reflect.Field;
@@ -66,4 +64,15 @@ public class PointFormController {
         return res;
     }
 
+    @FXML
+    public void addPoint() {
+        ObservableList<Node> children = grid.getChildren();
+        for (int i = 0; i < children.size(); i+=2) {
+            String key = ((Label) children.get(i)).getText();
+            String value = children.get(i+1).toString();
+            System.out.println(key);
+            System.out.println(value);
+            System.out.println();
+        }
+    }
 }
