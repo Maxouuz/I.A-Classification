@@ -57,7 +57,7 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
         return res;
     }
 
-    private void addDataToClassify(Collection<Point> dataToClassify) {
+    public void addDataToClassify(Collection<Point> dataToClassify) {
         if (getData().isEmpty()) {
             getData().add(dataToClassifySeries);
         }

@@ -18,13 +18,27 @@ public class ToolBarController {
 
     @FXML
     public void importModel() throws IOException {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
-        File file = fileChooser.showOpenDialog(new Stage());
+        File file = chooseCSVFile();
         if (file != null) {
             MVCModel model = new CSVLoader().createModelFromFile(file.toString());
             mainController.setNewModel(model);
         }
+    }
+
+    @FXML
+    public void addDataToClassify() {
+        File file = chooseCSVFile();
+        try {
+            mainController.addDataToClassify(file.toString());
+        } catch (NullPointerException | IOException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    private static File chooseCSVFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
+        return fileChooser.showOpenDialog(new Stage());
     }
 
     @FXML

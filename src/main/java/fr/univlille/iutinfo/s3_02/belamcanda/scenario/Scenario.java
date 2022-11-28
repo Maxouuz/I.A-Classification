@@ -1,20 +1,17 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.scenario;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer.Categorizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.ManhattanDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.RandomDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.printers.CategorizerPrinter;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.printers.ModelPrinter;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.printers.RobustnessPrinter;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class Scenario {
     static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
@@ -89,8 +86,7 @@ public class Scenario {
     }
 
     private static void addDataToClassify() throws IOException {
-        List<Point> toClassify = new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv");
-        model.addDataToClassify(toClassify);
+        model.addDataToClassify(DATA_PATH + "pokemon_test.csv");
         new ModelPrinter().print(model);
     }
 

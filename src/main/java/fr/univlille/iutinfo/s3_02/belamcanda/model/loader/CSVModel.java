@@ -10,22 +10,23 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.Pokem
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 public enum CSVModel {
-    POKEMON(PokemonPoint.class, new PokemonModel(), ','),
-    TITANIC(TitanicPoint.class, new TitanicModel(), ','),
-    IRIS(IrisPoint.class, new IrisModel(), ',');
+    POKEMON(PokemonPoint.class, PokemonModel.class, ','),
+    TITANIC(TitanicPoint.class, TitanicModel.class, ','),
+    IRIS(IrisPoint.class, IrisModel.class, ',');
 
     private final Class<? extends Point> clazz;
-    private final MVCModel model;
+    private final Class<? extends MVCModel> modelClass;
     private final char separator;
 
-    CSVModel(Class<? extends Point> clazz, MVCModel model, char separator) {
+    CSVModel(Class<? extends Point> clazz, Class<? extends MVCModel> modelClass, char separator) {
         this.clazz = clazz;
-        this.model = model;
+        this.modelClass = modelClass;
         this.separator = separator;
     }
 
@@ -34,18 +35,16 @@ public enum CSVModel {
     }
 
     public MVCModel getModel() {
-        return model;
+        try {
+            Constructor<?> ctor = modelClass.getConstructor();
+            return (MVCModel) ctor.newInstance();
+        } catch (ReflectiveOperationException e) {
+            return null;
+        }
     }
 
     public char getSeparator() {
         return separator;
-    }
-
-    public static CSVModel fromClazz(Class<? extends Point> clazz) {
-        for (CSVModel m : values()) {
-            if (clazz.equals(m.getClazz())) return m;
-        }
-        return null;
     }
 
     public List<String> getColumnsName() {

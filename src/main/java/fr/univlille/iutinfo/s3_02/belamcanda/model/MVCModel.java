@@ -4,19 +4,22 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
 
+import java.io.IOException;
 import java.util.*;
 
 public abstract class MVCModel extends Subject implements IDataset {
-	protected final Class<? extends Point> clazz;
+	protected final CSVModel csvModel;
 	protected final Set<Point> trainingData;
 	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
 	protected final Categories categories;
 
-	protected MVCModel(Class<? extends Point> clazz) {
-		this.clazz = clazz;
+	protected MVCModel(CSVModel csvModel) {
+		this.csvModel = csvModel;
 		this.trainingData = new HashSet<>();
 		this.toClassifyData = new HashSet<>();
 		this.columns = getColumns();
@@ -24,7 +27,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 		this.categories = new Categories();
 	}
 
-	public Class<? extends Point> pointClass(){return clazz;}
+	public Class<? extends Point> pointClass(){return csvModel.getClazz();}
 
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
 
@@ -100,8 +103,10 @@ public abstract class MVCModel extends Subject implements IDataset {
 		return toClassifyData;
 	}
 
-	public void addDataToClassify(Collection<? extends Point> toClassifyData) {
-		this.toClassifyData.addAll(toClassifyData);
+	public List<Point> addDataToClassify(String path) throws IOException {
+		List<Point> newDataToClassify = new CSVLoader().loadFromFile(csvModel, path);
+		this.toClassifyData.addAll(newDataToClassify);
+		return newDataToClassify;
 	}
 
 	@Override

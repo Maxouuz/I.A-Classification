@@ -4,11 +4,11 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import javafx.fxml.FXML;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class MainController {
     private static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
@@ -23,7 +23,7 @@ public class MainController {
     @FXML
     private void initialize() throws IOException {
         model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
-        model.addDataToClassify(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
+        model.addDataToClassify(DATA_PATH + "pokemon_test.csv");
         initializeControllers();
         updateModel();
     }
@@ -71,5 +71,11 @@ public class MainController {
 
     public Column getYColSelected() {
         return axisChoiceBoxController.getYCol();
+    }
+
+    public void addDataToClassify(String path) throws IOException {
+        List<Point> pointsAdded = model.addDataToClassify(path);
+        scatterChartController.addDataToClassify(pointsAdded);
+        dataToClassifyController.updateTrainingData();
     }
 }
