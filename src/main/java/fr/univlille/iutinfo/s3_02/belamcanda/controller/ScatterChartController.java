@@ -18,7 +18,6 @@ public class ScatterChartController {
     MainController mainController;
     Column xCol, yCol;
     Boolean xNum, yNum;
-    XYChart.Series aClassifier;
     @FXML private VBox scatterChart;
     @FXML private ScatterChart chart;
 
@@ -73,20 +72,21 @@ public class ScatterChartController {
         this.xNum = xCol.isNumeric();
         this.yCol = yCol;
         this.yNum = yCol.isNumeric();
-        this.aClassifier = series(mainController.getModel().getDataToClassify(), "A classifier");
         chart = newChart();
         scatterChart.getChildren().set(0, chart);
     }
 
-    public void addToClassify(Point p){
-        aClassifier.getData().add(dataPoint(p));
+    private XYChart.Series getSeriesOfDataToClassify() {
+        return series(mainController.getModel().getDataToClassify(), "A classifier");
     }
 
     private ScatterChart newChart(){
         var res = new ScatterChart(getAxis(xCol), getAxis(yCol));
         MVCModel model = mainController.getModel();
         res.getData().addAll(allSeries(model));
-        res.getData().add(aClassifier);
+        if (!mainController.getModel().getDataToClassify().isEmpty()) {
+            res.getData().add(getSeriesOfDataToClassify());
+        }
         res.setTitle(model.getTitle());
         VBox.setVgrow(res, Priority.ALWAYS);
         return res;
