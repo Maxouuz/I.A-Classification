@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
     private final MainController mainController;
