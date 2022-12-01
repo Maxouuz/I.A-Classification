@@ -5,8 +5,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.qualitative_variables.Embarked;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.qualitative_variables.Gender;
 
-import java.util.Objects;
-
 public class TitanicPoint extends Point {
     @CsvBindByName(column = "PassengerId")
     public int passengerId;
@@ -49,46 +47,4 @@ public class TitanicPoint extends Point {
     }
 
     public TitanicPoint(){}
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        TitanicPoint that = (TitanicPoint) o;
-
-        if (passengerId != that.passengerId) return false;
-        if (survived != that.survived) return false;
-        if (pClass != that.pClass) return false;
-        if (Double.compare(that.age, age) != 0) return false;
-        if (sibSp != that.sibSp) return false;
-        if (parch != that.parch) return false;
-        if (Double.compare(that.fare, fare) != 0) return false;
-        if (!Objects.equals(name, that.name)) return false;
-        if (sex != that.sex) return false;
-        if (!Objects.equals(ticket, that.ticket)) return false;
-        if (!Objects.equals(cabin, that.cabin)) return false;
-        return embarked == that.embarked;
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        result = passengerId;
-        result = 31 * result + (survived ? 1 : 0);
-        result = 31 * result + pClass;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (sex != null ? sex.hashCode() : 0);
-        temp = Double.doubleToLongBits(age);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + sibSp;
-        result = 31 * result + parch;
-        result = 31 * result + (ticket != null ? ticket.hashCode() : 0);
-        temp = Double.doubleToLongBits(fare);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (cabin != null ? cabin.hashCode() : 0);
-        result = 31 * result + (embarked != null ? embarked.hashCode() : 0);
-        return result;
-    }
 }

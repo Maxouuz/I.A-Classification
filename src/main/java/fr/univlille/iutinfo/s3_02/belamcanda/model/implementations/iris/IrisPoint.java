@@ -40,34 +40,4 @@ public class IrisPoint extends Point {
         this.petalWidth = petalWidth;
         this.variety = variety;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        IrisPoint irisPoint = (IrisPoint) o;
-
-        if (Double.compare(irisPoint.sepalLength, sepalLength) != 0) return false;
-        if (Double.compare(irisPoint.sepalWidth, sepalWidth) != 0) return false;
-        if (Double.compare(irisPoint.petalLength, petalLength) != 0) return false;
-        if (Double.compare(irisPoint.petalWidth, petalWidth) != 0) return false;
-        return variety == irisPoint.variety;
-    }
-
-    @Override
-    public int hashCode() {
-        int result;
-        long temp;
-        temp = Double.doubleToLongBits(sepalLength);
-        result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(sepalWidth);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(petalLength);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(petalWidth);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (variety != null ? variety.hashCode() : 0);
-        return result;
-    }
 }
