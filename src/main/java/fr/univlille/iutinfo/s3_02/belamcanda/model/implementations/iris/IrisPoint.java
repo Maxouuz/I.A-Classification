@@ -4,19 +4,17 @@ import com.opencsv.bean.CsvBindByName;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
 
-import java.util.Objects;
-
 public class IrisPoint extends Point {
     @CsvBindByName(column = "sepal.length")
-    protected Double sepalLength;
+    public double sepalLength;
     @CsvBindByName(column = "sepal.width")
-    protected Double sepalWidth;
+    public double sepalWidth;
     @CsvBindByName(column = "petal.length")
-    protected Double petalLength;
+    public double petalLength;
     @CsvBindByName(column = "petal.width")
-    protected Double petalWidth;
+    public double petalWidth;
     @CsvBindByName(column = "variety")
-    protected IrisVariety variety;
+    public IrisVariety variety;
 
     @Override
     public Object category() {
@@ -50,21 +48,25 @@ public class IrisPoint extends Point {
 
         IrisPoint irisPoint = (IrisPoint) o;
 
-        if (!Objects.equals(sepalLength, irisPoint.sepalLength))
-            return false;
-        if (!Objects.equals(sepalWidth, irisPoint.sepalWidth)) return false;
-        if (!Objects.equals(petalLength, irisPoint.petalLength))
-            return false;
-        if (!Objects.equals(petalWidth, irisPoint.petalWidth)) return false;
+        if (Double.compare(irisPoint.sepalLength, sepalLength) != 0) return false;
+        if (Double.compare(irisPoint.sepalWidth, sepalWidth) != 0) return false;
+        if (Double.compare(irisPoint.petalLength, petalLength) != 0) return false;
+        if (Double.compare(irisPoint.petalWidth, petalWidth) != 0) return false;
         return variety == irisPoint.variety;
     }
 
     @Override
     public int hashCode() {
-        int result = sepalLength != null ? sepalLength.hashCode() : 0;
-        result = 31 * result + (sepalWidth != null ? sepalWidth.hashCode() : 0);
-        result = 31 * result + (petalLength != null ? petalLength.hashCode() : 0);
-        result = 31 * result + (petalWidth != null ? petalWidth.hashCode() : 0);
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(sepalLength);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(sepalWidth);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(petalLength);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(petalWidth);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (variety != null ? variety.hashCode() : 0);
         return result;
     }

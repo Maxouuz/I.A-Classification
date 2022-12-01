@@ -9,29 +9,29 @@ import java.util.Objects;
 
 public class TitanicPoint extends Point {
     @CsvBindByName(column = "PassengerId")
-    protected Integer passengerId;
+    public int passengerId;
     @CsvBindByName(column = "Survived")
-    protected Boolean survived;
+    public boolean survived;
     @CsvBindByName(column = "Pclass")
-    protected int pClass;
+    public int pClass;
     @CsvBindByName(column = "Name")
-    protected String name;
+    public String name;
     @CsvBindByName(column = "Sex")
-    protected Gender sex;
+    public Gender sex;
     @CsvBindByName(column = "Age")
-    protected Double age = 0.0;
+    public double age = 0.0;
     @CsvBindByName(column = "SibSp")
-    protected int sibSp;
+    public int sibSp;
     @CsvBindByName(column = "Parch")
-    protected int parch;
+    public int parch;
     @CsvBindByName(column = "Ticket")
-    protected String ticket;
+    public String ticket;
     @CsvBindByName(column = "Fare")
-    protected Double fare;
+    public double fare;
     @CsvBindByName(column = "Cabin")
-    protected String cabin;
+    public String cabin;
     @CsvBindByName(column = "Embarked")
-    protected Embarked embarked = Embarked.NULL;
+    public Embarked embarked = Embarked.NULL;
 
     @Override
     public Object category() {
@@ -57,32 +57,36 @@ public class TitanicPoint extends Point {
 
         TitanicPoint that = (TitanicPoint) o;
 
+        if (passengerId != that.passengerId) return false;
+        if (survived != that.survived) return false;
         if (pClass != that.pClass) return false;
+        if (Double.compare(that.age, age) != 0) return false;
         if (sibSp != that.sibSp) return false;
         if (parch != that.parch) return false;
-        if (!Objects.equals(passengerId, that.passengerId)) return false;
-        if (!Objects.equals(survived, that.survived)) return false;
+        if (Double.compare(that.fare, fare) != 0) return false;
         if (!Objects.equals(name, that.name)) return false;
         if (sex != that.sex) return false;
-        if (!Objects.equals(age, that.age)) return false;
         if (!Objects.equals(ticket, that.ticket)) return false;
-        if (!Objects.equals(fare, that.fare)) return false;
         if (!Objects.equals(cabin, that.cabin)) return false;
         return embarked == that.embarked;
     }
 
     @Override
     public int hashCode() {
-        int result = passengerId != null ? passengerId.hashCode() : 0;
-        result = 31 * result + (survived != null ? survived.hashCode() : 0);
+        int result;
+        long temp;
+        result = passengerId;
+        result = 31 * result + (survived ? 1 : 0);
         result = 31 * result + pClass;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
-        result = 31 * result + (age != null ? age.hashCode() : 0);
+        temp = Double.doubleToLongBits(age);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + sibSp;
         result = 31 * result + parch;
         result = 31 * result + (ticket != null ? ticket.hashCode() : 0);
-        result = 31 * result + (fare != null ? fare.hashCode() : 0);
+        temp = Double.doubleToLongBits(fare);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (cabin != null ? cabin.hashCode() : 0);
         result = 31 * result + (embarked != null ? embarked.hashCode() : 0);
         return result;

@@ -42,10 +42,13 @@ public class PointFormController {
     private static PointField getWidgetOf(Field field) {
         Class<?> clazz = field.getType();
         if (clazz.isEnum()) return new PointEnumField(field);
+        else if (isBoolean(clazz)) return new PointBooleanField(field);
         else if (isInt(clazz)) return new PointIntegerField(field);
         else if (isDouble(clazz)) return new PointDoubleField(field);
         return new PointStringField(field);
     }
+
+    private static boolean isBoolean(Class<?> clazz) {return clazz.equals(boolean.class);}
 
     private static boolean isDouble(Class<?> clazz) {
         return clazz.equals(double.class) || clazz.equals(Double.class);
