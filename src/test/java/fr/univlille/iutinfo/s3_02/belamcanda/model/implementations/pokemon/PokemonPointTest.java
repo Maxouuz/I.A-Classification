@@ -1,5 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic.TitanicPoint;
 import org.junit.jupiter.api.Test;
 
@@ -15,5 +17,12 @@ public class PokemonPointTest {
         point1.hp = 100;
         String test = String.format("%s :\n\tatk : %d\n\tdef : %d\n\thp  : %d",point1.name.toUpperCase(), point1.attack, point1.defense, point1.hp);
         assertEquals(test, point1.toLabel());
+    }
+
+    @Test
+    void the_to_string_is_correct(){
+        PokemonPoint point1 = new PokemonPoint();
+        point1.name = "boustiflor";
+        assertEquals("boustiflor", point1.toString());
     }
 }
