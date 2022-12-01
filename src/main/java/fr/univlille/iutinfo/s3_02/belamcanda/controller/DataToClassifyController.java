@@ -5,16 +5,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
-import java.util.List;
-
 public class DataToClassifyController {
     @FXML private ListView<Point> toClassify;
     @FXML private Label robustness;
+    @FXML private Label crossValidation;
     private MainController mainController;
 
     @FXML
     public void initialize() {
-        toClassify.setOnMouseClicked(e -> updatePointDescription());
+        toClassify.setOnMouseClicked(e -> {
+            if (!toClassify.getSelectionModel().isEmpty()) {
+                updatePointDescription();
+            }
+        });
     }
 
     private void updatePointDescription() {
@@ -22,21 +25,21 @@ public class DataToClassifyController {
     }
 
     @FXML
-    public void addTrainingData(Point data) {
-        addTrainingData(List.of(data));
-    }
-
-    @FXML
-    public void addTrainingData(List<Point> datas) {
-        toClassify.getItems().addAll(datas);
-        mainController.getModel().addDataToClassify(datas);
+    public void updateTrainingData() {
+        toClassify.getItems().setAll(mainController.getModel().getDataToClassify());
     }
 
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    public void updateRobustness(double robustness) {
-        this.robustness.setText(robustness + "%");
+    public void updateRobustness(double robustness, double crossValidation) {
+        this.robustness.setText(toStringRobustness(robustness));
+        this.crossValidation.setText(toStringRobustness(crossValidation));
+    }
+
+    private String toStringRobustness(double robustness) {
+        final double nbDecimals = 100.0;
+        return Math.round(robustness * 100.0 * nbDecimals) / nbDecimals + "%";
     }
 }

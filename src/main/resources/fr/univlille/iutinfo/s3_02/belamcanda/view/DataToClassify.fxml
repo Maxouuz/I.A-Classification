@@ -10,18 +10,24 @@
 
 <VBox fx:id="dataToClassify" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.DataToClassifyController">
    <children>
-      <GridPane hgap="10.0" minHeight="-Infinity" VBox.vgrow="ALWAYS">
+      <GridPane hgap="10.0" minHeight="-Infinity" vgap="5.0" VBox.vgrow="ALWAYS">
          <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Robustesse:" />
-            <Label fx:id="robustness" text="0%" GridPane.columnIndex="1" />
+            <Label fx:id="robustness" text="0.0%" GridPane.columnIndex="1" />
+            <Label text="Cross-validation:" GridPane.rowIndex="1" />
+            <Label fx:id="crossValidation" text="0.0%" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
       </GridPane>
       <ListView fx:id="toClassify" />
    </children>

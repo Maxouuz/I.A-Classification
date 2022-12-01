@@ -6,7 +6,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisColu
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,16 +15,16 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestEuclideanDistance {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+class TestEuclideanDistance {
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
     private MVCModel model;
     private EuclideanDistance distance;
     private Column weightedColumn;
 
     @BeforeEach
-    public void initialization() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
-        model = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
+    void initialization() throws IOException {
+        String dataPath = DATAPATH + "iris.csv";
+        model = new CSVLoader().createModelFromFile(dataPath);
         weightedColumn = model.getColumn(IrisColumns.SEPAL_WIDTH);
         weightedColumn.setWeight(1.0);
         distance = new EuclideanDistance();
@@ -46,7 +45,7 @@ public class TestEuclideanDistance {
         IrisPoint point3 = new IrisPoint(1., 1., 1., 0.9, IrisVariety.SETOSA);
 
         assertEquals(0.04166666666666663, distance.distance(model, point1, point3));
-        assertEquals(1.20545016207218, distance.distance(model, point1, point2));
+        assertEquals(0.6731345283372746, distance.distance(model, point1, point2));
     }
 
     @Test
@@ -59,5 +58,11 @@ public class TestEuclideanDistance {
         double withWeight = distance.distance(model, point1, point2);
 
         assertTrue(withWeight > beforeWeight);
+    }
+
+    @Test
+    void euclidean_distance_is_called_euclidean(){
+        distance = new EuclideanDistance();
+        assertEquals("Euclidienne", distance.toString());
     }
 }

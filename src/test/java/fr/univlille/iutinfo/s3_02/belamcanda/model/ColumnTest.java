@@ -18,11 +18,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
-public class ColumnTest {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+class ColumnTest {
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
-    public void is_normalizable_should_return_true_or_false_depending_on_the_normalizer() {
+    void is_normalizable_should_return_true_or_false_depending_on_the_normalizer() {
         Column normalized = new NormalizableColumn("Normalized", new NumberNormalizer());
         assertTrue(normalized.isNormalizable());
         Column notNormalized = new NonNormalizableColumn("NotNormalized");
@@ -30,13 +30,13 @@ public class ColumnTest {
     }
 
     @Test
-    public void get_normalized_value_returns_the_normalized_value_of_the_current_column_of_the_point() {
+    void get_normalized_value_returns_the_normalized_value_of_the_current_column_of_the_point() {
         /* TODO: Compléter/Modifier ce test quand le normalizer et le point sont ajoutés */
         //Point point = new Point();
     }
 
     @Test
-    public void if_no_normalizer_is_given_column_sets_nullNormalizer_by_default(){
+    void if_no_normalizer_is_given_column_sets_nullNormalizer_by_default(){
         /*
          * TODO : Compléter/Modifier ce test un fois qu'un normalizer par défault sera défini dans column 
          * dans le cas d'une colonne sans normalizer 
@@ -50,7 +50,7 @@ public class ColumnTest {
     }
 
     @Test
-    public void column_is_correctly_bound_to_the_model() {
+    void column_is_correctly_bound_to_the_model() {
         MVCModel model = new PokemonModel();
         for (Column columnWithAmplitude: model.getNormalizableColumns()) {
             assertEquals(columnWithAmplitude.getDataset(), model);
@@ -58,14 +58,14 @@ public class ColumnTest {
     }
 
     @Test
-    public void column_is_attached_to_the_model_when_he_have_an_amplitude() {
+    void column_is_attached_to_the_model_when_he_have_an_amplitude() {
         Column columnWithAmplitude = PokemonColumns.HP.getColumn();
         MVCModel model = new PokemonModel();
         assertTrue(model.observers().contains(columnWithAmplitude));
     }
 
     @Test
-    public void column_is_not_attached_to_the_model_when_he_dont_have_an_amplitude() {
+    void column_is_not_attached_to_the_model_when_he_dont_have_an_amplitude() {
         Column columnWithAmplitude = PokemonColumns.TYPE.getColumn();
         MVCModel model = new PokemonModel();
         assertFalse(model.observers().contains(columnWithAmplitude));
@@ -73,7 +73,7 @@ public class ColumnTest {
 
 
     @Test
-    public void column_updates_amplitude_when_he_needs_it() throws Exception {
+    void column_updates_amplitude_when_he_needs_it() throws Exception {
         MVCModel model = new PokemonModel();
         NormalizableColumn columnWithAmplitude = (NormalizableColumn) model.getColumn(PokemonColumns.HP);
         columnWithAmplitude.resetAmplitude();
@@ -81,7 +81,7 @@ public class ColumnTest {
 
         /** TODO CA BUG PERIODIQUMNET CETTE MERDE" */
         assertNull(ampli.getMin());
-        model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
+        model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATAPATH + "pokemon_test.csv"));
         assertNotEquals(null, ampli.getMin());
     }
 }

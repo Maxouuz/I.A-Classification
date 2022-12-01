@@ -89,13 +89,9 @@
                   </Accordion>
                   <Accordion expandedPane="$categorizerSettingsTab" VBox.vgrow="ALWAYS">
                      <panes>
-                        <TitledPane fx:id="categorizerSettingsTab" animated="false" text="Paramètres">
+                        <TitledPane fx:id="categorizerSettingsTab" animated="false" minHeight="-Infinity" text="Paramètres">
                            <content>
-                              <ScrollPane fitToWidth="true">
-                                 <content>
-                                    <fx:include fx:id="categorizerSettings" source="CategorizerSettings.fxml" />
-                                 </content>
-                              </ScrollPane>
+                              <fx:include fx:id="categorizerSettings" source="CategorizerSettings.fxml" />
                            </content>
                         </TitledPane>
                      </panes>

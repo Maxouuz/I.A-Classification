@@ -4,11 +4,11 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 
 public class TitanicModel extends MVCModel {
     public TitanicModel() {
-        super(TitanicPoint.class);
+        super(CSVModel.TITANIC);
     }
 
     @Override
@@ -28,6 +28,6 @@ public class TitanicModel extends MVCModel {
 
     @Override
     public Column defaultYCol() {
-        return (NormalizableColumn)TitanicColumns.AGE.getColumn();
+        return TitanicColumns.AGE.getColumn();
     }
 }

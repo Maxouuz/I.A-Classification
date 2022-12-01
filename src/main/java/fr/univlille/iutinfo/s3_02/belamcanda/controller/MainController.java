@@ -4,14 +4,14 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import javafx.fxml.FXML;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class MainController {
-    private static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    private static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
     @FXML private ToolBarController toolBarController;
     @FXML private PointInfoController pointInfoController;
     @FXML private ScatterChartController scatterChartController;
@@ -22,11 +22,10 @@ public class MainController {
 
     @FXML
     private void initialize() throws IOException {
-        model = new CSVLoader().createModelFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_train.csv");
+        model = new CSVLoader().createModelFromFile(DATAPATH + "pokemon_train.csv");
+        model.addDataToClassify(DATAPATH + "pokemon_test.csv");
         initializeControllers();
         updateModel();
-        dataToClassifyController.addTrainingData(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
-        updateChartAxis();
     }
 
     private void initializeControllers() {
@@ -35,16 +34,16 @@ public class MainController {
         toolBarController.injectMainController(this);
     }
 
-    private void updateModel() {
-        categorizerSettingsController.createTableView(model.getColumns());
+    public void updateModel() {
+        dataToClassifyController.updateTrainingData();
+        categorizerSettingsController.createTableView(model.getNormalizableColumns());
         categorizerSettingsController.createCategorizer(getModel());
         axisChoiceBoxController.initChoiceBoxes(this);
+        updateChartAxis();
     }
 
     public void updateChartAxis() {
-        Column xCol = axisChoiceBoxController.getXCol();
-        Column yCol = axisChoiceBoxController.getYCol();
-        scatterChartController.updateChart(xCol, yCol);
+        scatterChartController.updateChart();
     }
 
     public void setPointDescription(Point point) {
@@ -55,16 +54,34 @@ public class MainController {
         return model;
     }
 
-    public double getRobustness() {
-        return categorizerSettingsController.getRobustness();
-    }
-
-    public void updateRobustness(double robustness) {
-        dataToClassifyController.updateRobustness(robustness);
+    public void updateRobustness() {
+        double robustness = categorizerSettingsController.getRobustness();
+        double crossValidation = categorizerSettingsController.getCrossValidation();
+        dataToClassifyController.updateRobustness(robustness, crossValidation);
     }
 
     public void setNewModel(MVCModel model) {
         this.model = model;
         updateModel();
+    }
+
+    public Column getXColSelected() {
+        return axisChoiceBoxController.getXCol();
+    }
+
+    public Column getYColSelected() {
+        return axisChoiceBoxController.getYCol();
+    }
+
+    public void addDataToClassify(String path) throws IOException {
+        List<Point> pointsAdded = model.addDataToClassify(path);
+        scatterChartController.addDataToClassify(pointsAdded);
+        dataToClassifyController.updateTrainingData();
+    }
+
+    public void addDataToClassify(Point newPoint) {
+        model.addDataToClassify(newPoint);
+        scatterChartController.addDataToClassify(List.of(newPoint));
+        dataToClassifyController.updateTrainingData();
     }
 }

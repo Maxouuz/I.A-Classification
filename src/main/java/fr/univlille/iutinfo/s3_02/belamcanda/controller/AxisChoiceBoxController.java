@@ -18,6 +18,7 @@ public class AxisChoiceBoxController {
     }
 
     private void setChoiceBox(ChoiceBox<Column> choiceBox, Column defaultCol) {
+        choiceBox.setOnAction(null);
         MVCModel model = mainController.getModel();
         choiceBox.getItems().setAll(model.getColumns());
         choiceBox.getSelectionModel().select(defaultCol);

@@ -6,7 +6,6 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisColu
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,16 +15,16 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestManhattanDistance {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+class TestManhattanDistance {
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
     private MVCModel model;
     private ManhattanDistance distance;
     private Column weightedColumn;
 
     @BeforeEach
-    public void initialization() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
-        model = new CSVLoader().createModelFromFile(CSVModel.IRIS, dataPath);
+    void initialization() throws IOException {
+        String dataPath = DATAPATH + "iris.csv";
+        model = new CSVLoader().createModelFromFile(dataPath);
         weightedColumn = model.getColumn(IrisColumns.SEPAL_WIDTH);
         weightedColumn.setWeight(1.0);
         distance = new ManhattanDistance();
@@ -45,7 +44,7 @@ public class TestManhattanDistance {
         IrisPoint point2 = new IrisPoint(0., 0., 0., 0., IrisVariety.VIRGINICA);
         IrisPoint point3 = new IrisPoint(1., 1., 1., 0.9, IrisVariety.SETOSA);
 
-        assertEquals(2.28060263653484, distance.distance(model, point1, point2));
+        assertEquals(1.2806026365348397, distance.distance(model, point1, point2));
         assertEquals(0.04166666666666663, distance.distance(model, point1, point3));
     }
 
@@ -59,5 +58,11 @@ public class TestManhattanDistance {
         double withWeight = distance.distance(model, point1, point2);
 
         assertTrue(withWeight > beforeWeight);
+    }
+
+    @Test
+    void manhattan_distance_is_called_manhattan(){
+        distance = new ManhattanDistance();
+        assertEquals("de Manhattan", distance.toString());
     }
 }

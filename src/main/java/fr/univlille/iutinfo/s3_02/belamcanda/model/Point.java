@@ -32,6 +32,13 @@ public abstract class Point {
         return null;
     }
 
+    public abstract String toLabel();
     @Override
     public abstract String toString();
+
+    @Override
+    public abstract int hashCode();
+
+    @Override
+    public abstract boolean equals(Object obj);
 }

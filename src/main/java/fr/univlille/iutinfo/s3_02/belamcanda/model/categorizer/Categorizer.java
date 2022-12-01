@@ -34,15 +34,6 @@ public class Categorizer {
     }
 
     public double getRobustnessByCrossValidation() {
-//        int acc = 0;
-//        int total = 0;
-//        for (Point point: model.getDataToClassify()) {
-//            if (categorize(point).equals(point.category())) {
-//                acc += 1;
-//            }
-//            total++;
-//        }
-//        return acc * 100.0 / total;
         return new Robustness().crossValidate(this, model.getTrainingData());
     }
 

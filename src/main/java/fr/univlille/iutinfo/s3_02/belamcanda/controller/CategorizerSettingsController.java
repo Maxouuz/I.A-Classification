@@ -10,8 +10,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.List;
+
 public class CategorizerSettingsController {
-    public static final int MIN_K = 0;
+    public static final int MIN_K = 1;
     public static final int MAX_K = 100;
     public static final int DEFAULT_K = 3;
     @FXML private Spinner<Integer> kSpinner;
@@ -19,7 +21,7 @@ public class CategorizerSettingsController {
     @FXML private TableView<Column> columnList;
     @FXML private TableColumn<Column, String> nameColumn;
     @FXML private TableColumn<Column, Spinner<Double>> weightColumn;
-    @FXML private TableColumn<Column, CheckBox> isUsedColumn;
+    @FXML private TableColumn<Column, CheckBox> usedColumn;
 
     public int getK() {
         return kSpinner.getValue();
@@ -32,7 +34,7 @@ public class CategorizerSettingsController {
         );
         kSpinner.valueProperty().addListener(e -> categorizer.setK(getK()));
         weightColumn.setCellValueFactory(new ColumnWeightValueFactory());
-        isUsedColumn.setCellValueFactory(new ColumnIsUsedValueFactory());
+        usedColumn.setCellValueFactory(new ColumnIsUsedValueFactory());
         setNameColumnCellFactory();
     }
 
@@ -44,7 +46,8 @@ public class CategorizerSettingsController {
         categorizer = new Categorizer(model, new EuclideanDistance(), getK());
     }
 
-    public void createTableView(Column[] columns) {
+    public void createTableView(List<Column> columns) {
+        columnList.getItems().clear();
         for (Column column: columns) {
             columnList.getItems().add(column);
         }
@@ -52,5 +55,9 @@ public class CategorizerSettingsController {
 
     public double getRobustness() {
         return categorizer.getRobustness();
+    }
+
+    public double getCrossValidation() {
+        return categorizer.getRobustnessByCrossValidation();
     }
 }

@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-public class TestNumberNormalizer {
+class TestNumberNormalizer {
     @Test
-    public void number_is_correctly_normalized(){        
+    void number_is_correctly_normalized(){        
         Amplitude ampl = new Amplitude();
         int min = 2;
         int max =10;
@@ -15,21 +15,21 @@ public class TestNumberNormalizer {
     }
 
     @Test
-    public void normalized_value_of_the_smallest_value_is_0(){
+    void normalized_value_of_the_smallest_value_is_0(){
         Amplitude ampli = new Amplitude();
         ampli.update(5, 123, 2, 10);
         assertEquals(0, new NumberNormalizer().normalize(2, ampli));
     }
 
     @Test
-    public void normalized_value_of_the_biggest_value_is_0(){
+    void normalized_value_of_the_biggest_value_is_0(){
         Amplitude ampli = new Amplitude();
         ampli.update(30, 5, 100, 12);
         assertEquals(1, new NumberNormalizer().normalize(100, ampli));
     }
 
     @Test
-    public void normalized_value_of_50_with_min_0_and_max_100_amplitude_is_0_50(){
+    void normalized_value_of_50_with_min_0_and_max_100_amplitude_is_0_50(){
         Amplitude ampli = new Amplitude();
         ampli.update(0, 50, 100);
         assertEquals(0.5, new NumberNormalizer().normalize(50, ampli));

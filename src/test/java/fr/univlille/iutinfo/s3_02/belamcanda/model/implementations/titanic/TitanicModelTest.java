@@ -2,7 +2,6 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,13 +10,13 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TitanicModelTest {
+class TitanicModelTest {
     private MVCModel model;
 
     @BeforeEach
     void initialization() throws IOException {
-        final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
-        model = new CSVLoader().createModelFromFile(CSVModel.TITANIC, DATA_PATH + "titanic.csv");
+        final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+        model = new CSVLoader().createModelFromFile(DATAPATH + "titanic.csv");
     }
 
     @Test
