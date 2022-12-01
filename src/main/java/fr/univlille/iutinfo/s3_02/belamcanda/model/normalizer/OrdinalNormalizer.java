@@ -12,7 +12,6 @@ public class OrdinalNormalizer<T extends Enum> implements IValueNormalizer {
         return (type.ordinal() * 1.0) / (clazz.getEnumConstants().length - 1);
     }
 
-
     @Override
     public boolean isNull() {
         return false;

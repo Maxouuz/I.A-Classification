@@ -29,8 +29,7 @@ class CategorizerTest {
         // assertEquals(Not legendary, categorizer.categorize(rayquaza));
     }
 
-    @Test
-    Point findPointByName(String name) {
+    private Point findPointByName(String name) {
         Column columnName = PokemonColumns.NAME.getColumn();
         for (Point point: model) {
             if (point.getValue(columnName).equals(name)) {

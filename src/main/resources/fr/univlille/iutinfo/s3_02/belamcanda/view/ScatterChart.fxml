@@ -5,15 +5,15 @@
 <?import javafx.scene.chart.ScatterChart?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="scatterChart" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.ScatterChartController">
-   <children>
-      <ScatterChart fx:id="chart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </ScatterChart>
-   </children>
+<VBox fx:id="scatterChart" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.ScatterChartController">
+   <ScatterChart fx:id="chart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                 minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+      <xAxis>
+         <CategoryAxis side="BOTTOM"/>
+      </xAxis>
+      <yAxis>
+         <NumberAxis side="LEFT"/>
+      </yAxis>
+   </ScatterChart>
 </VBox>

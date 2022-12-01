@@ -30,10 +30,4 @@ class IColumnDefinitionTest {
         IColumnDefinition[] definitions = new IColumnDefinition[]{PokemonColumns.HP, PokemonColumns.ATTACK};
         assertArrayEquals(new Column[]{PokemonColumns.HP.getColumn(), PokemonColumns.ATTACK.getColumn()}, IColumnDefinition.getColumns(definitions));
     }
-
-    /** Besoin fonctionnel : appel deux fois : deux fois les mêmes réponses
-     * singleton c'est technique
-     * on teste pour avoir toujours les memes données
-     * on a utilisé singloton pour que les données ne soient pas a endroits en meme temps
-     */
 }

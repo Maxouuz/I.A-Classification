@@ -3,11 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToolBar?>
 
-<ToolBar fx:id="toolBar" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.ToolBarController">
-   <items>
-      <Button mnemonicParsing="false" onAction="#importModel" text="Générer un modèle" />
-      <Button mnemonicParsing="false" onAction="#addPoint" text="Ajouter un point" />
-      <Button mnemonicParsing="false" onAction="#addDataToClassify" text="Fournir des données de test" />
-      <Button mnemonicParsing="false" onAction="#classify" prefWidth="100.0" text="Classifier" />
-   </items>
+<ToolBar fx:id="toolBar" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="fr.univlille.iutinfo.s3_02.belamcanda.controller.ToolBarController">
+   <Button mnemonicParsing="false" onAction="#importModel" text="Générer un modèle"/>
+   <Button mnemonicParsing="false" onAction="#addPoint" text="Ajouter un point"/>
+   <Button mnemonicParsing="false" onAction="#addDataToClassify" text="Fournir des données de test"/>
+   <Button mnemonicParsing="false" onAction="#classify" prefWidth="100.0" text="Classifier"/>
 </ToolBar>

@@ -9,7 +9,7 @@ import java.util.*;
 public class Categorizer {
     private int k;
     private Distance distanceMethod;
-    private MVCModel model;
+    private final MVCModel model;
 
     public Categorizer(MVCModel model, Distance distanceMethod, int k) {
         this.k = k;
@@ -27,10 +27,6 @@ public class Categorizer {
             counts.put(category, currentPoints+1);
         }
         return dominantCategory(counts);
-    }
-
-    public Object categorize(Point toCategorize){
-        return categorize(toCategorize, model.getTrainingData());
     }
 
     public double getRobustnessByCrossValidation() {
@@ -68,10 +64,6 @@ public class Categorizer {
             res.put(distanceMethod.distance(model, point, from), point);
         }
         return res;
-    }
-
-    private Map<Double, Point> sortNeighbors(Point toCategorize) {
-        return sortNeighbors(toCategorize, model.getTrainingData());
     }
 
     public int getK() {

@@ -12,7 +12,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+class IrisLoaderTest {
+    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void iris_loader_should_load_iris_beans() throws IOException {
@@ -25,12 +26,5 @@ class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + 
         IrisPoint dernier = (IrisPoint) list.get(149);
         assertEquals(5.9, dernier.getValue(IrisColumns.SEPAL_LENGTH.getColumn()));
         assertEquals(IrisVariety.VIRGINICA, dernier.getValue(IrisColumns.VARIETY.getColumn()));
-    }
-
-    @Test
-    void data_format_validator_checks_if_file_is_valid(){
-        /** TODO Implémenter la fonctionnalité si on a le temps*/
-        String dataPath = DATA_PATH + "iris.csv";
-        // assertTrue(new CSVLoader().dataIsValid(dataPath));
     }
 }

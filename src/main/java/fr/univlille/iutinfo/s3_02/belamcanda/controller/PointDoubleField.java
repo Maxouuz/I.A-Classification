@@ -28,6 +28,6 @@ public class PointDoubleField extends PointField {
     @Override
     public void setValue(Point p) throws IllegalAccessException {
         String value = tf.textProperty().getValue();
-        field.setDouble(p, Double.valueOf(value));
+        field.setDouble(p, Double.parseDouble(value));
     }
 }

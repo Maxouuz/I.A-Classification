@@ -59,16 +59,14 @@ class ColumnTest {
 
     @Test
     void column_is_attached_to_the_model_when_he_have_an_amplitude() {
-        Column columnWithAmplitude = PokemonColumns.HP.getColumn();
         MVCModel model = new PokemonModel();
-        assertTrue(model.observers().contains(columnWithAmplitude));
+        assertTrue(model.observers().contains(PokemonColumns.HP.getColumn()));
     }
 
     @Test
     void column_is_not_attached_to_the_model_when_he_dont_have_an_amplitude() {
-        Column columnWithAmplitude = PokemonColumns.TYPE.getColumn();
         MVCModel model = new PokemonModel();
-        assertFalse(model.observers().contains(columnWithAmplitude));
+        assertFalse(model.observers().contains(PokemonColumns.TYPE.getColumn()));
     }
 
 
@@ -79,7 +77,6 @@ class ColumnTest {
         columnWithAmplitude.resetAmplitude();
         Amplitude ampli = columnWithAmplitude.amplitude();
 
-        /** TODO CA BUG PERIODIQUMNET CETTE MERDE" */
         assertNull(ampli.getMin());
         model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
         assertNotEquals(null, ampli.getMin());

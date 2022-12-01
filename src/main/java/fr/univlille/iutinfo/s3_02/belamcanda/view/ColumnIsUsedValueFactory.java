@@ -13,9 +13,7 @@ public class ColumnIsUsedValueFactory implements Callback<TableColumn.CellDataFe
         Column col = param.getValue();
         CheckBox checkBox = new CheckBox();
         checkBox.selectedProperty().setValue(col.isUsed());
-        checkBox.selectedProperty().addListener((ov, oldVal, newVal) -> {
-            col.setUsed(newVal);
-        });
+        checkBox.selectedProperty().addListener((ov, oldVal, newVal) -> col.setUsed(newVal));
         return new SimpleObjectProperty<>(checkBox);
     }
 }
