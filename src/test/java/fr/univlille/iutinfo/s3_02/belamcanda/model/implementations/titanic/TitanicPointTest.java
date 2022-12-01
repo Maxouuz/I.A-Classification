@@ -1,8 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisPoint;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitative_variables.IrisVariety;
-import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
