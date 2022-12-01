@@ -13,12 +13,12 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CSVLoaderTest {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
     private List<Point> list;
 
     @BeforeEach
     void initialization() throws IOException {
-        String dataPath = DATA_PATH + "pokemon_test.csv";
+        String dataPath = DATAPATH + "pokemon_test.csv";
         list = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath);
     }
 

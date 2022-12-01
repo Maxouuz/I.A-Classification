@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class MainController {
-    private static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    private static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
     @FXML private ToolBarController toolBarController;
     @FXML private PointInfoController pointInfoController;
     @FXML private ScatterChartController scatterChartController;
@@ -22,8 +22,8 @@ public class MainController {
 
     @FXML
     private void initialize() throws IOException {
-        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
-        model.addDataToClassify(DATA_PATH + "pokemon_test.csv");
+        model = new CSVLoader().createModelFromFile(DATAPATH + "pokemon_train.csv");
+        model.addDataToClassify(DATAPATH + "pokemon_test.csv");
         initializeControllers();
         updateModel();
     }

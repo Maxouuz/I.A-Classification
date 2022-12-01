@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TestManhattanDistance {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
     private MVCModel model;
     private ManhattanDistance distance;
     private Column weightedColumn;
 
     @BeforeEach
     void initialization() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
+        String dataPath = DATAPATH + "iris.csv";
         model = new CSVLoader().createModelFromFile(dataPath);
         weightedColumn = model.getColumn(IrisColumns.SEPAL_WIDTH);
         weightedColumn.setWeight(1.0);

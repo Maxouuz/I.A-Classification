@@ -14,25 +14,25 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BeanTest {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
 
     @Test
     void getting_an_attribute_from_its_name_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {
-        String dataPath = DATA_PATH + "pokemon_test.csv";
+        String dataPath = DATAPATH + "pokemon_test.csv";
         Point tropius = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath).get(0);
         assertEquals("Tropius", tropius.getValueFromString("name"));
     }
 
     @Test
     void getting_an_attribute_from_its_column_should_work() throws IOException {
-        String dataPath = DATA_PATH + "pokemon_test.csv";
+        String dataPath = DATAPATH + "pokemon_test.csv";
         Point tropius = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath).get(0);
         assertEquals("Tropius", tropius.getValue(PokemonColumns.NAME.getColumn()));
     }
 
     @Test
     void no_error_should_be_raised_when_requesting_all_pokemon_columns() throws IOException {
-        String dataPath = DATA_PATH + "pokemon_test.csv";
+        String dataPath = DATAPATH + "pokemon_test.csv";
         Point tropius = new CSVLoader().loadFromFile(CSVModel.POKEMON, dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(PokemonColumns.values())) {
             assertDoesNotThrow(() -> tropius.getValue(col));
@@ -41,7 +41,7 @@ class BeanTest {
 
     @Test
     void no_error_should_be_raised_when_requesting_all_titanic_columns() throws IOException {
-        String dataPath = DATA_PATH + "titanic.csv";
+        String dataPath = DATAPATH + "titanic.csv";
         Point titanic = new CSVLoader().loadFromFile(CSVModel.TITANIC, dataPath).get(0);
         for (Column col : IColumnDefinition.getColumns(TitanicColumns.values())) {
             assertDoesNotThrow(() -> titanic.getValue(col));

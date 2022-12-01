@@ -15,8 +15,8 @@ class TitanicModelTest {
 
     @BeforeEach
     void initialization() throws IOException {
-        final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
-        model = new CSVLoader().createModelFromFile(DATA_PATH + "titanic.csv");
+        final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+        model = new CSVLoader().createModelFromFile(DATAPATH + "titanic.csv");
     }
 
     @Test

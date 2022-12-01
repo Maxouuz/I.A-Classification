@@ -15,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IrisLoaderTest {
 
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void iris_loader_should_load_iris_beans() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
+        String dataPath = DATAPATH + "iris.csv";
         List<Point> list = new CSVLoader().loadFromFile(CSVModel.IRIS, dataPath);
         assertEquals(150, list.size());
         IrisPoint premier = (IrisPoint) list.get(0);
@@ -32,7 +32,7 @@ class IrisLoaderTest {
 
     @Test
     void load_model_should_return_correctly_specified_model() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
+        String dataPath = DATAPATH + "iris.csv";
         MVCModel iris = new CSVLoader().createModelFromFile(dataPath);
         assertEquals(iris.getTitle(), "Iris");
         assertEquals(iris.defaultXCol(), IrisColumns.PETAL_LENGTH.getColumn());

@@ -19,12 +19,12 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class CSVLoader {
-    private static final Map<List<String>, CSVModel> csvModelFromColumns;
+    private static final Map<List<String>, CSVModel> CSVMODELFROMCOLUMNS;
 
     static {
-        csvModelFromColumns = new HashMap<>();
+        CSVMODELFROMCOLUMNS = new HashMap<>();
         for (CSVModel model: CSVModel.values()) {
-            csvModelFromColumns.put(model.getColumnsName(), model);
+            CSVMODELFROMCOLUMNS.put(model.getColumnsName(), model);
         }
     }
 
@@ -46,10 +46,10 @@ public class CSVLoader {
 
     public CSVModel getCSVModelFromFile(String path) throws IOException {
         List<String> fileHeader = getHeader(',', path);
-        if (!csvModelFromColumns.containsKey(fileHeader)) {
+        if (!CSVMODELFROMCOLUMNS.containsKey(fileHeader)) {
             throw new IOException("Les colonnes du fichier CSV ne correspondent à aucun modèle existant");
         }
-        return csvModelFromColumns.get(fileHeader);
+        return CSVMODELFROMCOLUMNS.get(fileHeader);
     }
 
     private List<String> getHeader(char separator, String path) throws IOException {

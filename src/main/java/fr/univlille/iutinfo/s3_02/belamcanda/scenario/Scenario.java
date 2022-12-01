@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Scenario {
-    static final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
     private static MVCModel model;
     private static Categorizer categorizer;
     private static int titleIndex = 1;
@@ -42,7 +42,7 @@ public class Scenario {
         printTwoRobustness();
 
         printTitle("DISTANCE ALÉATOIRE AUTRE MODÈLE (cross-validation)");
-        model = new CSVLoader().createModelFromFile(DATA_PATH + "iris.csv");
+        model = new CSVLoader().createModelFromFile(DATAPATH + "iris.csv");
         categorizer = new Categorizer(model, new RandomDistance(), 3);
         getRobustnessWithCrossValidation();
         printConclusionIrisCrossValidation();
@@ -86,12 +86,12 @@ public class Scenario {
     }
 
     private static void addDataToClassify() throws IOException {
-        model.addDataToClassify(DATA_PATH + "pokemon_test.csv");
+        model.addDataToClassify(DATAPATH + "pokemon_test.csv");
         new ModelPrinter().print(model);
     }
 
     private static void initClasses() throws IOException {
-        model = new CSVLoader().createModelFromFile(DATA_PATH + "pokemon_train.csv");
+        model = new CSVLoader().createModelFromFile(DATAPATH + "pokemon_train.csv");
         categorizer = new Categorizer(model, new EuclideanDistance(), 3);
         new ModelPrinter().print(model);
         new CategorizerPrinter().print(categorizer);

@@ -12,11 +12,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+class IrisLoaderTest {final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void iris_loader_should_load_iris_beans() throws IOException {
-        String dataPath = DATA_PATH + "iris.csv";
+        String dataPath = DATAPATH + "iris.csv";
         List<Point> list = new CSVLoader().loadFromFile(CSVModel.IRIS, dataPath);
         assertEquals(150, list.size());
         IrisPoint premier = (IrisPoint) list.get(0);
@@ -30,7 +30,7 @@ class IrisLoaderTest {final String DATA_PATH = System.getProperty("user.dir") + 
     @Test
     void data_format_validator_checks_if_file_is_valid(){
         /** TODO Implémenter la fonctionnalité si on a le temps*/
-        String dataPath = DATA_PATH + "iris.csv";
+        String dataPath = DATAPATH + "iris.csv";
         // assertTrue(new CSVLoader().dataIsValid(dataPath));
     }
 }

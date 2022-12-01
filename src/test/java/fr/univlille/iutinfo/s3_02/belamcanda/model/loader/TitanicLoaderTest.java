@@ -13,11 +13,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TitanicLoaderTest {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void titanic_loader_should_load_titanic_beans() throws IOException {
-        String dataPath = DATA_PATH + "titanic.csv";
+        String dataPath = DATAPATH + "titanic.csv";
         List<Point> list = new CSVLoader().loadFromFile(CSVModel.TITANIC, dataPath);
         assertEquals(891, list.size());
         TitanicPoint premier = (TitanicPoint) list.get(0);
@@ -31,7 +31,7 @@ class TitanicLoaderTest {
     @Test
     void data_format_validator_checks_if_file_is_valid(){
         // TODO : Implémenter la fonctionnalité
-        String dataPath = DATA_PATH + "titanic.csv";
+        String dataPath = DATAPATH + "titanic.csv";
         // assertTrue(new CSVLoader().dataIsValid(dataPath));
     }
 }

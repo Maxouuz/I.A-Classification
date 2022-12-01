@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
 class ColumnTest {
-    final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void is_normalizable_should_return_true_or_false_depending_on_the_normalizer() {
@@ -81,7 +81,7 @@ class ColumnTest {
 
         /** TODO CA BUG PERIODIQUMNET CETTE MERDE" */
         assertNull(ampli.getMin());
-        model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATA_PATH + "pokemon_test.csv"));
+        model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATAPATH + "pokemon_test.csv"));
         assertNotEquals(null, ampli.getMin());
     }
 }
