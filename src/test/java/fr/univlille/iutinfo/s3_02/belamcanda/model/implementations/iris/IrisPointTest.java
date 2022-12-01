@@ -14,4 +14,11 @@ public class IrisPointTest {
         assertEquals(test, point1.toLabel());
     }
 
+    @Test
+    void the_to_string_is_correct(){
+        IrisPoint point1 = new IrisPoint(1., 1., 1., 1., IrisVariety.SETOSA);
+        String result = 1. + " " + 1. + " " + 1. + " " + 1. + " " + "SETOSA";
+        assertEquals(result, point1.toString());
+    }
+
 }
