@@ -13,4 +13,9 @@ class NullNormalizerTest {
         assertEquals(0, new NullNormalizer().normalize(3, ampli));
         assertEquals(0, new NullNormalizer().normalize(5, ampli));
     }
+
+    @Test
+    void null_normalizer_is_null(){
+        assertTrue(new NullNormalizer().isNull());
+    }
 }
