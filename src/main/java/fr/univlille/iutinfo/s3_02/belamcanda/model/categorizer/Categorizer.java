@@ -38,7 +38,8 @@ public class Categorizer {
     }
 
     public double getRobustness() {
-        return new Robustness().compute(this, model.getDataToClassify(), model.getTrainingData());
+        if (model.getTestData() == null) return  getRobustnessByCrossValidation();
+        return new Robustness().compute(this, model.getTestData(), model.getTrainingData());
     }
 
 

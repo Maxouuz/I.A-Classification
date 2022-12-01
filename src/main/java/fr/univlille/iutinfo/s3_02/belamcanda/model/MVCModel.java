@@ -37,6 +37,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 	}
 
 	public void setTestData(Set<Point> testData){this.testData = testData;}
+	public Set<Point> getTestData(){return this.testData;}
 
 	public abstract Column[] getColumns();
 
