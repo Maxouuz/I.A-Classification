@@ -59,4 +59,10 @@ class TestManhattanDistance {
 
         assertTrue(withWeight > beforeWeight);
     }
+
+    @Test
+    void manhattan_distance_is_called_manhattan(){
+        distance = new ManhattanDistance();
+        assertEquals("de Manhattan", distance.toString());
+    }
 }
