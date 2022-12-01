@@ -1,6 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,20 +59,32 @@ public class ToolBarController {
 
     @FXML
     public void addPoint() throws IOException {
-        FXMLLoader loader = getFxmlLoader("PointForm.fxml");
+        FXMLLoader loader = getPointLoader();
 
+        Parent root = createPointForm(loader);
+        showWindowAndWait(root);
+        Point newPoint = getPointCreated(loader);
+
+        if (newPoint != null) {
+            mainController.addDataToClassify(newPoint);
+        }
+    }
+
+    private Point getPointCreated(FXMLLoader loader) {
+        PointFormController controller = loader.getController();
+        return controller.getPoint();
+    }
+
+    private Parent createPointForm(FXMLLoader loader) throws IOException {
         Parent root = loader.load();
         PointFormController controller = loader.getController();
         controller.generateForm(mainController.getModel().getCsvModel());
-
-        showWindowAndWait(root);
-
-        mainController.addDataToClassify(controller.getPoint());
+        return root;
     }
 
-    private FXMLLoader getFxmlLoader(String resource) {
+    private FXMLLoader getPointLoader() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(resource));
+        loader.setLocation(getClass().getResource("PointForm.fxml"));
         return loader;
     }
 

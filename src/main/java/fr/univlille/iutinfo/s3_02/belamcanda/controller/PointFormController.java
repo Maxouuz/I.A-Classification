@@ -14,7 +14,7 @@ import java.util.List;
 public class PointFormController {
     @FXML
     private GridPane grid;
-    private List<PointField> fields;
+    private final List<PointField> fields;
     private CSVModel model;
     private Point newPoint;
 
@@ -57,7 +57,7 @@ public class PointFormController {
         for (PointField field: fields) {
             try {
                 field.setValue(newPoint);
-            } catch (IllegalAccessException e) {
+            } catch (IllegalAccessException | NumberFormatException e) {
                 newPoint = null;
                 return;
             }
