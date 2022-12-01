@@ -5,6 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.PokemonType;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class PokemonPoint extends Point {

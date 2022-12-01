@@ -8,6 +8,6 @@
       <Button mnemonicParsing="false" onAction="#importModel" text="Générer un modèle" />
       <Button mnemonicParsing="false" onAction="#addPoint" text="Ajouter un point" />
       <Button mnemonicParsing="false" onAction="#addDataToClassify" text="Fournir des données de test" />
-      <Button mnemonicParsing="false" onAction="#classify" prefWidth="100.0" text="Classifier" />
+      <Button mnemonicParsing="false" onAction="#computeRobustness" text="Calculer la robustesse" />
    </items>
 </ToolBar>

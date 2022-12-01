@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 public class MainController {
     private static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
@@ -23,7 +22,7 @@ public class MainController {
     @FXML
     private void initialize() throws IOException {
         model = new CSVLoader().createModelFromFile(DATAPATH + "pokemon_train.csv");
-        model.addDataToClassify(DATAPATH + "pokemon_test.csv");
+        // model.setTestData(DATAPATH + "pokemon_test.csv");
         initializeControllers();
         updateModel();
     }
@@ -72,15 +71,13 @@ public class MainController {
         return axisChoiceBoxController.getYCol();
     }
 
-    public void addDataToClassify(String path) throws IOException {
-        List<Point> pointsAdded = model.addDataToClassify(path);
-        scatterChartController.addDataToClassify(pointsAdded);
-        dataToClassifyController.updateDataToClassify();
+    public void setTestData(String path) throws IOException {
+        model.setTestData(path);
     }
 
-    public void addDataToClassify(Point newPoint) {
-        model.addDataToClassify(newPoint);
-        scatterChartController.addDataToClassify(List.of(newPoint));
+    public void addPointToClassify(Point newPoint) {
+        model.addPointToClassify(newPoint);
+        scatterChartController.addPointToClassify(newPoint);
         dataToClassifyController.updateDataToClassify();
     }
 }

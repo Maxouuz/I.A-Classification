@@ -37,7 +37,7 @@ public class ToolBarController {
         try {
             File file = chooseCSVFile();
             if (file != null) {
-                mainController.addDataToClassify(file.toString());
+                mainController.setTestData(file.toString());
             }
         } catch (IOException e) {
             showErrorMessage(e.getMessage());
@@ -66,7 +66,7 @@ public class ToolBarController {
         Point newPoint = getPointCreated(loader);
 
         if (newPoint != null) {
-            mainController.addDataToClassify(newPoint);
+            mainController.addPointToClassify(newPoint);
         }
     }
 
@@ -97,7 +97,7 @@ public class ToolBarController {
     }
 
     @FXML
-    public void classify() {
+    public void computeRobustness() {
         mainController.updateRobustness();
     }
 

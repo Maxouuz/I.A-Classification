@@ -86,7 +86,7 @@ public class Scenario {
     }
 
     private static void addDataToClassify() throws IOException {
-        model.addDataToClassify(DATAPATH + "pokemon_test.csv");
+        model.setTestData(DATAPATH + "pokemon_test.csv");
         new ModelPrinter().print(model);
     }
 

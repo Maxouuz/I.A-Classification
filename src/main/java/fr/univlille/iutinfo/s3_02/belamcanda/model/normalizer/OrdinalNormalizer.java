@@ -27,9 +27,4 @@ public class OrdinalNormalizer<T extends Enum> implements IValueNormalizer {
     public ColumnComparator getComparator() {
         return new DrasticComparator();
     }
-
-    public static void main(String[] args) {
-        Object o = Legendary.FALSE;
-        System.out.println(o.getClass());
-    }
 }

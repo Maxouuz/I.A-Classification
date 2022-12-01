@@ -14,30 +14,30 @@ import java.util.*;
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final CSVModel csvModel;
 	protected final Set<Point> trainingData;
-	protected  Set<Point> testData;
 	protected final Set<Point> toClassifyData;
+	protected final Set<Point> testData;
 	protected final Column[] columns;
 	protected final Categories categories;
 
 	protected MVCModel(CSVModel csvModel) {
 		this.csvModel = csvModel;
+
 		this.trainingData = new HashSet<>();
 		this.toClassifyData = new HashSet<>();
+		this.testData = new HashSet<>();
+
 		this.columns = getColumns();
 		setDatasetOfColumns();
 		this.categories = new Categories();
 	}
 
-	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
+	public Set<Point> getTrainingData(){return trainingData;}
 
 	public void setDatasetOfColumns() {
 		for (Column column: columns) {
 			column.setDataset(this);
 		}
 	}
-
-	public void setTestData(Set<Point> testData){this.testData = testData;}
-	public Set<Point> getTestData(){return this.testData;}
 
 	public abstract Column[] getColumns();
 
@@ -80,12 +80,13 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	@Override
 	public void setLines(List<? extends Point> lines) {
-		setDatasetOfColumns();
 		this.trainingData.clear();
 		this.trainingData.addAll(lines);
 		categories.setLines(lines);
 		notifyObservers();
 	}
+
+	// TODO: A RETIRER
 
 	@Override
 	public void addLine(Point element) {
@@ -101,17 +102,21 @@ public abstract class MVCModel extends Subject implements IDataset {
 		notifyObservers();
 	}
 
+	public Set<Point> getTestData() {
+		return testData;
+	}
+
+	public List<Point> setTestData(String path) throws IOException {
+		List<Point> newDataToClassify = new CSVLoader().loadFromFile(csvModel, path);
+		this.testData.addAll(newDataToClassify);
+		return newDataToClassify;
+	}
+
 	public Set<Point> getDataToClassify() {
 		return toClassifyData;
 	}
 
-	public List<Point> addDataToClassify(String path) throws IOException {
-		List<Point> newDataToClassify = new CSVLoader().loadFromFile(csvModel, path);
-		this.toClassifyData.addAll(newDataToClassify);
-		return newDataToClassify;
-	}
-
-	public void addDataToClassify(Point newPoint) {
+	public void addPointToClassify(Point newPoint) {
 		this.toClassifyData.add(newPoint);
 	}
 

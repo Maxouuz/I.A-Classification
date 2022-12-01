@@ -34,7 +34,9 @@ public class Categorizer {
     }
 
     public double getRobustness() {
-        if (model.getTestData() == null) return  getRobustnessByCrossValidation();
+        if (model.getTestData().isEmpty()) {
+            return getRobustnessByCrossValidation();
+        }
         return new Robustness().compute(this, model.getTestData(), model.getTrainingData());
     }
 

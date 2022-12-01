@@ -22,15 +22,7 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
         super(xAxis, yAxis);
         this.mainController = mainController;
         this.dataToClassifySeries = getOneSeries(mainController.getModel().getDataToClassify(), "A classifier");
-        initDataToClassify();
         createChart();
-    }
-
-    private void initDataToClassify() {
-        Set<Point> dataToClassify = mainController.getModel().getDataToClassify();
-        if (!dataToClassify.isEmpty()) {
-            addDataToClassify(dataToClassify);
-        }
     }
 
     private void createChart(){
@@ -57,11 +49,12 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
         return res;
     }
 
-    public void addDataToClassify(Collection<Point> dataToClassify) {
-        if (getData().isEmpty()) {
+    public void addPointToClassify(Point pointToClassify) {
+        if (dataToClassifySeries.getData().isEmpty()) {
+            System.out.println("là");
             getData().add(dataToClassifySeries);
         }
-        dataToClassifySeries.getData().addAll(dataPoint(dataToClassify));
+        dataToClassifySeries.getData().add(dataPoint(pointToClassify));
     }
 
     private XYChart.Data<X,Y> dataPoint(Point point){

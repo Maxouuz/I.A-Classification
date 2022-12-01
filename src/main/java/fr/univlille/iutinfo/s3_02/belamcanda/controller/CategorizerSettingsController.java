@@ -56,8 +56,4 @@ public class CategorizerSettingsController {
     public double getRobustness() {
         return categorizer.getRobustness();
     }
-
-    public double getCrossValidation() {
-        return categorizer.getRobustnessByCrossValidation();
-    }
 }
