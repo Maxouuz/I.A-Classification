@@ -5,9 +5,12 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.IrisColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestRandomDistance {
     final String DATA_PATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
@@ -23,7 +26,12 @@ public class TestRandomDistance {
         model = new CSVLoader().createModelFromFile(dataPath);
         distance = new RandomDistance();
     }
-    /** TODO Pour maxhoue */
+
+    @Test
+    void random_distance_is_called_random(){
+        distance = new RandomDistance();
+        assertEquals("Aléatoire", distance.toString());
+    }
 
 
 }
