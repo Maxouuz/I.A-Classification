@@ -18,4 +18,9 @@ class NullNormalizerTest {
     void null_normalizer_is_null(){
         assertTrue(new NullNormalizer().isNull());
     }
+
+    @Test
+    void null_normalizer_need_amplitude(){
+        assertFalse(new NullNormalizer().needAmplitude());
+    }
 }
