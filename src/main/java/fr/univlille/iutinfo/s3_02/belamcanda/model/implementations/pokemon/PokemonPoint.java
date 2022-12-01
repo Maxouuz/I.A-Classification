@@ -9,31 +9,31 @@ import java.util.Objects;
 
 public class PokemonPoint extends Point {
 	@CsvBindByName(column = "name")
-	protected String name;
+	public String name;
 	@CsvBindByName(column = "attack")
-	protected int attack;
+	public int attack;
 	@CsvBindByName(column = "base_egg_steps")
-	protected int baseEggSteps;
+	public int baseEggSteps;
 	@CsvBindByName(column = "capture_rate")
-	protected double captureRate;
+	public double captureRate;
 	@CsvBindByName(column = "defense")
-	protected int defense;
+	public int defense;
 	@CsvBindByName(column = "experience_growth")
-	protected int experienceGrowth;
+	public int experienceGrowth;
 	@CsvBindByName(column = "hp")
-	protected int hp;
+	public int hp;
 	@CsvBindByName(column = "sp_attack")
-	protected int spAttack;
+	public int spAttack;
 	@CsvBindByName(column = "sp_defense")
-	protected int spDefense;
+	public int spDefense;
 	@CsvBindByName(column = "type1")
-	protected PokemonType pokemonType;
+	public PokemonType pokemonType;
 	@CsvBindByName(column = "type2")
-	protected PokemonType pokemonType2 = PokemonType.NONE;
+	public PokemonType pokemonType2 = PokemonType.NONE;
 	@CsvBindByName(column = "speed")
-	protected double speed;
+	public double speed;
 	@CsvBindByName(column = "is_legendary")
-	protected Legendary isLegendary;
+	public Legendary isLegendary;
 
 	@Override
 	public Object category(){
@@ -49,8 +49,6 @@ public class PokemonPoint extends Point {
 	public String toString() {
 		return name;
 	}
-
-	public PokemonPoint(){}
 
 	@Override
 	public boolean equals(Object o) {

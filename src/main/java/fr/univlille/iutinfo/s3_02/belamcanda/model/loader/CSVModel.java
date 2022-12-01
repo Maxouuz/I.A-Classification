@@ -20,18 +20,18 @@ public enum CSVModel {
     TITANIC(TitanicPoint.class, TitanicModel.class, ','),
     IRIS(IrisPoint.class, IrisModel.class, ',');
 
-    private final Class<? extends Point> clazz;
+    private final Class<? extends Point> pointClass;
     private final Class<? extends MVCModel> modelClass;
     private final char separator;
 
-    CSVModel(Class<? extends Point> clazz, Class<? extends MVCModel> modelClass, char separator) {
-        this.clazz = clazz;
+    CSVModel(Class<? extends Point> pointClass, Class<? extends MVCModel> modelClass, char separator) {
+        this.pointClass = pointClass;
         this.modelClass = modelClass;
         this.separator = separator;
     }
 
-    public Class<? extends Point> getClazz() {
-        return clazz;
+    public Class<? extends Point> getPointClass() {
+        return pointClass;
     }
 
     public MVCModel getModel() {
@@ -43,13 +43,22 @@ public enum CSVModel {
         }
     }
 
+    public Point createPoint() {
+        try {
+            Constructor<?> ctor = pointClass.getConstructor();
+            return (Point) ctor.newInstance();
+        } catch (ReflectiveOperationException e) {
+            return null;
+        }
+    }
+
     public char getSeparator() {
         return separator;
     }
 
     public List<String> getColumnsName() {
         List<String> columns = new ArrayList<>();
-        for (Field f: getClazz().getDeclaredFields()) {
+        for (Field f: getPointClass().getDeclaredFields()) {
             CsvBindByName column = f.getAnnotation(CsvBindByName.class);
             if (column != null) {
                 columns.add(column.column());

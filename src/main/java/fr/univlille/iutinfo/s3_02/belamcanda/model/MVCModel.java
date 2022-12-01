@@ -27,8 +27,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 		this.categories = new Categories();
 	}
 
-	public Class<? extends Point> pointClass(){return csvModel.getClazz();}
-
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
 
 	public void setDatasetOfColumns() {
@@ -109,6 +107,10 @@ public abstract class MVCModel extends Subject implements IDataset {
 		return newDataToClassify;
 	}
 
+	public void addDataToClassify(Point newPoint) {
+		this.toClassifyData.add(newPoint);
+	}
+
 	@Override
 	public Iterator<Point> iterator() {
 		return trainingData.iterator();
@@ -121,5 +123,9 @@ public abstract class MVCModel extends Subject implements IDataset {
 			}
 		}
 		throw new IllegalArgumentException();
+	}
+
+	public CSVModel getCsvModel() {
+		return csvModel;
 	}
 }

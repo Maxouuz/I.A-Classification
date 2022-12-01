@@ -35,7 +35,7 @@ public class CSVLoader {
         }
         res = new CsvToBeanBuilder<Point>(Files.newBufferedReader(Paths.get(path)))
                 .withSeparator(csvModel.getSeparator())
-                .withType(csvModel.getClazz())
+                .withType(csvModel.getPointClass())
                 .build().parse();
         return res;
     }
