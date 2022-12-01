@@ -25,7 +25,7 @@ public class DataToClassifyController {
     }
 
     @FXML
-    public void updateTrainingData() {
+    public void updateDataToClassify() {
         toClassify.getItems().setAll(mainController.getModel().getDataToClassify());
     }
 

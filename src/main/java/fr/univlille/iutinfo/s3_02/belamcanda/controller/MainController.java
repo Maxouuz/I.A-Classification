@@ -35,7 +35,7 @@ public class MainController {
     }
 
     public void updateModel() {
-        dataToClassifyController.updateTrainingData();
+        dataToClassifyController.updateDataToClassify();
         categorizerSettingsController.createTableView(model.getNormalizableColumns());
         categorizerSettingsController.createCategorizer(getModel());
         axisChoiceBoxController.initChoiceBoxes(this);
@@ -76,12 +76,12 @@ public class MainController {
     public void addDataToClassify(String path) throws IOException {
         List<Point> pointsAdded = model.addDataToClassify(path);
         scatterChartController.addDataToClassify(pointsAdded);
-        dataToClassifyController.updateTrainingData();
+        dataToClassifyController.updateDataToClassify();
     }
 
     public void addDataToClassify(Point newPoint) {
         model.addDataToClassify(newPoint);
         scatterChartController.addDataToClassify(List.of(newPoint));
-        dataToClassifyController.updateTrainingData();
+        dataToClassifyController.updateDataToClassify();
     }
 }
