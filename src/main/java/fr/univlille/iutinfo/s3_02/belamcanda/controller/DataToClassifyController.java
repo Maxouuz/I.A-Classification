@@ -8,7 +8,6 @@ import javafx.scene.control.ListView;
 public class DataToClassifyController {
     @FXML private ListView<Point> toClassify;
     @FXML private Label robustness;
-    @FXML private Label crossValidation;
     private MainController mainController;
 
     @FXML
@@ -33,9 +32,8 @@ public class DataToClassifyController {
         this.mainController = mainController;
     }
 
-    public void updateRobustness(double robustness, double crossValidation) {
+    public void updateRobustness(double robustness) {
         this.robustness.setText(toStringRobustness(robustness));
-        this.crossValidation.setText(toStringRobustness(crossValidation));
     }
 
     private String toStringRobustness(double robustness) {

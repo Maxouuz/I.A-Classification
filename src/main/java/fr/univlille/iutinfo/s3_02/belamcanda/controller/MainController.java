@@ -56,8 +56,7 @@ public class MainController {
 
     public void updateRobustness() {
         double robustness = categorizerSettingsController.getRobustness();
-        double crossValidation = categorizerSettingsController.getCrossValidation();
-        dataToClassifyController.updateRobustness(robustness, crossValidation);
+        dataToClassifyController.updateRobustness(robustness);
     }
 
     public void setNewModel(MVCModel model) {
