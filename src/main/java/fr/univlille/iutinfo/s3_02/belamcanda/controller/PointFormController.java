@@ -1,38 +1,46 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class PointFormController {
     @FXML
     private GridPane grid;
+    private List<PointField> fields;
+    private CSVModel model;
+    private Point newPoint;
 
-    public void generateForm(MVCModel model) {
+    public PointFormController() {
+        this.fields = new LinkedList<>();
+    }
+
+    public void generateForm(CSVModel model) {
+        this.model = model;
+
         int row = 0;
-        Class<? extends Point> clazz = model.pointClass();
-        Field[] fields = clazz.getDeclaredFields();
-        for (Field f : fields) {
+        Class<? extends Point> clazz = this.model.getPointClass();
+        for (Field f : clazz.getDeclaredFields()) {
             Label fieldName = new Label(f.getName() + ": ");
-            Node input = getWidgetOf(f.getType());
-            grid.addRow(row++, fieldName, input);
+            PointField input = getWidgetOf(f);
+            fields.add(input);
+            grid.addRow(row++, fieldName, input.getWidget());
         }
     }
 
-    private static Node getWidgetOf(Class<?> clazz) {
-        if (clazz.isEnum()) return enumWidget(clazz);
-        else if (isInt(clazz)) return intWidget();
-        else if (isDouble(clazz)) return doubleWidget();
-        return new TextField();
-
+    private static PointField getWidgetOf(Field field) {
+        Class<?> clazz = field.getType();
+        if (clazz.isEnum()) return new PointEnumField(field);
+        else if (isInt(clazz)) return new PointIntegerField(field);
+        else if (isDouble(clazz)) return new PointDoubleField(field);
+        return new PointStringField(field);
     }
 
     private static boolean isDouble(Class<?> clazz) {
@@ -43,36 +51,26 @@ public class PointFormController {
         return clazz.equals(Integer.class) || clazz.equals(int.class);
     }
 
-    private static Node doubleWidget() {
-        TextField res = new TextField();
-        res.textProperty().addListener((obs, o, n) -> res.setText(n.replaceAll("[^\\d.]", "")));
-        res.setPromptText("décimal");
-        return res;
-    }
-
-    private static Node intWidget() {
-        TextField res = new TextField();
-        res.textProperty().addListener((obs, o, n) -> res.setText(n.replaceAll("[\\D]", "")));
-        res.setPromptText("entier");
-        return res;
-    }
-
-    private static Node enumWidget(Class<?> clazz) {
-        ObservableList<?> list = FXCollections.observableList(Arrays.asList(clazz.getEnumConstants()));
-        ComboBox<?> res = new ComboBox<>(list);
-        res.getSelectionModel().select(0);
-        return res;
-    }
-
     @FXML
-    public void addPoint() {
-        ObservableList<Node> children = grid.getChildren();
-        for (int i = 0; i < children.size(); i+=2) {
-            String key = ((Label) children.get(i)).getText();
-            String value = children.get(i+1).toString();
-            System.out.println(key);
-            System.out.println(value);
-            System.out.println();
+    public void createPoint() {
+        newPoint = model.createPoint();
+        for (PointField field: fields) {
+            try {
+                field.setValue(newPoint);
+            } catch (IllegalAccessException e) {
+                newPoint = null;
+                return;
+            }
         }
+        closeWindow();
+    }
+
+    private void closeWindow() {
+        Stage stage = (Stage) grid.getScene().getWindow();
+        stage.close();
+    }
+
+    public Point getPoint() {
+        return newPoint;
     }
 }

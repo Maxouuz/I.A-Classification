@@ -62,9 +62,11 @@ public class ToolBarController {
 
         Parent root = loader.load();
         PointFormController controller = loader.getController();
-        controller.generateForm(mainController.getModel());
+        controller.generateForm(mainController.getModel().getCsvModel());
 
         showWindowAndWait(root);
+
+        mainController.addDataToClassify(controller.getPoint());
     }
 
     private FXMLLoader getFxmlLoader(String resource) {
