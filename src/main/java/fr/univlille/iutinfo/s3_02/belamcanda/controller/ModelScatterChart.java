@@ -50,10 +50,10 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
     }
 
     public void addPointToClassify(Point pointToClassify) {
-        if (dataToClassifySeries.getData().isEmpty()) {
+        dataToClassifySeries.getData().add(dataPoint(pointToClassify));
+        if (!getData().contains(dataToClassifySeries)) {
             getData().add(dataToClassifySeries);
         }
-        dataToClassifySeries.getData().add(dataPoint(pointToClassify));
     }
 
     private XYChart.Data<X,Y> dataPoint(Point point){
@@ -64,12 +64,6 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
         XYChart.Data<X,Y> res = new XYChart.Data<>(x, y);
         res.setNode(button(mainController, point));
         return res;
-    }
-
-    private Set<XYChart.Data<X,Y>> dataPoint(Collection<Point> points){
-        return points.stream()
-                .map(this::dataPoint)
-                .collect(Collectors.toSet());
     }
 
     private Button button(MainController mainController, Point point){
