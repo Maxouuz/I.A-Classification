@@ -59,4 +59,10 @@ class TestEuclideanDistance {
 
         assertTrue(withWeight > beforeWeight);
     }
+
+    @Test
+    void euclidean_distance_is_called_euclidean(){
+        distance = new EuclideanDistance();
+        assertEquals("Euclidienne", distance.toString());
+    }
 }
