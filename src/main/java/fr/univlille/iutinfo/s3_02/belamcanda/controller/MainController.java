@@ -55,7 +55,7 @@ public class MainController {
 
     public void updateRobustness() {
         double robustness = categorizerSettingsController.getRobustness();
-        dataToClassifyController.updateRobustness(robustness);
+        categorizerSettingsController.updateRobustness(robustness);
     }
 
     public void setNewModel(MVCModel model) {
@@ -73,6 +73,7 @@ public class MainController {
 
     public void setTestData(String path) throws IOException {
         model.setTestData(path);
+        categorizerSettingsController.setTestDataFileName(new File(path).getName());
     }
 
     public void addPointToClassify(Point newPoint) {

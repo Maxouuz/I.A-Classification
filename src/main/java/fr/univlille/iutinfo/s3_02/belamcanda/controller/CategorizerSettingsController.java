@@ -16,6 +16,8 @@ public class CategorizerSettingsController {
     public static final int MIN_K = 1;
     public static final int MAX_K = 100;
     public static final int DEFAULT_K = 3;
+    @FXML private Label robustness;
+    @FXML private Label dataTestFilename;
     @FXML private Spinner<Integer> kSpinner;
     private Categorizer categorizer;
     @FXML private TableView<Column> columnList;
@@ -55,5 +57,18 @@ public class CategorizerSettingsController {
 
     public double getRobustness() {
         return categorizer.getRobustness();
+    }
+
+    public void updateRobustness(double robustness) {
+        this.robustness.setText(toStringRobustness(robustness));
+    }
+
+    private String toStringRobustness(double robustness) {
+        final double nbDecimals = 100.0;
+        return Math.round(robustness * 100.0 * nbDecimals) / nbDecimals + "%";
+    }
+
+    public void setTestDataFileName(String filename) {
+        dataTestFilename.setText(filename);
     }
 }
