@@ -27,12 +27,16 @@ public class PointFormController {
 
         int row = 0;
         Class<? extends Point> clazz = this.model.getPointClass();
-        for (Field f : clazz.getDeclaredFields()) {
+//        for (Field f : clazz.getDeclaredFields()) {
+        for (int i = 0; i < clazz.getDeclaredFields().length - 1; i++) {
+            Field f = clazz.getDeclaredFields()[i];
             Label fieldName = new Label(f.getName() + ": ");
             PointField input = getWidgetOf(f);
             fields.add(input);
             grid.addRow(row++, fieldName, input.getWidget());
+
         }
+
     }
 
     private static PointField getWidgetOf(Field field) {
