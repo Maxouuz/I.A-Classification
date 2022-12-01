@@ -39,6 +39,11 @@ public class TitanicPoint extends Point {
     }
 
     @Override
+    public String toLabel() {
+        return String.format("%s :\n\tClass : %d\n\tAge : %.2f\n\tFare : %.2f", name, pClass, age, fare);
+    }
+
+    @Override
     public String toString() {
         return name;
     }

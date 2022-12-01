@@ -32,6 +32,7 @@ public abstract class Point {
         return null;
     }
 
+    public abstract String toLabel();
     @Override
     public abstract String toString();
 

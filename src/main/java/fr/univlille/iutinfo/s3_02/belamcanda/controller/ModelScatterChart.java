@@ -82,7 +82,7 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
 
     private Button button(MainController mainController, Point point){
         Button bt = new Button();
-        Tooltip tip = new Tooltip(point.category().toString());
+        Tooltip tip = new Tooltip(point.toLabel());
         tip.setShowDelay(Duration.millis(75));
         Tooltip.install(bt, tip);
         bt.setOnAction(e -> mainController.setPointDescription(point));

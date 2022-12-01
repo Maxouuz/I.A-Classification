@@ -41,6 +41,11 @@ public class PokemonPoint extends Point {
 	}
 
 	@Override
+	public String toLabel() {
+		return String.format("%s :\n\tatk : %d\n\tdef : %d\n\thp  : %d",name.toUpperCase(), attack, defense, hp);
+	}
+
+	@Override
 	public String toString() {
 		return name;
 	}

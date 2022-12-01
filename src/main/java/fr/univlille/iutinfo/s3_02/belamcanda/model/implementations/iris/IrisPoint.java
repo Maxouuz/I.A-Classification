@@ -24,6 +24,11 @@ public class IrisPoint extends Point {
     }
 
     @Override
+    public String toLabel() {
+        return String.format("Iris (l, h)\n\tSepal (%.2f, %.2f)\n\tPetal (%.2f, %.2f)", sepalLength, sepalWidth, petalLength, petalWidth);
+    }
+
+    @Override
     public String toString() {
         return sepalLength + " " + sepalWidth + " " + petalLength + " " + petalLength + " " + variety;
     }
