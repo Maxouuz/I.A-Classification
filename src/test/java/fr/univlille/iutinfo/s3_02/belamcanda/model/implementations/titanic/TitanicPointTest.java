@@ -5,7 +5,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.iris.qualitat
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TitanicPointTest {
     @Test
@@ -24,5 +24,15 @@ public class TitanicPointTest {
         TitanicPoint point1 = new TitanicPoint();
         point1.name = "Jean";
         assertEquals("Jean", point1.toString());
+    }
+
+    @Test
+    void two_passengers_are_different() {
+        TitanicPoint point1 = new TitanicPoint();
+        TitanicPoint point2 = new TitanicPoint();
+        point1.age = 20.;
+        point2.age = 22.;
+
+        assertFalse(point1.equals(point2));
     }
 }
