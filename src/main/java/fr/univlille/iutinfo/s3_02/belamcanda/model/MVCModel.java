@@ -11,6 +11,7 @@ import java.util.*;
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final Class<? extends Point> clazz;
 	protected final Set<Point> trainingData;
+	protected Set<Point> testData;
 	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
 	protected final Categories categories;
@@ -24,6 +25,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 		this.categories = new Categories();
 	}
 
+	public void setTestData(Set<Point> points){this.testData = points;}
 	public Class<? extends Point> pointClass(){return clazz;}
 
 	public Set<Point> getTrainingData(){return Set.copyOf(trainingData);}
