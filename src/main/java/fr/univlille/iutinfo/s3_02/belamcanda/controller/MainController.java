@@ -80,4 +80,8 @@ public class MainController {
         scatterChartController.addPointToClassify(newPoint);
         dataToClassifyController.updateDataToClassify();
     }
+
+    public void classify() {
+        model.classify();
+    }
 }

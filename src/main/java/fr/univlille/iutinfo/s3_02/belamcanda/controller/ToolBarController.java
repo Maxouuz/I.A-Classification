@@ -101,6 +101,11 @@ public class ToolBarController {
         mainController.updateRobustness();
     }
 
+    @FXML
+    public void classify() {
+        mainController.classify();
+    }
+
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;
     }

@@ -20,19 +20,35 @@ public abstract class Point {
         }
     }
 
-    public abstract Object category();
-
-    public Double getNormalizedValue(Column col){
-        return col.getNormalizedValue(this);
-    }
-
     public String getStringValue(Column col) {
         Object val = getValue(col);
         if (val != null) return val.toString();
         return null;
     }
 
+    private Field categoryField() {
+        Field[] fields = getClass().getFields();
+        return fields[fields.length - 1];
+    }
+
+    public Object category() {
+        try {
+            return categoryField().get(this);
+        } catch (IllegalAccessException e) {
+            return null;
+        }
+    }
+
+    public void setCategory(Object value) {
+        try {
+            categoryField().set(this, value);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public abstract String toLabel();
+
     @Override
     public abstract String toString();
 

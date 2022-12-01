@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.Category;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.Distance;
@@ -83,5 +84,9 @@ public class Categorizer {
 
     public void setDistanceMethod(Distance distanceMethod) {
         this.distanceMethod = distanceMethod;
+    }
+
+    public Object categorize(Point toClassify) {
+        return this.categorize(toClassify, model.getTrainingData());
     }
 }

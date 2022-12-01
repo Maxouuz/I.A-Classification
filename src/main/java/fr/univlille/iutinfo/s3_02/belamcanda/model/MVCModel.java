@@ -1,9 +1,11 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer.Categorizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.IColumnDefinition;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.observer_subject.Subject;
@@ -136,5 +138,13 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	public CSVModel getCsvModel() {
 		return csvModel;
+	}
+
+	public void classify() {
+		Categorizer categorizer = new Categorizer(this, new EuclideanDistance(), 3);
+		for (Point toClassify: toClassifyData) {
+			Object guess = categorizer.categorize(toClassify);
+			toClassify.setCategory(guess);
+		}
 	}
 }
