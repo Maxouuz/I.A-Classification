@@ -14,6 +14,7 @@ import java.util.*;
 public abstract class MVCModel extends Subject implements IDataset {
 	protected final CSVModel csvModel;
 	protected final Set<Point> trainingData;
+	protected  Set<Point> testData;
 	protected final Set<Point> toClassifyData;
 	protected final Column[] columns;
 	protected final Categories categories;
@@ -34,6 +35,8 @@ public abstract class MVCModel extends Subject implements IDataset {
 			column.setDataset(this);
 		}
 	}
+
+	public void setTestData(Set<Point> testData){this.testData = testData;}
 
 	public abstract Column[] getColumns();
 
