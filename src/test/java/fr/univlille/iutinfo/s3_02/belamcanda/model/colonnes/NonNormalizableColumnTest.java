@@ -15,4 +15,13 @@ public class NonNormalizableColumnTest {
 
         assertEquals(0., nonNorma.getNormalizedValue(point1));
     }
+
+    @Test
+    void compare_two_points_no_normalizable_column(){
+        IrisPoint point1 = new IrisPoint(1.,1.,1.,1., IrisVariety.SETOSA);
+        IrisPoint point2 = new IrisPoint(1.5,1.,1.,1., IrisVariety.VIRGINICA);
+        NonNormalizableColumn nonNorma = new NonNormalizableColumn("norma", 0.);
+
+        assertEquals(0.,nonNorma.compare(point1, point2) );
+    }
 }
