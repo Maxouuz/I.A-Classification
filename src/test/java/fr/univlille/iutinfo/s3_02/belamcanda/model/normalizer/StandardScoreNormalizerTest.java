@@ -18,4 +18,5 @@ public class StandardScoreNormalizerTest {
         StandardScoreNormalizer standSc = new StandardScoreNormalizer();
         assertTrue(standSc.needAmplitude());
     }
+
 }

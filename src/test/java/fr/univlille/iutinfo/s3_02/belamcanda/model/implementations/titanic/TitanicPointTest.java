@@ -3,6 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.titanic;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TitanicPointTest {
     @Test
@@ -22,4 +23,15 @@ public class TitanicPointTest {
         point1.name = "Jean";
         assertEquals("Jean", point1.toString());
     }
+
+    @Test
+    void two_passengers_are_different() {
+        TitanicPoint point1 = new TitanicPoint();
+        TitanicPoint point2 = new TitanicPoint();
+        point1.age = 20.;
+        point2.age = 22.;
+
+        assertFalse(point1.equals(point2));
+    }
+
 }
