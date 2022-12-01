@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
@@ -27,17 +28,20 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label text="Robustesse:" />
             <Label fx:id="robustness" text="0.0%" GridPane.columnIndex="1" />
             <Label text="Fichier test:" GridPane.rowIndex="1" />
             <Label fx:id="dataTestFilename" text="Aucun fichier chargé" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Valeur de K:" GridPane.rowIndex="2" />
-            <Spinner fx:id="kSpinner" editable="true" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Valeur de K:" GridPane.rowIndex="3" />
+            <Spinner fx:id="kSpinner" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Méthode dist.:" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="distanceMethod" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <TableView fx:id="columnList" editable="true" VBox.vgrow="SOMETIMES">
+      <TableView fx:id="columnList" editable="true" prefHeight="350.0" VBox.vgrow="SOMETIMES">
          <columns>
             <TableColumn fx:id="nameColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="116.0" resizable="false" text="Attribut" />
             <TableColumn fx:id="weightColumn" maxWidth="-1.0" minWidth="70.0" prefWidth="70.0" text="Poids" />

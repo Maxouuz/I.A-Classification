@@ -3,7 +3,9 @@ package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer.Categorizer;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.Distance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.ManhattanDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.ColumnIsUsedValueFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.ColumnWeightValueFactory;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ public class CategorizerSettingsController {
     public static final int DEFAULT_K = 3;
     @FXML private Label robustness;
     @FXML private Label dataTestFilename;
+    @FXML private ChoiceBox<Distance> distanceMethod;
     @FXML private Spinner<Integer> kSpinner;
     private Categorizer categorizer;
     @FXML private TableView<Column> columnList;
@@ -38,6 +41,19 @@ public class CategorizerSettingsController {
         weightColumn.setCellValueFactory(new ColumnWeightValueFactory());
         usedColumn.setCellValueFactory(new ColumnIsUsedValueFactory());
         setNameColumnCellFactory();
+        initDistanceMethodChoiceBox();
+    }
+
+    private void initDistanceMethodChoiceBox() {
+        distanceMethod.getItems().addAll(new EuclideanDistance(), new ManhattanDistance());
+        distanceMethod.getSelectionModel().select(0);
+    }
+
+    public void initDistanceMethod(MainController mainController) {
+        distanceMethod.setOnAction(e -> {
+            Distance selected = distanceMethod.getSelectionModel().getSelectedItem();
+            mainController.setDistanceMethod(selected);
+        });
     }
 
     private void setNameColumnCellFactory() {
@@ -70,5 +86,9 @@ public class CategorizerSettingsController {
 
     public void setTestDataFileName(String filename) {
         dataTestFilename.setText(filename);
+    }
+
+    public void setDistanceMethod(Distance selected) {
+        categorizer.setDistanceMethod(selected);
     }
 }
