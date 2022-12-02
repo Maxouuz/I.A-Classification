@@ -42,10 +42,8 @@ public class CategorizerSettingsController {
 
     public void initCategorizerSettings(MainController mainController) {
         MVCModel model = mainController.getModel();
-
         initK();
         createCategorizer(model);
-        updateRobustness(0);
         dataTestFilename.setText("Aucun fichier chargé");
         initDistanceMethod(mainController);
         createTableView(model.getNormalizableColumns());

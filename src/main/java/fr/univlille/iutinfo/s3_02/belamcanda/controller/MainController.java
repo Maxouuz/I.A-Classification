@@ -39,6 +39,7 @@ public class MainController {
         dataToClassifyController.updateDataToClassify();
         categorizerSettingsController.initCategorizerSettings(this);
         axisChoiceBoxController.initChoiceBoxes(this);
+        toolBarController.computeRobustness();
         updateChartAxis();
     }
 
