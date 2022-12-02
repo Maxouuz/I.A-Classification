@@ -42,12 +42,12 @@ public class CategorizerSettingsController {
     public void initCategorizerSettings(MainController mainController) {
         MVCModel model = mainController.getModel();
 
+        initK();
+        createCategorizer(model);
         updateRobustness(0);
         dataTestFilename.setText("Aucun fichier chargé");
-        initK();
         initDistanceMethod(mainController);
         createTableView(model.getNormalizableColumns());
-        createCategorizer(model);
     }
 
     private void initK() {
@@ -82,7 +82,14 @@ public class CategorizerSettingsController {
     }
 
     public void updateRobustness(double robustness) {
-        this.robustness.setText(toStringRobustness(robustness));
+        this.robustness.setText(toStringRobustness(robustness) + robustnessMethodDescription());
+    }
+
+    private String robustnessMethodDescription() {
+        if (categorizer.isCrossValidationUsed()) {
+            return " (cross-validation)";
+        }
+        return "";
     }
 
     private String toStringRobustness(double robustness) {

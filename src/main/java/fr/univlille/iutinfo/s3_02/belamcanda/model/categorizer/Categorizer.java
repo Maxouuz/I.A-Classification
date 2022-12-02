@@ -1,6 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.categorizer;
 
-import fr.univlille.iutinfo.s3_02.belamcanda.model.Category;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.Distance;
@@ -10,7 +9,7 @@ import java.util.*;
 public class Categorizer {
     private int k;
     private Distance distanceMethod;
-    private MVCModel model;
+    private final MVCModel model;
 
     public Categorizer(MVCModel model, Distance distanceMethod, int k) {
         this.k = k;
@@ -35,10 +34,14 @@ public class Categorizer {
     }
 
     public double getRobustness() {
-        if (model.getTestData().isEmpty()) {
+        if (isCrossValidationUsed()) {
             return getRobustnessByCrossValidation();
         }
         return new Robustness().compute(this, model.getTestData(), model.getTrainingData());
+    }
+
+    public boolean isCrossValidationUsed() {
+        return model.getTestData().isEmpty();
     }
 
 
