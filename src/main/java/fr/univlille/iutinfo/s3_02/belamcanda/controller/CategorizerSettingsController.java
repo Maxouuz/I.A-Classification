@@ -6,6 +6,7 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.Distance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.EuclideanDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.ManhattanDistance;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.RandomDistance;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.ColumnIsUsedValueFactory;
 import fr.univlille.iutinfo.s3_02.belamcanda.view.ColumnWeightValueFactory;
 import javafx.fxml.FXML;
@@ -58,7 +59,7 @@ public class CategorizerSettingsController {
     }
 
     private void initDistanceMethod(MainController mainController) {
-        distanceMethod.getItems().setAll(new EuclideanDistance(), new ManhattanDistance());
+        distanceMethod.getItems().setAll(new EuclideanDistance(), new ManhattanDistance(), new RandomDistance());
         distanceMethod.getSelectionModel().select(0);
         distanceMethod.setOnAction(e -> {
             Distance selected = distanceMethod.getSelectionModel().getSelectedItem();
