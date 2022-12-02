@@ -23,9 +23,9 @@ public class MainController {
     @FXML
     private void initialize() throws IOException {
         model = new CSVLoader().createModelFromFile(DATAPATH + "pokemon_train.csv");
-        // model.setTestData(DATAPATH + "pokemon_test.csv");
         initializeControllers();
         updateModel();
+        setTestData(DATAPATH + "pokemon_test.csv");
     }
 
     private void initializeControllers() {
