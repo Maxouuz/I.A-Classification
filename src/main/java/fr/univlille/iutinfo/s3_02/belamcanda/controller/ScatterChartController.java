@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.layout.VBox;
 
+import java.util.Collection;
+
 public class ScatterChartController {
     private MainController mainController;
     @FXML private VBox scatterChart;
@@ -20,6 +22,10 @@ public class ScatterChartController {
         Column yCol = mainController.getYColSelected();
         chart = new ModelScatterChart<>(getAxis(xCol), getAxis(yCol), mainController);
         scatterChart.getChildren().set(0, chart);
+    }
+
+    public void addPointToClassify(Collection<Point> pointToClassify) {
+        ((ModelScatterChart<?, ?>) chart).addPointToClassify(pointToClassify);
     }
 
     public void addPointToClassify(Point pointToClassify) {

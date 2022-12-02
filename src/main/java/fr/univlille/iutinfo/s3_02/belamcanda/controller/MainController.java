@@ -44,6 +44,7 @@ public class MainController {
 
     public void updateChartAxis() {
         scatterChartController.updateChart();
+        scatterChartController.addPointToClassify(model.getDataToClassify());
     }
 
     public void setPointDescription(Point point) {

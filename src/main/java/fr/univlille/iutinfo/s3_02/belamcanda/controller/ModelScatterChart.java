@@ -48,6 +48,12 @@ public class ModelScatterChart<X,Y> extends ScatterChart<X,Y> {
         return res;
     }
 
+    public void addPointToClassify(Collection<Point> pointToClassify) {
+        for (Point p: pointToClassify) {
+            addPointToClassify(p);
+        }
+    }
+
     public void addPointToClassify(Point pointToClassify) {
         dataToClassifySeries.getData().add(dataPoint(pointToClassify));
         if (!getData().contains(dataToClassifySeries)) {
