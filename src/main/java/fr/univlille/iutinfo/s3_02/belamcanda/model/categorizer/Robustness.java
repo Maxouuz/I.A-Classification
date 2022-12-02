@@ -6,9 +6,6 @@ import java.util.*;
 
 public class Robustness {
     public Double compute(Categorizer categorizer, Collection<Point> testData, Collection<Point> trainingData) {
-        if (testData.isEmpty()) {
-            return 0.0;
-        }
         return testData.stream()
                 .mapToDouble(point -> wellCategorized(categorizer, point, trainingData))
                 .average()
