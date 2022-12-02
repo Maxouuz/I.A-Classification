@@ -67,7 +67,7 @@ public class Categorizer {
     protected Map<Double, Point> sortNeighbors(Point from, Collection<Point> trainingData){
         // La TreeMap trie les éléments dans l'ordre croissant (ce que ne ferais pas une HashMap).
         Map<Double, Point> res = new TreeMap<>();
-        for (Point point: model) {
+        for (Point point: trainingData) {
             res.put(distanceMethod.distance(model, point, from), point);
         }
         return res;
