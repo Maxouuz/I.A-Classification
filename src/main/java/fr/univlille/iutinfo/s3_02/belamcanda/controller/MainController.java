@@ -36,10 +36,8 @@ public class MainController {
 
     public void updateModel() {
         dataToClassifyController.updateDataToClassify();
-        categorizerSettingsController.createTableView(model.getNormalizableColumns());
-        categorizerSettingsController.createCategorizer(getModel());
+        categorizerSettingsController.initCategorizerSettings(this);
         axisChoiceBoxController.initChoiceBoxes(this);
-        categorizerSettingsController.initDistanceMethod(this);
         updateChartAxis();
     }
 

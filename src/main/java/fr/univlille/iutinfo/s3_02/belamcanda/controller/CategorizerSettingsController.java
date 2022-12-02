@@ -34,30 +34,36 @@ public class CategorizerSettingsController {
 
     @FXML
     public void initialize() {
-        kSpinner.setValueFactory(
-            new SpinnerValueFactory.IntegerSpinnerValueFactory(MIN_K, MAX_K, DEFAULT_K)
-        );
-        kSpinner.valueProperty().addListener(e -> categorizer.setK(getK()));
         weightColumn.setCellValueFactory(new ColumnWeightValueFactory());
         usedColumn.setCellValueFactory(new ColumnIsUsedValueFactory());
-        setNameColumnCellFactory();
-        initDistanceMethodChoiceBox();
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
-    private void initDistanceMethodChoiceBox() {
-        distanceMethod.getItems().addAll(new EuclideanDistance(), new ManhattanDistance());
+    public void initCategorizerSettings(MainController mainController) {
+        MVCModel model = mainController.getModel();
+
+        updateRobustness(0);
+        dataTestFilename.setText("Aucun fichier chargé");
+        initK();
+        initDistanceMethod(mainController);
+        createTableView(model.getNormalizableColumns());
+        createCategorizer(model);
+    }
+
+    private void initK() {
+        kSpinner.setValueFactory(
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(MIN_K, MAX_K, DEFAULT_K)
+        );
+        kSpinner.valueProperty().addListener(e -> categorizer.setK(getK()));
+    }
+
+    private void initDistanceMethod(MainController mainController) {
+        distanceMethod.getItems().setAll(new EuclideanDistance(), new ManhattanDistance());
         distanceMethod.getSelectionModel().select(0);
-    }
-
-    public void initDistanceMethod(MainController mainController) {
         distanceMethod.setOnAction(e -> {
             Distance selected = distanceMethod.getSelectionModel().getSelectedItem();
             mainController.setDistanceMethod(selected);
         });
-    }
-
-    private void setNameColumnCellFactory() {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     }
 
     public void createCategorizer(MVCModel model) {
