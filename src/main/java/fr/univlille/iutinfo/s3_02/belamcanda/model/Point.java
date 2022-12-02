@@ -16,7 +16,7 @@ public abstract class Point {
         try{
             return getValueFromString(col.getName());
         } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
+            return null;
         }
     }
 
@@ -43,7 +43,7 @@ public abstract class Point {
         try {
             categoryField().set(this, value);
         } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

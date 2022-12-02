@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class IrisLoaderTest {
 
-    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    public static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void iris_loader_should_load_iris_beans() throws IOException {

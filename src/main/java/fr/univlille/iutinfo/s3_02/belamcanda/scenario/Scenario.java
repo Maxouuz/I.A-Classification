@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Scenario {
-    static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    private static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
     private static MVCModel model;
     private static Categorizer categorizer;
     private static int titleIndex = 1;

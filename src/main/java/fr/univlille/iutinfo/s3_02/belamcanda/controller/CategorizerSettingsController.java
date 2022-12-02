@@ -93,7 +93,7 @@ public class CategorizerSettingsController {
     }
 
     private String toStringRobustness(double robustness) {
-        final double nbDecimals = 100.0;
+        double nbDecimals = 100.0;
         return Math.round(robustness * 100.0 * nbDecimals) / nbDecimals + "%";
     }
 

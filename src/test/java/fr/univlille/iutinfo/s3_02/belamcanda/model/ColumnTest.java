@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
 
 @Execution(CONCURRENT)
 class ColumnTest {
-    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    public static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void is_normalizable_should_return_true_or_false_depending_on_the_normalizer() {
@@ -27,26 +27,6 @@ class ColumnTest {
         assertTrue(normalized.isNormalizable());
         Column notNormalized = new NonNormalizableColumn("NotNormalized");
         assertFalse(notNormalized.isNormalizable());
-    }
-
-    @Test
-    void get_normalized_value_returns_the_normalized_value_of_the_current_column_of_the_point() {
-        /* TODO: Compléter/Modifier ce test quand le normalizer et le point sont ajoutés */
-        //Point point = new Point();
-    }
-
-    @Test
-    void if_no_normalizer_is_given_column_sets_nullNormalizer_by_default(){
-        /*
-         * TODO : Compléter/Modifier ce test un fois qu'un normalizer par défault sera défini dans column 
-         * dans le cas d'une colonne sans normalizer 
-         */
-        /*
-        Column noNormalizerGiven = new Column("Test", null);
-        Point point = new Point(noNormalizerGiven);
-        Double defaultNormalizedValue = 0.;
-        assertTrue(defaultNormalizedValue.equals(noNormalizerGiven.getNormalizedValue(point)));
-        */
     }
 
     @Test
@@ -79,7 +59,6 @@ class ColumnTest {
         columnWithAmplitude.resetAmplitude();
         Amplitude ampli = columnWithAmplitude.amplitude();
 
-        /** TODO CA BUG PERIODIQUMNET CETTE MERDE" */
         assertNull(ampli.getMin());
         model.setLines(new CSVLoader().loadFromFile(CSVModel.POKEMON, DATAPATH + "pokemon_test.csv"));
         assertNotEquals(null, ampli.getMin());

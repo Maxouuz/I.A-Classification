@@ -1,6 +1,5 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface IDataset extends Iterable<Point> {

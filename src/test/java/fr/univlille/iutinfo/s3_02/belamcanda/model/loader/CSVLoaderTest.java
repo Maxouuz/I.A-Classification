@@ -13,7 +13,7 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CSVLoaderTest {
-    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    public static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
     private List<Point> list;
 
     @BeforeEach

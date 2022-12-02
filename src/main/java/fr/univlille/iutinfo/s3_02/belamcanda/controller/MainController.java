@@ -3,6 +3,7 @@ package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.MVCModel;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.NormalizableColumn;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.distance.Distance;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import javafx.fxml.FXML;
@@ -88,5 +89,13 @@ public class MainController {
 
     public void setDistanceMethod(Distance selected) {
         categorizerSettingsController.setDistanceMethod(selected);
+    }
+
+    public NormalizableColumn defaultXCol() {
+        return model.defaultXCol();
+    }
+
+    public Column defaultYCol() {
+        return model.defaultYCol();
     }
 }

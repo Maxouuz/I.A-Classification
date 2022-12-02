@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TitanicPointTest {
+class TitanicPointTest {
     @Test
     void the_name_of_label_is_correct(){
         TitanicPoint point1 = new TitanicPoint();
@@ -30,6 +30,6 @@ public class TitanicPointTest {
         point1.age = 20.;
         point2.age = 22.;
 
-        assertFalse(point1.equals(point2));
+        assertNotEquals(point1, point2);
     }
 }

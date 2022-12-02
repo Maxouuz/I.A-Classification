@@ -32,8 +32,7 @@ public enum PokemonColumns implements IColumnDefinition {
     }
 
     PokemonColumns(String name) {
-        this.name = name;
-        this.normalizer = null;
+        this(name, null);
     }
 
     @Override

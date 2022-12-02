@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PokemonLoaderTest {
-    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    public static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void pokemon_loader_should_load_pokemon_beans() throws IOException {

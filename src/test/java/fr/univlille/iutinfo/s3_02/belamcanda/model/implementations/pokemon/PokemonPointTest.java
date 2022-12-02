@@ -4,8 +4,9 @@ import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.quali
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class PokemonPointTest {
+class PokemonPointTest {
     @Test
     void the_name_of_label_is_correct(){
         PokemonPoint point1 = new PokemonPoint();
@@ -27,7 +28,7 @@ public class PokemonPointTest {
     @Test
     void set_category_should_change_the_category_of_the_pokemon() {
         PokemonPoint point = new PokemonPoint();
-        assertEquals(null, point.category());
+        assertNull(point.category());
         point.setCategory(Legendary.TRUE);
         assertEquals(Legendary.TRUE, point.category());
     }

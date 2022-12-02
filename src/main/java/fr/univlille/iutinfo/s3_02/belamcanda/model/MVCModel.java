@@ -35,7 +35,7 @@ public abstract class MVCModel extends Subject implements IDataset {
 
 	public Set<Point> getTrainingData(){return trainingData;}
 
-	public void setDatasetOfColumns() {
+	private void setDatasetOfColumns() {
 		for (Column column: columns) {
 			column.setDataset(this);
 		}
@@ -92,10 +92,9 @@ public abstract class MVCModel extends Subject implements IDataset {
 		return testData;
 	}
 
-	public List<Point> setTestData(String path) throws IOException {
+	public void setTestData(String path) throws IOException {
 		List<Point> newDataToClassify = new CSVLoader().loadFromFile(csvModel, path);
 		this.testData.addAll(newDataToClassify);
-		return newDataToClassify;
 	}
 
 	public Set<Point> getDataToClassify() {

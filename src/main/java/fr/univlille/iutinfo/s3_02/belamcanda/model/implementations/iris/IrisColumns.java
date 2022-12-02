@@ -20,8 +20,7 @@ public enum IrisColumns implements IColumnDefinition {
     }
 
     IrisColumns(String name) {
-        this.name = name;
-        this.normalizer = null;
+        this(name, null);
     }
 
     @Override

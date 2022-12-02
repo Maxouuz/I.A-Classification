@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TitanicLoaderTest {
-    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
+    public static final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator ;
 
     @Test
     void titanic_loader_should_load_titanic_beans() throws IOException {
@@ -29,9 +29,8 @@ class TitanicLoaderTest {
     }
 
     @Test
-    void data_format_validator_checks_if_file_is_valid(){
-        // TODO : Implémenter la fonctionnalité
+    void data_format_validator_checks_if_file_is_valid() throws IOException {
         String dataPath = DATAPATH + "titanic.csv";
-        // assertTrue(new CSVLoader().dataIsValid(dataPath));
+        assertTrue(new CSVLoader().fileIsValid(CSVModel.TITANIC, dataPath));
     }
 }

@@ -14,7 +14,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BeanTest {
-    final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
+    private final String DATAPATH = System.getProperty("user.dir") + File.separator + "data" + File.separator;
 
     @Test
     void getting_an_attribute_from_its_name_should_work() throws IOException, NoSuchFieldException, IllegalAccessException {

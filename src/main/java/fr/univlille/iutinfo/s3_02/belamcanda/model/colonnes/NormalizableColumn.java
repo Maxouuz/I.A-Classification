@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class NormalizableColumn extends Column implements Observer {
     private final IValueNormalizer normalizer;
-    Amplitude amplitude;
+    private Amplitude amplitude;
 
     public NormalizableColumn(String name, double weight, IValueNormalizer normalizer) {
         super(name, weight);

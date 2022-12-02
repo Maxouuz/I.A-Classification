@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class StandardScoreNormalizerTest {
+class StandardScoreNormalizerTest {
 
     @Test
     void score_normalizer_is_null(){

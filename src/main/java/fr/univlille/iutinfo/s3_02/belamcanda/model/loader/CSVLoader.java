@@ -40,7 +40,7 @@ public class CSVLoader {
         return res;
     }
 
-    private boolean fileIsValid(CSVModel csvModel, String path) throws IOException {
+    protected boolean fileIsValid(CSVModel csvModel, String path) throws IOException {
         return csvModel.getColumnsName().equals(getHeader(csvModel.getSeparator(), path));
     }
 

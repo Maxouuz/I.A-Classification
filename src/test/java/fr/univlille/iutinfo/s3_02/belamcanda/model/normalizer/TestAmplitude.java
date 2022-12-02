@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class TestAmplitude {
-    static final double DELTA = .005;
+    public static final double DELTA = .005;
 
     @Test
     void min_max_should_be_equal_after_first_update(){

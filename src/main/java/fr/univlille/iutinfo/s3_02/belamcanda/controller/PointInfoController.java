@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 
 public class PointInfoController {
     @FXML
-    Label pointDescription;
+    private Label pointDescription;
 
     @FXML
     public void setPointDescription(Point point, Column... columns) {

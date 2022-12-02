@@ -12,9 +12,8 @@ public class AxisChoiceBoxController {
 
     public void initChoiceBoxes(MainController mainController) {
         this.mainController = mainController;
-        MVCModel model = mainController.getModel();
-        setChoiceBox(xColCB, model.defaultXCol());
-        setChoiceBox(yColCB, model.defaultYCol());
+        setChoiceBox(xColCB, mainController.defaultXCol());
+        setChoiceBox(yColCB, mainController.defaultYCol());
     }
 
     private void setChoiceBox(ChoiceBox<Column> choiceBox, Column defaultCol) {
