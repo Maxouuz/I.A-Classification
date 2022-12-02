@@ -1,11 +1,15 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.controller;
 
 import fr.univlille.iutinfo.s3_02.belamcanda.model.Point;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class DataToClassifyController {
-    @FXML private ListView<Point> toClassify;
+    @FXML private TableView<Point> toClassify;
+    @FXML private TableColumn<Point, String> nameColumn;
+    @FXML private TableColumn<Point, String> categoryColumn;
     private MainController mainController;
 
     @FXML
@@ -14,6 +18,11 @@ public class DataToClassifyController {
             if (!toClassify.getSelectionModel().isEmpty()) {
                 updatePointDescription();
             }
+        });
+        nameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().toString()));
+        categoryColumn.setCellValueFactory(cellData -> {
+            String category = cellData.getValue().category() == null ? "Inconnu" : cellData.getValue().category().toString();
+            return new SimpleStringProperty(category);
         });
     }
 
@@ -28,5 +37,9 @@ public class DataToClassifyController {
 
     public void injectMainController(MainController mainController) {
         this.mainController = mainController;
+    }
+
+    public void refreshTableView() {
+        toClassify.refresh();
     }
 }

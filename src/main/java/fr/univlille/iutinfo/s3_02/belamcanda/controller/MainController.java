@@ -85,6 +85,7 @@ public class MainController {
 
     public void classify() {
         model.classify();
+        dataToClassifyController.refreshTableView();
     }
 
     public void setDistanceMethod(Distance selected) {
