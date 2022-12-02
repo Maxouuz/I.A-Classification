@@ -26,8 +26,11 @@ public class DataToClassifyController {
         });
     }
 
-    private void updatePointDescription() {
-        mainController.setPointDescription(toClassify.getSelectionModel().getSelectedItem());
+    public void updatePointDescription() {
+        Point selectedItem = toClassify.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            mainController.setPointDescription(selectedItem);
+        }
     }
 
     @FXML
