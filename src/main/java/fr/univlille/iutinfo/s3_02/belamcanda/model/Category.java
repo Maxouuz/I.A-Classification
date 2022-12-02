@@ -27,12 +27,10 @@ public class Category implements IDataset {
         addAllLine(lines);
     }
 
-    @Override
     public void addLine(Point element) {
         datas.add(element);
     }
 
-    @Override
     public void addAllLine(Collection<? extends Point> element) {
         datas.addAll(element);
     }

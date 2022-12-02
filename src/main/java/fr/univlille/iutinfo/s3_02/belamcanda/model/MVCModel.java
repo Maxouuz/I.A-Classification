@@ -88,22 +88,6 @@ public abstract class MVCModel extends Subject implements IDataset {
 		notifyObservers();
 	}
 
-	// TODO: A RETIRER
-
-	@Override
-	public void addLine(Point element) {
-		this.trainingData.add(element);
-		categories.addLine(element);
-		notifyObservers(element);
-	}
-
-	@Override
-	public void addAllLine(Collection<? extends Point> element) {
-		this.trainingData.addAll(element);
-		categories.addAllLine(element);
-		notifyObservers();
-	}
-
 	public Set<Point> getTestData() {
 		return testData;
 	}

@@ -9,8 +9,4 @@ public interface IDataset extends Iterable<Point> {
 	int getNbLines();
 
 	void setLines(List<? extends Point> lines);
-
-	void addLine(Point element);
-
-	void addAllLine(Collection<? extends Point> element);
 }

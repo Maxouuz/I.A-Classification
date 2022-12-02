@@ -32,23 +32,6 @@ class MVCModelTest {
     }
 
     @Test
-    void new_element_should_be_registered_when_added() {
-        PokemonPoint newPokemon = new PokemonPoint();
-        model.addLine(newPokemon);
-        assertTrue(model.trainingData.contains(newPokemon));
-    }
-
-    @Test
-    void new_elements_should_be_registered_when_added() {
-        List<PokemonPoint> newPokemons = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            newPokemons.add(new PokemonPoint());
-        }
-        model.addAllLine(newPokemons);
-        assertTrue(model.trainingData.containsAll(newPokemons));
-    }
-
-    @Test
     void datas_are_reset_when_setting_new_lines() {
         assertEquals(273, model.getNbLines());
 
