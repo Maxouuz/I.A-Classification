@@ -1,5 +1,6 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.qualitative_variables.Legendary;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,5 +22,13 @@ public class PokemonPointTest {
         PokemonPoint point1 = new PokemonPoint();
         point1.name = "boustiflor";
         assertEquals("boustiflor", point1.toString());
+    }
+
+    @Test
+    void set_category_should_change_the_category_of_the_pokemon() {
+        PokemonPoint point = new PokemonPoint();
+        assertEquals(null, point.category());
+        point.setCategory(Legendary.TRUE);
+        assertEquals(Legendary.TRUE, point.category());
     }
 }

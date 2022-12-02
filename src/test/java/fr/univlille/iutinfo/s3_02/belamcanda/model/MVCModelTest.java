@@ -1,5 +1,7 @@
 package fr.univlille.iutinfo.s3_02.belamcanda.model;
 
+import fr.univlille.iutinfo.s3_02.belamcanda.model.colonnes.Column;
+import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonColumns;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.implementations.pokemon.PokemonPoint;
 import fr.univlille.iutinfo.s3_02.belamcanda.model.loader.CSVLoader;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +31,14 @@ class MVCModelTest {
             i++;
         }
         assertEquals(i, model.getNbLines());
+    }
+
+    @Test
+    void get_used_columns_should_not_contains_not_selected_columns() {
+        int usedColumns = model.getUsedColumns().size();
+        Column usedColumn = model.getColumn(PokemonColumns.HP);
+        usedColumn.setUsed(false);
+        assertEquals(usedColumns - 1, model.getUsedColumns().size());
     }
 
     @Test

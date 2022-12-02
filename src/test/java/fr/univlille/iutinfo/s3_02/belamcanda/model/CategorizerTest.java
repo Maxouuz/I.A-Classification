@@ -33,11 +33,6 @@ class CategorizerTest {
     }
 
     @Test
-    void robustness_is_computed_by_cross_validation_when_not_having_test_datas() {
-        assertEquals(categorizer.getRobustnessByCrossValidation(), categorizer.getRobustness());
-    }
-
-    @Test
     void robustness_is_not_computed_by_cross_validation_when_having_test_datas() throws IOException {
         model.setTestData(DATAPATH + "pokemon_test.csv");
         assertNotEquals(categorizer.getRobustnessByCrossValidation(), categorizer.getRobustness());

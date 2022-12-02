@@ -49,6 +49,7 @@ public class NormalizableColumn extends Column implements Observer {
 
     @Override
     public void setDataset(MVCModel dataset) {
+        if (dataset != null) dataset.detach(this);
         super.setDataset(dataset);
         if (normalizer.needAmplitude()) {
             autoUpdateAmplitude();
